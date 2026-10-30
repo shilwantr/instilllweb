@@ -73,3 +73,4 @@ Disallow: /
 
 Sitemap: https://instilll.com/sitemap.xml
 Sitemap: https://instilll.in/sitemap.xml
+Sitemap: https://www.instilll.in/sitemap.xml
