@@ -15,26 +15,28 @@ export const LivingCanvas: React.FC<LivingCanvasProps> = ({ theme, className = '
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { alpha: true });
     if (!ctx) return;
 
     let animationFrameId: number;
     let time = 0;
+    let lastTime = performance.now();
     let isVisible = true;
-    let mouseX = 0;
-    let mouseY = 0;
+    let mouseX = -1000;
+    let mouseY = -1000;
+    let miniFrameCount = 0;
 
     const handleResize = () => {
       if (!canvas) return;
       const rect = canvas.getBoundingClientRect();
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      canvas.width = rect.width * dpr;
-      canvas.height = rect.height * dpr;
-      ctx.scale(dpr, dpr);
+      const dpr = isMini ? 1 : Math.min(window.devicePixelRatio || 1, 1.5);
+      canvas.width = Math.floor(rect.width * dpr);
+      canvas.height = Math.floor(rect.height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
     handleResize();
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize, { passive: true });
 
     const handleMouseMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
@@ -43,10 +45,10 @@ export const LivingCanvas: React.FC<LivingCanvasProps> = ({ theme, className = '
     };
 
     if (!isMini) {
-      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mousemove', handleMouseMove, { passive: true });
     }
 
-    // Optimization: Pause when offscreen
+    // Optimization: Pause rendering completely when offscreen
     const observer = new IntersectionObserver(
       ([entry]) => {
         isVisible = entry.isIntersecting;
@@ -55,15 +57,24 @@ export const LivingCanvas: React.FC<LivingCanvasProps> = ({ theme, className = '
     );
     observer.observe(canvas);
 
-    const render = () => {
-      if (!isVisible) {
-        animationFrameId = requestAnimationFrame(render);
-        return;
+    const render = (now: number) => {
+      animationFrameId = requestAnimationFrame(render);
+
+      if (!isVisible) return;
+
+      // Throttle mini cards to 20 FPS to keep GPU load ultra-lightweight
+      if (isMini) {
+        miniFrameCount++;
+        if (miniFrameCount % 3 !== 0) return;
       }
 
-      time += 0.015;
-      const width = canvas.width / (Math.min(window.devicePixelRatio || 1, 2));
-      const height = canvas.height / (Math.min(window.devicePixelRatio || 1, 2));
+      const delta = Math.min((now - lastTime) / 1000, 0.05);
+      lastTime = now;
+      time += delta * 1.2;
+
+      const dpr = isMini ? 1 : Math.min(window.devicePixelRatio || 1, 1.5);
+      const width = canvas.width / dpr;
+      const height = canvas.height / dpr;
 
       ctx.clearRect(0, 0, width, height);
 
@@ -80,8 +91,8 @@ export const LivingCanvas: React.FC<LivingCanvasProps> = ({ theme, className = '
           ctx.fillStyle = 'rgba(143, 175, 155, 0.12)';
           ctx.beginPath();
           ctx.moveTo(0, height);
-          for (let x = 0; x <= width; x += 10) {
-            const y = Math.sin(x * 0.005 + time) * 30 + Math.cos(x * 0.002 - time * 0.5) * 20 + height * 0.65;
+          for (let x = 0; x <= width; x += 15) {
+            const y = Math.sin(x * 0.005 + time) * 25 + Math.cos(x * 0.002 - time * 0.5) * 15 + height * 0.65;
             ctx.lineTo(x, y);
           }
           ctx.lineTo(width, height);
@@ -91,8 +102,8 @@ export const LivingCanvas: React.FC<LivingCanvasProps> = ({ theme, className = '
           ctx.fillStyle = 'rgba(197, 216, 164, 0.15)';
           ctx.beginPath();
           ctx.moveTo(0, height);
-          for (let x = 0; x <= width; x += 10) {
-            const y = Math.cos(x * 0.004 - time * 0.8) * 25 + Math.sin(x * 0.003 + time) * 15 + height * 0.75;
+          for (let x = 0; x <= width; x += 15) {
+            const y = Math.cos(x * 0.004 - time * 0.8) * 20 + Math.sin(x * 0.003 + time) * 12 + height * 0.75;
             ctx.lineTo(x, y);
           }
           ctx.lineTo(width, height);
@@ -117,7 +128,8 @@ export const LivingCanvas: React.FC<LivingCanvasProps> = ({ theme, className = '
           ctx.fillRect(0, 0, width, height);
 
           // Star motes
-          for (let i = 0; i < 20; i++) {
+          const starCount = isMini ? 6 : 16;
+          for (let i = 0; i < starCount; i++) {
             const x = (Math.sin(i * 99 + time * 0.2) * 0.5 + 0.5) * width;
             const y = (Math.cos(i * 33 + time * 0.15) * 0.5 + 0.5) * height;
             const alpha = Math.sin(time + i) * 0.3 + 0.5;
@@ -138,17 +150,10 @@ export const LivingCanvas: React.FC<LivingCanvasProps> = ({ theme, className = '
           ctx.fillStyle = grad;
           ctx.fillRect(0, 0, width, height);
 
-          // Crimson/violet nebula
           const rad1 = ctx.createRadialGradient(width * 0.3, height * 0.3, 10, width * 0.3, height * 0.3, width * 0.45);
           rad1.addColorStop(0, 'rgba(216, 70, 95, 0.25)');
           rad1.addColorStop(1, 'rgba(16, 8, 24, 0)');
           ctx.fillStyle = rad1;
-          ctx.fillRect(0, 0, width, height);
-
-          const rad2 = ctx.createRadialGradient(width * 0.7, height * 0.7, 10, width * 0.7, height * 0.7, width * 0.45);
-          rad2.addColorStop(0, 'rgba(150, 70, 180, 0.2)');
-          rad2.addColorStop(1, 'rgba(16, 8, 24, 0)');
-          ctx.fillStyle = rad2;
           ctx.fillRect(0, 0, width, height);
           break;
         }
@@ -175,7 +180,7 @@ export const LivingCanvas: React.FC<LivingCanvasProps> = ({ theme, className = '
 
         case 'FW':
         default: {
-          // Ferris Wheel (Default): Celestial glowing bubbles & ambient pastel clouds
+          // Ferris Wheel: Celestial glowing bubbles & ambient pastel clouds
           const grad = ctx.createLinearGradient(0, 0, width, height);
           grad.addColorStop(0, '#0D1412');
           grad.addColorStop(0.5, '#131F1B');
@@ -183,21 +188,21 @@ export const LivingCanvas: React.FC<LivingCanvasProps> = ({ theme, className = '
           ctx.fillStyle = grad;
           ctx.fillRect(0, 0, width, height);
 
-          // Flowing organic harmonic waves
-          for (let layer = 0; layer < 3; layer++) {
-            const opacity = 0.07 + layer * 0.04;
-            ctx.fillStyle = layer % 2 === 0 ? `rgba(143, 175, 155, ${opacity})` : `rgba(213, 166, 189, ${opacity})`;
+          // Flowing organic harmonic waves (2 layers for lighter GPU footprint)
+          for (let layer = 0; layer < 2; layer++) {
+            const opacity = 0.08 + layer * 0.05;
+            ctx.fillStyle = layer === 0 ? `rgba(143, 175, 155, ${opacity})` : `rgba(213, 166, 189, ${opacity})`;
             ctx.beginPath();
             ctx.moveTo(0, height);
-            const speed = 0.6 + layer * 0.3;
+            const speed = 0.5 + layer * 0.3;
             const freq = 0.003 + layer * 0.002;
-            const amp = 35 + layer * 15;
-            const offset = height * (0.6 + layer * 0.1);
+            const amp = 28 + layer * 12;
+            const offset = height * (0.65 + layer * 0.1);
 
-            for (let x = 0; x <= width; x += 15) {
+            for (let x = 0; x <= width; x += 20) {
               const mouseDist = Math.hypot(x - mouseX, offset - mouseY);
-              const mousePush = !isMini && mouseDist < 180 ? Math.sin(mouseDist / 25) * 12 : 0;
-              const y = Math.sin(x * freq + time * speed) * amp + Math.cos(x * 0.002 - time * 0.4) * 20 + offset + mousePush;
+              const mousePush = !isMini && mouseDist < 160 ? Math.sin(mouseDist / 25) * 8 : 0;
+              const y = Math.sin(x * freq + time * speed) * amp + Math.cos(x * 0.002 - time * 0.4) * 16 + offset + mousePush;
               ctx.lineTo(x, y);
             }
             ctx.lineTo(width, height);
@@ -206,17 +211,17 @@ export const LivingCanvas: React.FC<LivingCanvasProps> = ({ theme, className = '
           }
 
           // Floating soft bubbles
-          const bubbleCount = isMini ? 6 : 14;
+          const bubbleCount = isMini ? 5 : 10;
           for (let i = 0; i < bubbleCount; i++) {
             const seed = i * 42.1;
-            const bx = (Math.sin(seed + time * 0.25) * 0.45 + 0.5) * width;
-            const by = (Math.cos(seed * 0.7 + time * 0.18) * 0.45 + 0.5) * height;
-            const radius = 20 + (i % 5) * 16;
+            const bx = (Math.sin(seed + time * 0.22) * 0.45 + 0.5) * width;
+            const by = (Math.cos(seed * 0.7 + time * 0.16) * 0.45 + 0.5) * height;
+            const radius = 18 + (i % 4) * 14;
 
             const radGrad = ctx.createRadialGradient(bx, by, 2, bx, by, radius);
-            const isPink = i % 3 === 0;
-            radGrad.addColorStop(0, isPink ? 'rgba(213, 166, 189, 0.3)' : 'rgba(197, 216, 164, 0.25)');
-            radGrad.addColorStop(0.7, isPink ? 'rgba(213, 166, 189, 0.08)' : 'rgba(197, 216, 164, 0.06)');
+            const isPink = i % 2 === 0;
+            radGrad.addColorStop(0, isPink ? 'rgba(213, 166, 189, 0.25)' : 'rgba(197, 216, 164, 0.22)');
+            radGrad.addColorStop(0.7, isPink ? 'rgba(213, 166, 189, 0.06)' : 'rgba(197, 216, 164, 0.05)');
             radGrad.addColorStop(1, 'rgba(0,0,0,0)');
 
             ctx.fillStyle = radGrad;
@@ -227,11 +232,9 @@ export const LivingCanvas: React.FC<LivingCanvasProps> = ({ theme, className = '
           break;
         }
       }
-
-      animationFrameId = requestAnimationFrame(render);
     };
 
-    render();
+    animationFrameId = requestAnimationFrame(render);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
