@@ -1,0 +1,7 @@
+# SPA Routing and clean sitemap paths
+/lab  /lab/index.html  200
+/privacy  /privacy/index.html  200
+/terms  /terms/index.html  200
+/privacy-policy  /privacy-policy/index.html  200
+/privacy-policy/spycam-pro  /privacy-policy/spycam-pro/index.html  200
+/*  /index.html  200

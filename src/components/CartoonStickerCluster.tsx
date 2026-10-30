@@ -46,24 +46,24 @@ export const CartoonStickerCluster: React.FC = () => {
         <Globe className="w-10 h-10 sm:w-12 sm:h-12 stroke-[2.2]" />
       </motion.div>
 
-      {/* 4. The Centerpiece Big Lime Pill: '✦ INSTILL.ZEN' (Inspired by WWW.DOMAIN) */}
+      {/* 4. The Centerpiece Big Lime Pill: 'WWW.INSTILLL.IN' (Direct homage to WWW.DOMAIN) */}
       <motion.div
         whileHover={{ scale: 1.04, rotate: 1 }}
         whileTap={{ scale: 0.97 }}
         onClick={() => soundEngine.playBreatheBell()}
         data-cursor="pointer"
-        className="relative z-30 w-full sm:w-[92%] py-3.5 sm:py-5 px-6 sm:px-8 bg-pop-lime border-2 border-pop-forest rounded-full flex items-center justify-between shadow-cartoon-lime transform rotate-[-3deg] cursor-pointer my-12"
+        className="relative z-30 w-full sm:w-[94%] py-3.5 sm:py-4 px-6 sm:px-8 bg-pop-lime border-2 border-pop-forest rounded-full flex items-center justify-between shadow-cartoon-lime transform rotate-[-3deg] cursor-pointer my-12"
       >
         <div className="flex items-center gap-3 sm:gap-4">
-          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white flex items-center justify-center text-pop-forest shadow-sm">
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white flex items-center justify-center text-pop-forest shadow-sm">
             <Lock className="w-5 h-5 sm:w-6 sm:h-6 fill-current" />
           </div>
-          <span className="font-mono font-bold tracking-wider text-xl sm:text-3xl text-pop-forest uppercase">
-            INSTILL.APP
+          <span className="font-sans font-extrabold tracking-tight text-xl sm:text-2xl lg:text-3xl text-pop-forest uppercase">
+            WWW.INSTILLL.IN
           </span>
         </div>
 
-        <div className="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/70 text-pop-forest text-xs font-bold uppercase tracking-wider">
+        <div className="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/80 text-pop-forest text-xs font-bold uppercase tracking-wider">
           <Sparkles className="w-3.5 h-3.5 text-amber-500" />
           <span>Active</span>
         </div>
@@ -81,17 +81,20 @@ export const CartoonStickerCluster: React.FC = () => {
         <MousePointer className="w-9 h-9 sm:w-10 sm:h-10 fill-current stroke-pop-forest stroke-[1.5]" />
       </motion.div>
 
-      {/* 6. Cartoon Character: Mew Mew Cat Head Sticker (Bottom Left) */}
+      {/* 6. Official inSTILL Cuddling Cats Mascot Sticker (Bottom Left) */}
       <motion.div
         whileHover={{ scale: 1.15, rotate: 8 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => soundEngine.playCatPurr()}
         data-cursor="pointer"
-        className="absolute -bottom-6 left-8 sm:left-14 z-40 w-16 h-16 sm:w-20 sm:h-20 bg-white border-2 border-pop-forest rounded-full flex flex-col items-center justify-center shadow-cartoon transform rotate-[-8deg] cursor-pointer"
-        title="Pet Mew Mew!"
+        className="absolute -bottom-7 left-6 sm:left-12 z-40 w-20 h-20 sm:w-24 sm:h-24 bg-white border-2 border-pop-forest rounded-full overflow-hidden shadow-cartoon transform rotate-[-8deg] cursor-pointer group"
+        title="Pet inSTILL Cuddling Cats!"
       >
-        <span className="text-2xl sm:text-3xl select-none">🐱</span>
-        <span className="text-[9px] font-bold text-pop-forest tracking-tighter -mt-1">PURR ME</span>
+        <img
+          src="./assets/logo.png"
+          alt="inSTILL Cuddling Cats Mascot"
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 select-none pointer-events-none"
+        />
       </motion.div>
     </div>
   );

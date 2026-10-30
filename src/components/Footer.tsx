@@ -22,8 +22,8 @@ export const Footer: React.FC = () => {
                   className="w-full h-full object-cover block"
                 />
               </div>
-              <span className="font-serif tracking-[0.22em] text-2xl font-extrabold text-slate-900 uppercase">
-                inStill
+              <span className="font-sans text-2xl font-black text-slate-900 tracking-tight">
+                in<span className="font-extrabold">STILL</span>
               </span>
             </div>
             <p className="text-slate-600 text-sm leading-relaxed max-w-sm mb-6">

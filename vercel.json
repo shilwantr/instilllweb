@@ -1,0 +1,14 @@
+{
+  "framework": "vite",
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/lab", "destination": "/lab/index.html" },
+    { "source": "/privacy", "destination": "/privacy/index.html" },
+    { "source": "/terms", "destination": "/terms/index.html" },
+    { "source": "/privacy-policy", "destination": "/privacy-policy/index.html" },
+    { "source": "/privacy-policy/spycam-pro", "destination": "/privacy-policy/spycam-pro/index.html" },
+    { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
+    { "source": "/robots.txt", "destination": "/robots.txt" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

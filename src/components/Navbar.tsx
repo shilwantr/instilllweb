@@ -60,9 +60,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="w-full h-full object-cover block select-none"
             />
           </div>
-          <div className="flex flex-col">
-            <span className="font-serif tracking-[0.22em] text-lg sm:text-xl font-bold text-slate-900 uppercase group-hover:text-pop-forest transition-colors">
-              inStill
+          <div className="flex items-center">
+            <span className="font-sans text-xl sm:text-2xl font-black text-slate-900 tracking-tight group-hover:text-pop-forest transition-colors">
+              in<span className="font-extrabold">STILL</span>
             </span>
           </div>
         </a>
