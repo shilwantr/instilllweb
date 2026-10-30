@@ -15,8 +15,12 @@ export const Footer: React.FC = () => {
           {/* Brand Info with Cartoon Mascot */}
           <div className="md:col-span-5 flex flex-col items-start">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-pop-forest flex items-center justify-center text-pop-lime font-bold text-sm tracking-wider shadow-cartoon-sm">
-                S
+              <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-slate-900/15 shadow-cartoon-sm flex-shrink-0 bg-purple-100">
+                <img
+                  src="./assets/logo.png"
+                  alt="inStill Logo"
+                  className="w-full h-full object-cover block"
+                />
               </div>
               <span className="font-serif tracking-[0.22em] text-2xl font-extrabold text-slate-900 uppercase">
                 inStill

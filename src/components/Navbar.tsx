@@ -23,7 +23,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     const handleScroll = () => {
       setScrolled(window.scrollY > 30);
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -40,24 +40,28 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 pt-4 transition-all duration-300">
       <nav
-        className={`max-w-6xl mx-auto rounded-full transition-all duration-300 px-5 sm:px-8 py-3.5 flex items-center justify-between ${
+        className={`max-w-6xl mx-auto rounded-full transition-all duration-300 px-4 sm:px-7 py-3 flex items-center justify-between ${
           scrolled
             ? 'bg-white/95 text-slate-900 border-2 border-slate-900/10 shadow-lg backdrop-blur-xl'
-            : 'bg-white/80 text-slate-900 border border-slate-200/80 shadow-sm backdrop-blur-md'
+            : 'bg-white/85 text-slate-900 border border-slate-200/90 shadow-sm backdrop-blur-md'
         }`}
       >
-        {/* Brand Logotype */}
+        {/* Brand Logotype with Sleeping Cats Mascot Logo */}
         <a
           href="#"
           data-cursor="pointer"
-          className="flex items-center gap-2.5 group"
-          onClick={() => soundEngine.playScrubTick()}
+          className="flex items-center gap-2.5 sm:gap-3 group"
+          onClick={() => soundEngine.playCatPurr()}
         >
-          <div className="w-8 h-8 rounded-full bg-pop-forest flex items-center justify-center text-pop-lime font-bold text-xs tracking-wider transition-transform group-hover:scale-110 shadow-sm">
-            S
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden border-2 border-slate-900/15 shadow-cartoon-sm transition-transform group-hover:scale-110 flex-shrink-0 bg-purple-100">
+            <img
+              src="./assets/logo.png"
+              alt="inStill Brand Logo"
+              className="w-full h-full object-cover block select-none"
+            />
           </div>
           <div className="flex flex-col">
-            <span className="font-serif tracking-[0.22em] text-lg font-bold text-slate-900 uppercase group-hover:text-pop-forest transition-colors">
+            <span className="font-serif tracking-[0.22em] text-lg sm:text-xl font-bold text-slate-900 uppercase group-hover:text-pop-forest transition-colors">
               inStill
             </span>
           </div>
@@ -79,7 +83,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
 
         {/* Right Status Actions */}
-        <div className="flex items-center gap-2.5 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           {/* Interactive Theme Pill */}
           <button
             onClick={() => {
@@ -120,16 +124,21 @@ export const Navbar: React.FC<NavbarProps> = ({
             <Volume2 className="w-4 h-4 text-pop-coral" />
           </button>
 
-          {/* Black Pill CTA button (matching reference) */}
-          <a
-            href="#today"
+          {/* Top-Right Mascot Avatar Icon (Directly matching user request) */}
+          <button
+            onClick={() => {
+              soundEngine.playCatPurr();
+            }}
             data-cursor="pointer"
-            onClick={() => soundEngine.playBreatheBell()}
-            className="hidden sm:flex items-center gap-1.5 px-5 py-2 rounded-full bg-slate-950 hover:bg-slate-800 text-white text-xs font-semibold tracking-wide transition-all shadow-sm hover:shadow-md"
+            title="Pet inStill Mascot"
+            className="w-10 h-10 rounded-full overflow-hidden border-2 border-slate-900/20 hover:border-pop-forest transition-transform hover:scale-110 shadow-cartoon-sm flex-shrink-0 bg-purple-100 cursor-pointer"
           >
-            <span>Explore App</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </a>
+            <img
+              src="./assets/logo.png"
+              alt="inStill Mascot Icon"
+              className="w-full h-full object-cover block select-none"
+            />
+          </button>
 
           {/* Mobile Menu Hamburger */}
           <button
