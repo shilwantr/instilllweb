@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Heart, RefreshCw, Droplet, Flame, Footprints, Clock, ArrowRight, UserCheck } from 'lucide-react';
+import { Heart, RefreshCw, Droplet, Flame, Footprints, Clock, ArrowRight, UserCheck, Sparkles } from 'lucide-react';
 import { AdaptiveScreenshotFrame } from './AdaptiveScreenshotFrame';
 import { soundEngine } from '../utils/audio';
 
@@ -24,21 +24,12 @@ const quotesList = [
 ];
 
 export const TodayDashboardSection: React.FC = () => {
-  // Quote State
   const [quoteIndex, setQuoteIndex] = useState(0);
   const [isFavorited, setIsFavorited] = useState(false);
-
-  // Mood Check-in State
   const [selectedMood, setSelectedMood] = useState<string>('Okay');
-
-  // Hydration Intake State
   const [waterMl, setWaterMl] = useState(750);
   const [history, setHistory] = useState<number[]>([750]);
-
-  // Walking Steps State
   const [steps, setSteps] = useState(4820);
-
-  // Mood scrubber state
   const [scrubberDay, setScrubberDay] = useState(4);
 
   const moodData = [
@@ -72,34 +63,34 @@ export const TodayDashboardSection: React.FC = () => {
   };
 
   const moods = [
-    { id: 'Happy', symbol: '~', color: 'from-amber-200 to-emerald-200' },
-    { id: 'Okay', symbol: '•', color: 'from-emerald-200 to-teal-200' },
-    { id: 'Low', symbol: '⌢', color: 'from-blue-200 to-indigo-200' },
-    { id: 'Anxious', symbol: '~', color: 'from-rose-200 to-orange-200' },
-    { id: 'Tired', symbol: '≈', color: 'from-purple-200 to-slate-300' },
+    { id: 'Happy', emoji: '😊', symbol: '~', bg: 'bg-pop-yellow text-slate-900 border-amber-400' },
+    { id: 'Okay', emoji: '😌', symbol: '•', bg: 'bg-pop-lime text-pop-forest border-pop-forest' },
+    { id: 'Low', emoji: '🌧️', symbol: '⌢', bg: 'bg-pop-periwinkle text-slate-900 border-blue-400' },
+    { id: 'Anxious', emoji: '⚡', symbol: '~', bg: 'bg-pop-coral text-white border-rose-400' },
+    { id: 'Tired', emoji: '😴', symbol: '≈', bg: 'bg-pop-lavender text-purple-950 border-purple-400' },
   ];
 
   const caloriesBurned = (0.04 * steps).toFixed(0);
   const distanceKm = (0.000762 * steps).toFixed(2);
 
   return (
-    <section id="today" className="py-24 px-4 sm:px-8 relative bg-still-darkBg/90 text-white overflow-hidden">
-      {/* Decorative ambient under-glow */}
-      <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-still-celadonSage/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pastelOlive-gauge/10 rounded-full blur-3xl pointer-events-none" />
+    <section id="today" className="py-24 px-4 sm:px-8 relative bg-white text-slate-900 overflow-hidden border-t border-b border-slate-100">
+      {/* Light background auras */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-pop-lime/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pop-periwinkle/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono tracking-widest uppercase glass-panel-dark text-emerald-300 border border-emerald-400/20 mb-4">
-            <span>Section 03</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-lime text-pop-forest border border-pop-forest/20 shadow-cartoon-sm mb-4">
+            <span>✨ Section 03</span>
             <span>•</span>
             <span>DashboardScreen.kt</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-serif font-medium tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-5xl font-sans font-extrabold tracking-tight mb-4 text-slate-900">
             Today: The Daily Balance Hub
           </h2>
-          <p className="text-slate-300 text-base sm:text-lg font-light leading-relaxed">
+          <p className="text-slate-600 text-base sm:text-lg font-normal leading-relaxed">
             Every morning begins with mindful presence. Track your emotional climate, log pure hydration,
             and monitor sensory telemetry seamlessly in real time.
           </p>
@@ -109,9 +100,9 @@ export const TodayDashboardSection: React.FC = () => {
           {/* Left Column: Interactive Cards & Micro-Interactions */}
           <div className="lg:col-span-7 flex flex-col gap-6">
             {/* 1. Daily Reflection Card */}
-            <div className="glass-card-dark rounded-3xl p-6 sm:p-7 relative overflow-hidden border border-white/10">
+            <div className="bg-white rounded-3xl p-6 sm:p-7 relative overflow-hidden border-2 border-slate-900/10 shadow-cartoon-sm">
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs uppercase tracking-widest text-emerald-300 font-mono flex items-center gap-1.5">
+                <span className="text-xs uppercase tracking-widest text-pop-forest font-bold font-mono flex items-center gap-1.5">
                   <span className="text-lg">”</span> Daily Reflection
                 </span>
                 <div className="flex items-center gap-2">
@@ -121,15 +112,15 @@ export const TodayDashboardSection: React.FC = () => {
                       soundEngine.playKalimba(1);
                     }}
                     data-cursor="pointer"
-                    className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 transition-colors"
+                    className="p-2 rounded-full bg-slate-100 hover:bg-rose-100 text-slate-600 transition-colors"
                     title="Favorite Quote"
                   >
-                    <Heart className={`w-4 h-4 ${isFavorited ? 'fill-rose-400 text-rose-400' : ''}`} />
+                    <Heart className={`w-4 h-4 ${isFavorited ? 'fill-rose-500 text-rose-500' : ''}`} />
                   </button>
                   <button
                     onClick={handleNextQuote}
                     data-cursor="pointer"
-                    className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 transition-colors"
+                    className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
                     title="Re-roll Quote"
                   >
                     <RefreshCw className="w-4 h-4 hover:rotate-180 transition-transform duration-500" />
@@ -139,24 +130,26 @@ export const TodayDashboardSection: React.FC = () => {
 
               <motion.p
                 key={quoteIndex}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-lg sm:text-xl font-serif italic text-slate-100 leading-relaxed mb-3"
+                className="text-lg sm:text-xl font-serif italic text-slate-800 leading-relaxed mb-3"
               >
                 &ldquo;{quotesList[quoteIndex].quote}&rdquo;
               </motion.p>
-              <div className="text-xs text-emerald-300 font-mono tracking-wider">
+              <div className="text-xs text-pop-forest font-bold font-mono tracking-wider">
                 — {quotesList[quoteIndex].author}
               </div>
             </div>
 
             {/* 2. 5-State Mood Check-In Bar */}
-            <div className="glass-card-dark rounded-3xl p-6 border border-white/10">
+            <div className="bg-white rounded-3xl p-6 border-2 border-slate-900/10 shadow-cartoon-sm">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-mono uppercase tracking-wider text-slate-300">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-700">
                   How are you feeling right now?
                 </span>
-                <span className="text-xs text-emerald-300 font-semibold">{selectedMood}</span>
+                <span className="text-xs text-pop-forest font-bold px-3 py-1 rounded-full bg-pop-lime">
+                  {selectedMood}
+                </span>
               </div>
               <div className="grid grid-cols-5 gap-3">
                 {moods.map((m, idx) => (
@@ -167,14 +160,14 @@ export const TodayDashboardSection: React.FC = () => {
                       soundEngine.playKalimba(idx);
                     }}
                     data-cursor="pointer"
-                    className={`flex flex-col items-center justify-center p-3 rounded-2xl transition-all duration-300 ${
+                    className={`flex flex-col items-center justify-center p-3 rounded-2xl transition-all duration-200 cartoon-sticker ${
                       selectedMood === m.id
-                        ? 'bg-emerald-500/25 border-2 border-emerald-400 text-emerald-200 scale-105 shadow-lg'
-                        : 'bg-white/5 border border-white/10 text-slate-400 hover:bg-white/10 hover:text-white'
+                        ? `${m.bg} border-2 shadow-cartoon scale-105 font-bold`
+                        : 'bg-slate-50 border border-slate-200 text-slate-600 hover:bg-slate-100'
                     }`}
                   >
-                    <span className="text-xl font-mono mb-1">{m.symbol}</span>
-                    <span className="text-[11px] font-medium">{m.id}</span>
+                    <span className="text-2xl mb-1 select-none">{m.emoji}</span>
+                    <span className="text-[11px] font-semibold">{m.id}</span>
                   </button>
                 ))}
               </div>
@@ -183,52 +176,52 @@ export const TodayDashboardSection: React.FC = () => {
             {/* 3. Hydration & Walking Telemetry Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* Hydration Intake Card */}
-              <div className="glass-card-dark rounded-3xl p-5 border border-white/10 flex flex-col justify-between">
+              <div className="bg-white rounded-3xl p-5 border-2 border-slate-900/10 shadow-cartoon-sm flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs uppercase font-mono text-cyan-300 flex items-center gap-1.5">
-                      <Droplet className="w-3.5 h-3.5" /> Hydration
+                    <span className="text-xs uppercase font-mono font-bold text-sky-700 flex items-center gap-1.5">
+                      <Droplet className="w-3.5 h-3.5 text-sky-500 fill-current" /> Hydration
                     </span>
-                    <span className="text-xs text-slate-400">{((waterMl / 2500) * 100).toFixed(0)}%</span>
+                    <span className="text-xs font-bold text-slate-500">{((waterMl / 2500) * 100).toFixed(0)}%</span>
                   </div>
-                  <div className="text-2xl font-serif font-bold text-white mb-1">
-                    {(waterMl / 1000).toFixed(2)} <span className="text-sm font-sans font-normal text-slate-400">/ 2.5 L</span>
+                  <div className="text-2xl font-sans font-extrabold text-slate-900 mb-1">
+                    {(waterMl / 1000).toFixed(2)} <span className="text-sm font-normal text-slate-500">/ 2.5 L</span>
                   </div>
                   {/* Progress bar */}
-                  <div className="w-full h-2 rounded-full bg-white/10 overflow-hidden mb-4">
+                  <div className="w-full h-2.5 rounded-full bg-slate-100 overflow-hidden mb-4 border border-slate-200">
                     <div
-                      className="h-full bg-gradient-to-r from-cyan-400 to-emerald-300 rounded-full transition-all duration-500"
+                      className="h-full bg-gradient-to-r from-sky-400 to-pop-lime rounded-full transition-all duration-500"
                       style={{ width: `${Math.min(100, (waterMl / 2500) * 100)}%` }}
                     />
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5">
                   <button
                     onClick={() => addWater(150)}
                     data-cursor="pointer"
-                    className="flex-1 py-1.5 text-xs rounded-xl bg-white/10 hover:bg-cyan-500/20 text-cyan-200 border border-white/10 transition-colors"
+                    className="flex-1 py-1.5 text-xs font-bold rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-200 transition-colors"
                   >
                     +150ml
                   </button>
                   <button
                     onClick={() => addWater(250)}
                     data-cursor="pointer"
-                    className="flex-1 py-1.5 text-xs rounded-xl bg-white/10 hover:bg-cyan-500/20 text-cyan-200 border border-white/10 transition-colors"
+                    className="flex-1 py-1.5 text-xs font-bold rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-200 transition-colors"
                   >
                     +250ml
                   </button>
                   <button
                     onClick={() => addWater(500)}
                     data-cursor="pointer"
-                    className="flex-1 py-1.5 text-xs rounded-xl bg-white/10 hover:bg-cyan-500/20 text-cyan-200 border border-white/10 transition-colors"
+                    className="flex-1 py-1.5 text-xs font-bold rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-200 transition-colors"
                   >
                     +500ml
                   </button>
                   <button
                     onClick={undoWater}
                     data-cursor="pointer"
-                    className="px-2.5 py-1.5 text-xs rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors"
+                    className="px-2.5 py-1.5 text-xs rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors font-semibold"
                     title="Undo last log"
                   >
                     Undo
@@ -237,40 +230,40 @@ export const TodayDashboardSection: React.FC = () => {
               </div>
 
               {/* Walking Activity Telemetry Card */}
-              <div className="glass-card-dark rounded-3xl p-5 border border-white/10 flex flex-col justify-between">
+              <div className="bg-white rounded-3xl p-5 border-2 border-slate-900/10 shadow-cartoon-sm flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs uppercase font-mono text-emerald-300 flex items-center gap-1.5">
+                    <span className="text-xs uppercase font-mono font-bold text-pop-forest flex items-center gap-1.5">
                       <Footprints className="w-3.5 h-3.5" /> Walking Activity
                     </span>
-                    <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono text-[10px]">
-                      Sensor Live
+                    <span className="text-xs px-2.5 py-0.5 rounded-full bg-pop-lime text-pop-forest font-mono font-bold text-[10px]">
+                      Live Sensor
                     </span>
                   </div>
-                  <div className="text-2xl font-serif font-bold text-white mb-1">
-                    {steps.toLocaleString()} <span className="text-sm font-sans font-normal text-slate-400">/ 10,000 steps</span>
+                  <div className="text-2xl font-sans font-extrabold text-slate-900 mb-1">
+                    {steps.toLocaleString()} <span className="text-sm font-normal text-slate-500">/ 10,000 steps</span>
                   </div>
-                  <div className="w-full h-2 rounded-full bg-white/10 overflow-hidden mb-4">
+                  <div className="w-full h-2.5 rounded-full bg-slate-100 overflow-hidden mb-4 border border-slate-200">
                     <div
-                      className="h-full bg-gradient-to-r from-emerald-400 to-teal-200 rounded-full transition-all duration-500"
+                      className="h-full bg-gradient-to-r from-pop-lime to-emerald-500 rounded-full transition-all duration-500"
                       style={{ width: `${Math.min(100, (steps / 10000) * 100)}%` }}
                     />
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between text-xs text-slate-300 pt-1 border-t border-white/5">
-                  <div className="flex items-center gap-1">
-                    <Flame className="w-3.5 h-3.5 text-amber-400" />
+                <div className="flex items-center justify-between text-xs text-slate-600 pt-1 border-t border-slate-100">
+                  <div className="flex items-center gap-1 font-bold text-amber-700">
+                    <Flame className="w-3.5 h-3.5 text-amber-500 fill-current" />
                     <span>{caloriesBurned} kcal</span>
                   </div>
-                  <div className="font-mono text-slate-400">{distanceKm} km walked</div>
+                  <div className="font-mono text-slate-500">{distanceKm} km</div>
                   <button
                     onClick={() => {
                       setSteps((prev) => prev + 500);
                       soundEngine.playStepClick();
                     }}
                     data-cursor="pointer"
-                    className="text-[11px] text-emerald-300 hover:underline font-mono"
+                    className="text-[11px] font-bold text-pop-forest hover:underline"
                   >
                     +500 steps
                   </button>
@@ -279,14 +272,14 @@ export const TodayDashboardSection: React.FC = () => {
             </div>
 
             {/* 4. Interactive Mood Trend Wave Graph with Scrubber */}
-            <div className="glass-card-dark rounded-3xl p-6 border border-white/10">
+            <div className="bg-white rounded-3xl p-6 border-2 border-slate-900/10 shadow-cartoon-sm">
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <h4 className="text-sm font-semibold text-white">7-Day Emotional Climate</h4>
-                  <p className="text-xs text-slate-400">Drag scrubber to hear microscopic glass ticks</p>
+                  <h4 className="text-sm font-bold text-slate-900">7-Day Emotional Climate</h4>
+                  <p className="text-xs text-slate-500">Drag scrubber to hear microscopic glass ticks</p>
                 </div>
                 <div className="text-right">
-                  <span className="text-xs font-mono text-emerald-300">
+                  <span className="text-xs font-mono font-bold text-pop-forest px-3 py-1 rounded-full bg-pop-lime">
                     {moodData[scrubberDay].day}: {moodData[scrubberDay].label} ({moodData[scrubberDay].mood}%)
                   </span>
                 </div>
@@ -303,48 +296,48 @@ export const TodayDashboardSection: React.FC = () => {
                   setScrubberDay(parseInt(e.target.value));
                   soundEngine.playScrubTick();
                 }}
-                className="w-full accent-emerald-400 cursor-pointer h-2 bg-white/10 rounded-lg appearance-none mb-3"
+                className="w-full accent-pop-forest cursor-pointer h-2.5 bg-slate-100 rounded-lg appearance-none mb-3"
               />
 
-              {/* SVG Bezier wave */}
+              {/* SVG Bezier wave in crisp emerald */}
               <div className="h-28 w-full relative">
                 <svg className="w-full h-full overflow-visible" viewBox="0 0 700 100" preserveAspectRatio="none">
                   <defs>
-                    <linearGradient id="waveGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#8FAF9B" stopOpacity="0.4" />
-                      <stop offset="100%" stopColor="#8FAF9B" stopOpacity="0.0" />
+                    <linearGradient id="waveLightGradient" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#D2F56C" stopOpacity="0.6" />
+                      <stop offset="100%" stopColor="#D2F56C" stopOpacity="0.0" />
                     </linearGradient>
                   </defs>
                   <path
                     d="M 0,30 C 100,50 150,20 233,15 C 316,10 350,45 466,25 C 550,10 600,18 700,5 L 700,100 L 0,100 Z"
-                    fill="url(#waveGradient)"
+                    fill="url(#waveLightGradient)"
                   />
                   <path
                     d="M 0,30 C 100,50 150,20 233,15 C 316,10 350,45 466,25 C 550,10 600,18 700,5"
                     fill="none"
-                    stroke="#8FAF9B"
-                    strokeWidth="3"
+                    stroke="#0A4839"
+                    strokeWidth="3.5"
+                    strokeLinecap="round"
                   />
-                  {/* Scrubber indicator point */}
                   <circle
                     cx={`${(scrubberDay / 6) * 700}`}
                     cy={`${30 - scrubberDay * 3}`}
-                    r="6"
-                    className="fill-emerald-300 stroke-white stroke-2 shadow-lg"
+                    r="7"
+                    className="fill-pop-lime stroke-pop-forest stroke-[3px] shadow-cartoon-sm"
                   />
                 </svg>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Actual App Screenshot in Adaptive Tilt Frame */}
+          {/* Right Column: Actual App Screenshot in Clean White Frame */}
           <div className="lg:col-span-5 flex flex-col items-center">
             <AdaptiveScreenshotFrame
               src="./assets/screenshots/dashboard-light.jpeg"
               alt="inStill Light Dashboard Clean White"
               orientation="vertical"
               tiltDirection="right"
-              glowColor="rgba(197, 216, 164, 0.4)"
+              glowColor="rgba(210, 245, 108, 0.45)"
               badge="Clean White (CW) Theme"
               hotspots={[
                 {
@@ -367,7 +360,7 @@ export const TodayDashboardSection: React.FC = () => {
                 },
               ]}
             />
-            <p className="mt-4 text-xs font-mono text-slate-400 text-center max-w-xs">
+            <p className="mt-4 text-xs font-mono text-slate-500 text-center max-w-xs font-medium">
               Screenshots automatically tilt inward or outward based on viewport scroll depth.
             </p>
           </div>

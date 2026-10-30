@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Phone, Shield, Bell, HeartHandshake, CheckCircle2, User, Key, ExternalLink } from 'lucide-react';
+import { Phone, Shield, Bell, HeartHandshake } from 'lucide-react';
 import { soundEngine } from '../utils/audio';
 
 export const ProfileLifelineSection: React.FC = () => {
@@ -17,95 +16,89 @@ export const ProfileLifelineSection: React.FC = () => {
   };
 
   return (
-    <section id="safety" className="py-24 px-4 sm:px-8 relative bg-still-darkBg/95 text-white overflow-hidden">
-      {/* Background radial glow */}
-      <div className="absolute bottom-10 left-1/3 w-[500px] h-[500px] bg-rose-600/10 rounded-full blur-[160px] pointer-events-none" />
-
+    <section id="safety" className="py-24 px-4 sm:px-8 relative bg-white text-slate-900 overflow-hidden border-b border-slate-100">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono tracking-widest uppercase glass-panel-dark text-emerald-300 border border-emerald-400/20 mb-4">
-            <span>Section 11</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-lime text-pop-forest border border-pop-forest/20 shadow-cartoon-sm mb-4">
+            <span>🔒 Section 11</span>
             <span>•</span>
             <span>ProfileScreen.kt & Safety</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-serif font-medium tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-5xl font-sans font-extrabold tracking-tight mb-4 text-slate-900">
             Privacy, Identity & 24/7 Crisis Lifeline
           </h2>
-          <p className="text-slate-300 text-base sm:text-lg font-light leading-relaxed">
+          <p className="text-slate-600 text-base sm:text-lg font-normal leading-relaxed">
             Your sanctuary is safeguarded with end-to-end device encryption, zero ad telemetry,
             and immediate access to professional compassionate crisis intervention.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Dedicated 24/7 Crisis Lifeline Card */}
-          <div className="lg:col-span-6 glass-card-dark rounded-3xl p-6 sm:p-8 border-2 border-rose-500/30 shadow-[0_0_60px_rgba(244,63,94,0.15)] relative overflow-hidden">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 rounded-2xl bg-rose-500/20 text-rose-300">
-                <HeartHandshake className="w-6 h-6" />
+          {/* 988 Suicide & Crisis Lifeline Card */}
+          <div className="lg:col-span-6 bg-white rounded-3xl p-6 sm:p-8 border-4 border-rose-400 shadow-cartoon relative overflow-hidden">
+            <div className="flex items-center gap-3.5 mb-4">
+              <div className="p-3.5 rounded-2xl bg-rose-100 text-rose-700 border-2 border-slate-900 shadow-cartoon-sm">
+                <HeartHandshake className="w-7 h-7" />
               </div>
               <div>
-                <span className="text-xs font-mono uppercase tracking-wider text-rose-400 font-semibold">
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-rose-600">
                   Immediate Emergency Care
                 </span>
-                <h3 className="text-xl font-serif text-white">988 Suicide & Crisis Lifeline</h3>
+                <h3 className="text-2xl font-sans font-extrabold text-slate-900">988 Suicide & Crisis Lifeline</h3>
               </div>
             </div>
 
-            <p className="text-sm text-slate-300 leading-relaxed mb-6">
+            <p className="text-sm text-slate-700 leading-relaxed mb-6 font-normal">
               If you or a loved one is navigating overwhelming emotional distress, thoughts of self-harm, or need someone to listen, confidential support is available 24/7/365. Free, caring, and immediate.
             </p>
 
-            {/* Direct 1-Tap Dialer Button */}
             <a
               href="tel:988"
               onClick={() => soundEngine.playBreatheBell()}
               data-cursor="pointer"
-              className="w-full py-4 rounded-2xl bg-gradient-to-r from-rose-600 via-rose-500 to-pink-600 text-white font-bold text-sm tracking-wide shadow-xl hover:opacity-95 transition-all flex items-center justify-center gap-3 group"
+              className="w-full py-4 rounded-full bg-slate-950 text-white font-bold text-sm tracking-wide shadow-cartoon hover:bg-slate-800 transition-all flex items-center justify-center gap-3 group transform hover:-translate-y-0.5"
             >
-              <Phone className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+              <Phone className="w-5 h-5 group-hover:rotate-12 transition-transform text-pop-lime" />
               <span>Tap to Call 988 Lifeline (Free & Confidential)</span>
             </a>
 
-            <div className="flex items-center justify-between text-xs text-slate-400 mt-4 pt-4 border-t border-white/5 font-mono">
+            <div className="flex flex-wrap items-center justify-between text-xs text-slate-500 mt-5 pt-4 border-t border-slate-100 font-mono font-bold">
               <span>Text or Call: 988</span>
               <span>Available in English & Spanish</span>
-              <span>Deaf / Hard of Hearing: TTY</span>
+              <span>TTY Capable</span>
             </div>
           </div>
 
-          {/* Right Column: Account, Reminders & Security */}
+          {/* Account, Reminders & Security */}
           <div className="lg:col-span-6 flex flex-col gap-6">
-            {/* Identity & Encryption */}
-            <div className="glass-card-dark rounded-3xl p-6 border border-white/10">
+            <div className="bg-white rounded-3xl p-6 border-2 border-slate-900/10 shadow-cartoon-sm">
               <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center font-bold text-sm border border-emerald-400/30">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-12 h-12 rounded-2xl bg-pop-lime text-pop-forest border-2 border-pop-forest flex items-center justify-center font-bold text-sm shadow-cartoon-sm">
                     RS
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-white">Roy S.</div>
-                    <div className="text-xs text-slate-400 font-mono">royshilwant@gmail.com</div>
+                    <div className="text-sm font-bold text-slate-900">Roy S.</div>
+                    <div className="text-xs text-slate-500 font-mono">royshilwant@gmail.com</div>
                   </div>
                 </div>
-                <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-mono">
+                <span className="px-3.5 py-1.5 rounded-full bg-pop-lime text-pop-forest text-xs font-mono font-bold border border-pop-forest/20">
                   Verified Identity
                 </span>
               </div>
 
-              <div className="flex items-center justify-between pt-3 border-t border-white/5 text-xs text-slate-300">
+              <div className="flex items-center justify-between pt-3 border-t border-slate-100 text-xs text-slate-600 font-semibold">
                 <span className="flex items-center gap-1.5">
-                  <Shield className="w-3.5 h-3.5 text-emerald-400" /> Firebase Auth & Firestore Vault
+                  <Shield className="w-3.5 h-3.5 text-emerald-600" /> Firebase Auth & Firestore Vault
                 </span>
-                <span className="text-slate-400 font-mono">Zero Cloud Telemetry</span>
+                <span className="text-slate-500 font-mono">Zero Cloud Telemetry</span>
               </div>
             </div>
 
-            {/* Push Reminders Settings */}
-            <div className="glass-card-dark rounded-3xl p-6 border border-white/10">
-              <h4 className="text-sm font-semibold text-white mb-3 flex items-center gap-2">
-                <Bell className="w-4 h-4 text-amber-300" />
+            <div className="bg-white rounded-3xl p-6 border-2 border-slate-900/10 shadow-cartoon-sm">
+              <h4 className="text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
+                <Bell className="w-4 h-4 text-amber-500" />
                 <span>Gentle Push Micro-Reminders</span>
               </h4>
 
@@ -115,21 +108,21 @@ export const ProfileLifelineSection: React.FC = () => {
                   { key: 'windDown' as const, label: 'Evening Wind-Down', desc: 'Prompts StandBy Desk Clock at 22:00' },
                   { key: 'breatheBreak' as const, label: 'Vagal Breathwork Reminder', desc: 'Midday 4-4-4-4 nervous system recharge' },
                 ].map((item) => (
-                  <div key={item.key} className="flex items-center justify-between p-3 rounded-2xl bg-white/5 border border-white/5">
+                  <div key={item.key} className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 border border-slate-200">
                     <div>
-                      <div className="text-xs font-semibold text-white">{item.label}</div>
-                      <div className="text-[11px] text-slate-400">{item.desc}</div>
+                      <div className="text-xs font-bold text-slate-900">{item.label}</div>
+                      <div className="text-[11px] text-slate-500">{item.desc}</div>
                     </div>
                     <button
                       onClick={() => toggleReminder(item.key)}
                       data-cursor="pointer"
-                      className={`w-11 h-6 rounded-full transition-colors relative flex items-center px-0.5 ${
-                        reminders[item.key] ? 'bg-emerald-500' : 'bg-slate-700'
+                      className={`w-12 h-6 rounded-full transition-colors relative flex items-center px-0.5 border-2 border-slate-900 ${
+                        reminders[item.key] ? 'bg-pop-lime' : 'bg-slate-300'
                       }`}
                     >
                       <span
-                        className={`w-5 h-5 rounded-full bg-white transition-transform ${
-                          reminders[item.key] ? 'translate-x-5' : 'translate-x-0'
+                        className={`w-4 h-4 rounded-full bg-slate-900 transition-transform ${
+                          reminders[item.key] ? 'translate-x-6' : 'translate-x-0'
                         }`}
                       />
                     </button>

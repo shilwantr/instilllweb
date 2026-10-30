@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Sparkles, Volume2, ShieldCheck, Heart, Droplets, Footprints } from 'lucide-react';
+import { ArrowDown, Sparkles, Volume2, ShieldCheck, Heart, Smile } from 'lucide-react';
 import { LivingCanvas, LivingTheme } from './LivingCanvas';
 import { AdaptiveScreenshotFrame } from './AdaptiveScreenshotFrame';
+import { CartoonStickerCluster } from './CartoonStickerCluster';
 import { soundEngine } from '../utils/audio';
 
 interface HeroSectionProps {
@@ -16,28 +17,26 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onThemeSelect,
   onOpenSoundModal,
 }) => {
-  const [selectedDashboardVariant, setSelectedDashboardVariant] = useState<'dark' | 'light' | 'cosmic'>('dark');
+  const [selectedDashboardVariant, setSelectedDashboardVariant] = useState<'light' | 'dark' | 'cosmic'>('light');
 
   const dashboardImages = {
-    dark: './assets/screenshots/dashboard-dark.jpeg',
     light: './assets/screenshots/dashboard-light.jpeg',
+    dark: './assets/screenshots/dashboard-dark.jpeg',
     cosmic: './assets/screenshots/dashboard-cosmic.jpeg',
   };
 
   const themePills: { id: LivingTheme; label: string }[] = [
-    { id: 'FW', label: 'Ferris Wheel' },
     { id: 'CW', label: 'Clean White' },
+    { id: 'FW', label: 'Ferris Wheel' },
     { id: 'MS', label: 'Midnight Sage' },
     { id: 'CD', label: 'Cosmic Dusk' },
   ];
 
   return (
-    <section className="relative min-h-screen pt-28 pb-20 px-4 sm:px-8 flex flex-col justify-center overflow-hidden">
-      {/* Living Canvas Interactive Background */}
+    <section className="relative min-h-screen pt-32 pb-24 px-4 sm:px-8 flex flex-col justify-center overflow-hidden bg-pop-cream">
+      {/* Living Canvas Interactive Pastel Background */}
       <div className="absolute inset-0 -z-20 pointer-events-auto">
         <LivingCanvas theme={currentTheme} />
-        {/* Soft vignette overlay */}
-        <div className="absolute inset-0 bg-radial-gradient pointer-events-none opacity-40 mix-blend-multiply" />
       </div>
 
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center z-10">
@@ -45,39 +44,39 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-7 flex flex-col items-start text-left"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="lg:col-span-6 flex flex-col items-start text-left"
         >
-          {/* Tagline Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium tracking-widest uppercase glass-panel-dark text-emerald-300 border border-emerald-400/30 mb-6">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            Mindful Presence & Daily Balance
+          {/* Playful Pill Tagline Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase bg-pop-lime text-pop-forest border border-pop-forest/20 shadow-cartoon-sm mb-6">
+            <span className="text-base">🌸</span>
+            <span>Mindful Presence & Daily Balance</span>
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-6xl xl:text-7xl font-serif font-medium tracking-tight text-white leading-[1.08] mb-6">
+          <h1 className="text-4xl sm:text-6xl xl:text-7xl font-sans font-extrabold tracking-tight text-slate-900 leading-[1.08] mb-6">
             The Art of Presence.{' '}
-            <span className="italic font-normal text-emerald-300">
+            <span className="font-serif italic font-normal text-pop-forest underline decoration-pop-lime decoration-wavy decoration-2">
               The Science of Calm.
             </span>
           </h1>
 
           {/* Subheadline */}
-          <p className="text-base sm:text-xl text-slate-300 font-light leading-relaxed max-w-2xl mb-8">
-            A luxury sensory wellness ecosystem engineered with 60 FPS liquid canvas shaders,
-            bio-responsive breathwork, telehealth therapy, companion pets, and digital wellbeing.
+          <p className="text-base sm:text-xl text-slate-600 font-normal leading-relaxed max-w-xl mb-8">
+            A luxury digital wellness ecosystem engineered with 60 FPS liquid canvas shaders,
+            bio-responsive breathwork, telehealth therapy, companion pets, and digital wellbeing interventions.
           </p>
 
-          {/* Call to Actions */}
+          {/* CTAs (Inspired by reference image's bold black pill button) */}
           <div className="flex flex-wrap items-center gap-4 mb-10">
             <a
               href="#today"
               data-cursor="pointer"
               onClick={() => soundEngine.playBreatheBell()}
-              className="px-7 py-3.5 rounded-full bg-still-buttonDark text-white font-medium text-sm tracking-wide shadow-lg shadow-emerald-950/40 hover:bg-emerald-600 transition-all transform hover:-translate-y-0.5 flex items-center gap-2"
+              className="px-8 py-4 rounded-full bg-slate-950 text-white font-bold text-sm tracking-wide shadow-cartoon hover:bg-slate-800 transition-all transform hover:-translate-y-1 active:translate-y-0 flex items-center gap-2.5"
             >
-              <span>Explore the Experience</span>
-              <ArrowDown className="w-4 h-4 animate-bounce" />
+              <span>Explore Dashboard</span>
+              <ArrowDown className="w-4 h-4" />
             </a>
 
             <button
@@ -86,18 +85,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 soundEngine.playKalimba(3);
               }}
               data-cursor="pointer"
-              className="px-7 py-3.5 rounded-full glass-card-dark text-slate-200 font-medium text-sm tracking-wide border border-white/20 hover:border-emerald-400/40 hover:text-white transition-all flex items-center gap-2"
+              className="px-8 py-4 rounded-full bg-white text-slate-900 font-bold text-sm tracking-wide border-2 border-slate-900/15 shadow-cartoon-sm hover:border-pop-forest hover:bg-pop-lime/20 transition-all transform hover:-translate-y-1 flex items-center gap-2"
             >
-              <Volume2 className="w-4 h-4 text-amber-300" />
+              <Volume2 className="w-4 h-4 text-pop-coral" />
               <span>Listen to Soundscapes</span>
             </button>
           </div>
 
           {/* Living Canvas Theme Quick Switcher */}
-          <div className="p-4 rounded-2xl glass-card-dark border border-white/10 max-w-lg w-full">
-            <div className="text-xs uppercase tracking-widest text-slate-400 font-mono mb-2.5 flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-300" />
-              <span>Interactive Living Canvas Themes</span>
+          <div className="p-4 rounded-3xl bg-white/90 border-2 border-slate-900/10 shadow-cartoon-sm max-w-lg w-full">
+            <div className="text-xs uppercase tracking-widest text-slate-600 font-bold mb-2.5 flex items-center gap-2">
+              <Sparkles className="w-3.5 h-3.5 text-pop-forest" />
+              <span>Switch Living Canvas Theme</span>
             </div>
             <div className="flex flex-wrap gap-2">
               {themePills.map((t) => (
@@ -108,10 +107,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     soundEngine.playStepClick();
                   }}
                   data-cursor="pointer"
-                  className={`px-3 py-1.5 rounded-xl text-xs font-mono transition-all ${
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-bold transition-all ${
                     currentTheme === t.id
-                      ? 'bg-emerald-500/30 text-emerald-200 border border-emerald-400/50 shadow-sm'
-                      : 'bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10'
+                      ? 'bg-pop-lime text-pop-forest border-2 border-pop-forest shadow-cartoon-sm'
+                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
                   }`}
                 >
                   {t.label}
@@ -121,42 +120,45 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
         </motion.div>
 
-        {/* Right Column: Centerpiece 3D-Tilted Device Mockup */}
+        {/* Right Column: Cartoon Sticker Cluster + Clean White Mockup */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.92, y: 40 }}
+          initial={{ opacity: 0, scale: 0.94, y: 40 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 1.1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-5 flex flex-col items-center justify-center relative"
+          transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="lg:col-span-6 flex flex-col items-center justify-center relative"
         >
-          {/* Variant Selector Tabs */}
-          <div className="flex items-center gap-2 mb-4 p-1 rounded-full glass-card-dark border border-white/15">
-            <button
-              onClick={() => {
-                setSelectedDashboardVariant('dark');
-                soundEngine.playScrubTick();
-              }}
-              data-cursor="pointer"
-              className={`px-3.5 py-1 text-xs rounded-full transition-all ${
-                selectedDashboardVariant === 'dark'
-                  ? 'bg-emerald-500/30 text-emerald-200 font-medium'
-                  : 'text-slate-400 hover:text-white'
-              }`}
-            >
-              Ferris Wheel (Dark)
-            </button>
+          {/* Tilted Cartoon Sticker Cluster (Directly inspired by reference) */}
+          <CartoonStickerCluster />
+
+          {/* Theme Variant Tabs for Mockup */}
+          <div className="flex items-center gap-2 mb-4 p-1.5 rounded-full bg-white border-2 border-slate-900/10 shadow-cartoon-sm z-20">
             <button
               onClick={() => {
                 setSelectedDashboardVariant('light');
                 soundEngine.playScrubTick();
               }}
               data-cursor="pointer"
-              className={`px-3.5 py-1 text-xs rounded-full transition-all ${
+              className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all ${
                 selectedDashboardVariant === 'light'
-                  ? 'bg-emerald-500/30 text-emerald-200 font-medium'
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
+                  : 'text-slate-600 hover:text-slate-950'
               }`}
             >
-              Clean White
+              Clean White (CW)
+            </button>
+            <button
+              onClick={() => {
+                setSelectedDashboardVariant('dark');
+                soundEngine.playScrubTick();
+              }}
+              data-cursor="pointer"
+              className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all ${
+                selectedDashboardVariant === 'dark'
+                  ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
+                  : 'text-slate-600 hover:text-slate-950'
+              }`}
+            >
+              Ferris Wheel
             </button>
             <button
               onClick={() => {
@@ -164,23 +166,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 soundEngine.playScrubTick();
               }}
               data-cursor="pointer"
-              className={`px-3.5 py-1 text-xs rounded-full transition-all ${
+              className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all ${
                 selectedDashboardVariant === 'cosmic'
-                  ? 'bg-emerald-500/30 text-emerald-200 font-medium'
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
+                  : 'text-slate-600 hover:text-slate-950'
               }`}
             >
               Cosmic Dusk
             </button>
           </div>
 
-          {/* Adaptive Phone Mockup with Vertical Scroll Tilt Physics */}
+          {/* Adaptive Phone Mockup in Light Porcelain Frame */}
           <AdaptiveScreenshotFrame
             src={dashboardImages[selectedDashboardVariant]}
             alt="inStill Today Dashboard"
             orientation="vertical"
             tiltDirection="left"
-            glowColor="rgba(143, 175, 155, 0.45)"
+            glowColor="rgba(210, 245, 108, 0.5)"
             badge="DashboardScreen.kt"
             hotspots={[
               {
@@ -203,19 +205,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               },
             ]}
           />
-
-          {/* Micro status badge below mockup */}
-          <div className="mt-4 flex items-center gap-3 text-xs text-slate-400 font-mono">
-            <span className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              60 FPS Shaders
-            </span>
-            <span>•</span>
-            <span className="flex items-center gap-1.5">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-              Sensor Telemetry
-            </span>
-          </div>
         </motion.div>
       </div>
     </section>

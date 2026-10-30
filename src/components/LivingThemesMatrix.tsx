@@ -1,6 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Sparkles, Palette, CheckCircle2 } from 'lucide-react';
+import { Sparkles, CheckCircle2 } from 'lucide-react';
 import { LivingCanvas, LivingTheme } from './LivingCanvas';
 import { soundEngine } from '../utils/audio';
 
@@ -21,18 +20,18 @@ export const LivingThemesMatrix: React.FC<LivingThemesMatrixProps> = ({
     paletteDesc: string;
   }[] = [
     {
-      id: 'FW',
-      name: 'Ferris Wheel',
-      code: 'FW',
-      description: 'Celestial translucent bubbles and harmonic ambient cloud layers.',
-      paletteDesc: 'Soft Eucalyptus & Dusty Rose',
-    },
-    {
       id: 'CW',
       name: 'Clean White',
       code: 'CW',
       description: 'Porcelain ceramic minimalism with whisper-soft celadon sage waves.',
       paletteDesc: 'High-contrast Slate & Ceramic',
+    },
+    {
+      id: 'FW',
+      name: 'Ferris Wheel',
+      code: 'FW',
+      description: 'Celestial translucent bubbles and harmonic ambient cloud layers.',
+      paletteDesc: 'Pastel Lime & Periwinkle',
     },
     {
       id: 'MS',
@@ -100,22 +99,19 @@ export const LivingThemesMatrix: React.FC<LivingThemesMatrixProps> = ({
   ];
 
   return (
-    <section id="themes" className="py-24 px-4 sm:px-8 relative bg-still-darkBg text-white overflow-hidden">
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-emerald-700/10 rounded-full blur-[180px] pointer-events-none" />
-
+    <section id="themes" className="py-24 px-4 sm:px-8 relative bg-pop-cream text-slate-900 overflow-hidden border-b border-slate-100">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono tracking-widest uppercase glass-panel-dark text-emerald-300 border border-emerald-400/20 mb-4">
-            <span>Section 12</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-lime text-pop-forest border border-pop-forest/20 shadow-cartoon-sm mb-4">
+            <span>🎨 Section 12</span>
             <span>•</span>
             <span>Living Canvas Engine</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-serif font-medium tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-5xl font-sans font-extrabold tracking-tight mb-4 text-slate-900">
             The 11 Living Canvas Ambient Themes
           </h2>
-          <p className="text-slate-300 text-base sm:text-lg font-light leading-relaxed">
+          <p className="text-slate-600 text-base sm:text-lg font-normal leading-relaxed">
             Every screen in inStill breathes with 60 FPS procedural shader physics.
             Click any canvas card below to immediately transform the website's living backdrop.
           </p>
@@ -133,17 +129,17 @@ export const LivingThemesMatrix: React.FC<LivingThemesMatrixProps> = ({
                   soundEngine.playBreatheBell();
                 }}
                 data-cursor="pointer"
-                className={`group rounded-3xl p-4 text-left transition-all duration-300 relative overflow-hidden flex flex-col justify-between ${
+                className={`group rounded-3xl p-4 text-left transition-all duration-200 relative overflow-hidden flex flex-col justify-between cartoon-sticker ${
                   isSelected
-                    ? 'glass-card-dark border-2 border-emerald-400 shadow-[0_0_30px_rgba(52,211,153,0.3)] scale-[1.02]'
-                    : 'glass-card-dark border border-white/10 hover:border-white/25 hover:-translate-y-1'
+                    ? 'bg-white border-4 border-pop-forest shadow-cartoon scale-[1.02]'
+                    : 'bg-white border-2 border-slate-900/10 hover:border-slate-900/30 shadow-cartoon-sm'
                 }`}
               >
-                {/* Mini Live Canvas Preview */}
-                <div className="w-full h-32 rounded-2xl overflow-hidden mb-3 border border-white/10 relative bg-black">
+                {/* Mini Canvas */}
+                <div className="w-full h-32 rounded-2xl overflow-hidden mb-3 border-2 border-slate-900/10 relative bg-slate-50">
                   <LivingCanvas theme={t.id} isMini={true} />
                   {isSelected && (
-                    <div className="absolute top-2 right-2 px-2.5 py-0.5 rounded-full bg-emerald-500/80 text-white font-mono text-[10px] flex items-center gap-1 shadow-md">
+                    <div className="absolute top-2 right-2 px-3 py-1 rounded-full bg-pop-forest text-pop-lime font-mono font-bold text-[10px] flex items-center gap-1 shadow-sm">
                       <CheckCircle2 className="w-3 h-3" /> Active
                     </div>
                   )}
@@ -151,17 +147,17 @@ export const LivingThemesMatrix: React.FC<LivingThemesMatrixProps> = ({
 
                 <div>
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-sm font-bold text-white font-serif">{t.name}</span>
-                    <span className="text-[10px] font-mono text-emerald-300 px-2 py-0.5 rounded-full bg-white/5 border border-white/10">
+                    <span className="text-sm font-bold text-slate-900">{t.name}</span>
+                    <span className="text-[10px] font-mono font-bold text-pop-forest px-2 py-0.5 rounded-full bg-pop-lime">
                       • {t.code}
                     </span>
                   </div>
-                  <p className="text-xs text-slate-300 leading-relaxed mb-3">{t.description}</p>
+                  <p className="text-xs text-slate-600 leading-relaxed mb-3">{t.description}</p>
                 </div>
 
-                <div className="text-[11px] font-mono text-slate-400 border-t border-white/5 pt-2 flex items-center justify-between">
+                <div className="text-[11px] font-mono font-semibold text-slate-500 border-t border-slate-100 pt-2 flex items-center justify-between">
                   <span>{t.paletteDesc}</span>
-                  <span className="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                  <span className="text-pop-forest font-bold group-hover:translate-x-1 transition-transform">→</span>
                 </div>
               </button>
             );

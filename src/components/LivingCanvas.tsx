@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-export type LivingTheme = 'FW' | 'CW' | 'MS' | 'TP' | 'CD' | 'ZR' | 'OA' | 'HW' | 'TD' | 'LT' | 'RT';
+export type LivingTheme = 'CW' | 'FW' | 'MS' | 'TP' | 'CD' | 'ZR' | 'OA' | 'HW' | 'TD' | 'LT' | 'RT';
 
 interface LivingCanvasProps {
   theme: LivingTheme;
@@ -48,7 +48,6 @@ export const LivingCanvas: React.FC<LivingCanvasProps> = ({ theme, className = '
       window.addEventListener('mousemove', handleMouseMove, { passive: true });
     }
 
-    // Optimization: Pause rendering completely when offscreen
     const observer = new IntersectionObserver(
       ([entry]) => {
         isVisible = entry.isIntersecting;
@@ -59,10 +58,8 @@ export const LivingCanvas: React.FC<LivingCanvasProps> = ({ theme, className = '
 
     const render = (now: number) => {
       animationFrameId = requestAnimationFrame(render);
-
       if (!isVisible) return;
 
-      // Throttle mini cards to 20 FPS to keep GPU load ultra-lightweight
       if (isMini) {
         miniFrameCount++;
         if (miniFrameCount % 3 !== 0) return;
@@ -70,7 +67,7 @@ export const LivingCanvas: React.FC<LivingCanvasProps> = ({ theme, className = '
 
       const delta = Math.min((now - lastTime) / 1000, 0.05);
       lastTime = now;
-      time += delta * 1.2;
+      time += delta * 1.1;
 
       const dpr = isMini ? 1 : Math.min(window.devicePixelRatio || 1, 1.5);
       const width = canvas.width / dpr;
@@ -78,153 +75,101 @@ export const LivingCanvas: React.FC<LivingCanvasProps> = ({ theme, className = '
 
       ctx.clearRect(0, 0, width, height);
 
-      // Render thematic waves / particles based on theme
+      // Light Porcelain & Playful Pastel Background by default
       switch (theme) {
-        case 'CW': {
-          // Clean White: Soft porcelain sage waves
-          const grad = ctx.createLinearGradient(0, 0, 0, height);
-          grad.addColorStop(0, '#F5F7F6');
-          grad.addColorStop(1, '#E9F0EC');
-          ctx.fillStyle = grad;
-          ctx.fillRect(0, 0, width, height);
-
-          ctx.fillStyle = 'rgba(143, 175, 155, 0.12)';
-          ctx.beginPath();
-          ctx.moveTo(0, height);
-          for (let x = 0; x <= width; x += 15) {
-            const y = Math.sin(x * 0.005 + time) * 25 + Math.cos(x * 0.002 - time * 0.5) * 15 + height * 0.65;
-            ctx.lineTo(x, y);
-          }
-          ctx.lineTo(width, height);
-          ctx.closePath();
-          ctx.fill();
-
-          ctx.fillStyle = 'rgba(197, 216, 164, 0.15)';
-          ctx.beginPath();
-          ctx.moveTo(0, height);
-          for (let x = 0; x <= width; x += 15) {
-            const y = Math.cos(x * 0.004 - time * 0.8) * 20 + Math.sin(x * 0.003 + time) * 12 + height * 0.75;
-            ctx.lineTo(x, y);
-          }
-          ctx.lineTo(width, height);
-          ctx.closePath();
-          ctx.fill();
-          break;
-        }
-
         case 'MS': {
-          // Midnight Sage: Deep eucalyptus slate + floating star motes
+          // Midnight Sage (Dark accent)
           const grad = ctx.createLinearGradient(0, 0, 0, height);
-          grad.addColorStop(0, '#091210');
-          grad.addColorStop(1, '#050A08');
+          grad.addColorStop(0, '#0E1714');
+          grad.addColorStop(1, '#070C0A');
           ctx.fillStyle = grad;
           ctx.fillRect(0, 0, width, height);
 
-          // Deep emerald harmonic glow
-          const rad = ctx.createRadialGradient(width * 0.5, height * 0.4, 20, width * 0.5, height * 0.4, width * 0.6);
-          rad.addColorStop(0, 'rgba(31, 92, 63, 0.35)');
-          rad.addColorStop(1, 'rgba(9, 18, 16, 0)');
-          ctx.fillStyle = rad;
-          ctx.fillRect(0, 0, width, height);
-
-          // Star motes
-          const starCount = isMini ? 6 : 16;
-          for (let i = 0; i < starCount; i++) {
-            const x = (Math.sin(i * 99 + time * 0.2) * 0.5 + 0.5) * width;
-            const y = (Math.cos(i * 33 + time * 0.15) * 0.5 + 0.5) * height;
-            const alpha = Math.sin(time + i) * 0.3 + 0.5;
-            ctx.fillStyle = `rgba(180, 220, 200, ${alpha * 0.6})`;
-            ctx.beginPath();
-            ctx.arc(x, y, 1.5, 0, Math.PI * 2);
-            ctx.fill();
-          }
+          ctx.fillStyle = 'rgba(210, 245, 108, 0.12)';
+          ctx.beginPath();
+          ctx.arc(width * 0.7, height * 0.3, 80, 0, Math.PI * 2);
+          ctx.fill();
           break;
         }
 
         case 'CD': {
-          // Cosmic Dusk: Plum, violet & amber waves
+          // Cosmic Dusk
           const grad = ctx.createLinearGradient(0, 0, width, height);
-          grad.addColorStop(0, '#100818');
-          grad.addColorStop(0.6, '#1A0C22');
-          grad.addColorStop(1, '#0D0614');
+          grad.addColorStop(0, '#F5EDFD');
+          grad.addColorStop(1, '#E9DEF7');
           ctx.fillStyle = grad;
           ctx.fillRect(0, 0, width, height);
 
-          const rad1 = ctx.createRadialGradient(width * 0.3, height * 0.3, 10, width * 0.3, height * 0.3, width * 0.45);
-          rad1.addColorStop(0, 'rgba(216, 70, 95, 0.25)');
-          rad1.addColorStop(1, 'rgba(16, 8, 24, 0)');
-          ctx.fillStyle = rad1;
-          ctx.fillRect(0, 0, width, height);
-          break;
-        }
-
-        case 'OA': {
-          // Ocean Abyss: Deep oceanic cyan dawn
-          const grad = ctx.createLinearGradient(0, 0, 0, height);
-          grad.addColorStop(0, '#040B12');
-          grad.addColorStop(1, '#081726');
-          ctx.fillStyle = grad;
-          ctx.fillRect(0, 0, width, height);
-
-          ctx.fillStyle = 'rgba(56, 189, 248, 0.08)';
+          ctx.fillStyle = 'rgba(203, 180, 245, 0.35)';
           ctx.beginPath();
-          ctx.moveTo(0, height);
-          for (let x = 0; x <= width; x += 15) {
-            const y = Math.sin(x * 0.008 + time * 1.2) * 20 + height * 0.7;
-            ctx.lineTo(x, y);
-          }
-          ctx.lineTo(width, height);
+          ctx.arc(width * 0.5, height * 0.4, 120, 0, Math.PI * 2);
           ctx.fill();
           break;
         }
 
         case 'FW':
+        case 'CW':
         default: {
-          // Ferris Wheel: Celestial glowing bubbles & ambient pastel clouds
-          const grad = ctx.createLinearGradient(0, 0, width, height);
-          grad.addColorStop(0, '#0D1412');
-          grad.addColorStop(0.5, '#131F1B');
-          grad.addColorStop(1, '#0A0F0D');
+          // Clean White / Cheerful Wix-style pastel canvas
+          const grad = ctx.createLinearGradient(0, 0, 0, height);
+          grad.addColorStop(0, '#FAFBF8');
+          grad.addColorStop(0.5, '#F7F9F5');
+          grad.addColorStop(1, '#F2F6F0');
           ctx.fillStyle = grad;
           ctx.fillRect(0, 0, width, height);
 
-          // Flowing organic harmonic waves (2 layers for lighter GPU footprint)
-          for (let layer = 0; layer < 2; layer++) {
-            const opacity = 0.08 + layer * 0.05;
-            ctx.fillStyle = layer === 0 ? `rgba(143, 175, 155, ${opacity})` : `rgba(213, 166, 189, ${opacity})`;
-            ctx.beginPath();
-            ctx.moveTo(0, height);
-            const speed = 0.5 + layer * 0.3;
-            const freq = 0.003 + layer * 0.002;
-            const amp = 28 + layer * 12;
-            const offset = height * (0.65 + layer * 0.1);
-
-            for (let x = 0; x <= width; x += 20) {
-              const mouseDist = Math.hypot(x - mouseX, offset - mouseY);
-              const mousePush = !isMini && mouseDist < 160 ? Math.sin(mouseDist / 25) * 8 : 0;
-              const y = Math.sin(x * freq + time * speed) * amp + Math.cos(x * 0.002 - time * 0.4) * 16 + offset + mousePush;
-              ctx.lineTo(x, y);
-            }
-            ctx.lineTo(width, height);
-            ctx.closePath();
-            ctx.fill();
+          // Flowing Lime Green Harmonic Wave
+          ctx.fillStyle = 'rgba(210, 245, 108, 0.22)';
+          ctx.beginPath();
+          ctx.moveTo(0, height);
+          for (let x = 0; x <= width; x += 20) {
+            const y = Math.sin(x * 0.003 + time * 0.6) * 24 + Math.cos(x * 0.001 - time * 0.3) * 14 + height * 0.72;
+            ctx.lineTo(x, y);
           }
+          ctx.lineTo(width, height);
+          ctx.closePath();
+          ctx.fill();
 
-          // Floating soft bubbles
-          const bubbleCount = isMini ? 5 : 10;
+          // Flowing Periwinkle Wave
+          ctx.fillStyle = 'rgba(143, 168, 255, 0.18)';
+          ctx.beginPath();
+          ctx.moveTo(0, height);
+          for (let x = 0; x <= width; x += 20) {
+            const y = Math.cos(x * 0.003 - time * 0.5) * 20 + Math.sin(x * 0.002 + time * 0.4) * 12 + height * 0.8;
+            ctx.lineTo(x, y);
+          }
+          ctx.lineTo(width, height);
+          ctx.closePath();
+          ctx.fill();
+
+          // Sunny Warm Yellow Horizon Aura
+          ctx.fillStyle = 'rgba(254, 214, 104, 0.16)';
+          ctx.beginPath();
+          ctx.arc(width * 0.85, height * 0.25, 110, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Soft Coral Aura
+          ctx.fillStyle = 'rgba(250, 123, 96, 0.12)';
+          ctx.beginPath();
+          ctx.arc(width * 0.12, height * 0.6, 90, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Playful Floating Cartoon Bubbles
+          const bubbleCount = isMini ? 4 : 8;
           for (let i = 0; i < bubbleCount; i++) {
-            const seed = i * 42.1;
-            const bx = (Math.sin(seed + time * 0.22) * 0.45 + 0.5) * width;
-            const by = (Math.cos(seed * 0.7 + time * 0.16) * 0.45 + 0.5) * height;
-            const radius = 18 + (i % 4) * 14;
+            const seed = i * 55.3;
+            const bx = (Math.sin(seed + time * 0.2) * 0.42 + 0.5) * width;
+            const by = (Math.cos(seed * 0.8 + time * 0.15) * 0.42 + 0.5) * height;
+            const radius = 16 + (i % 3) * 12;
 
-            const radGrad = ctx.createRadialGradient(bx, by, 2, bx, by, radius);
-            const isPink = i % 2 === 0;
-            radGrad.addColorStop(0, isPink ? 'rgba(213, 166, 189, 0.25)' : 'rgba(197, 216, 164, 0.22)');
-            radGrad.addColorStop(0.7, isPink ? 'rgba(213, 166, 189, 0.06)' : 'rgba(197, 216, 164, 0.05)');
-            radGrad.addColorStop(1, 'rgba(0,0,0,0)');
+            const isLime = i % 3 === 0;
+            const isBlue = i % 3 === 1;
 
-            ctx.fillStyle = radGrad;
+            ctx.fillStyle = isLime
+              ? 'rgba(210, 245, 108, 0.28)'
+              : isBlue
+              ? 'rgba(143, 168, 255, 0.24)'
+              : 'rgba(254, 214, 104, 0.24)';
             ctx.beginPath();
             ctx.arc(bx, by, radius, 0, Math.PI * 2);
             ctx.fill();

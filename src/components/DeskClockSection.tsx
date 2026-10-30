@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Clock, BatteryCharging, BellOff, Palette, Maximize2, Shield, Zap, Thermometer } from 'lucide-react';
+import { Clock, BatteryCharging, BellOff, Palette, Maximize2, Zap, Thermometer } from 'lucide-react';
 import { AdaptiveScreenshotFrame } from './AdaptiveScreenshotFrame';
 import { soundEngine } from '../utils/audio';
 
@@ -16,7 +15,6 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
   const [activePalette, setActivePalette] = useState<PastelPaletteKey>('olive');
   const [currentTime, setCurrentTime] = useState({ hours: '07', minutes: '32' });
 
-  // Update live clock
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
@@ -32,60 +30,50 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
 
   const palettes: Record<
     PastelPaletteKey,
-    { name: string; colors: string[]; arcColor: string; bg: string; glow: string }
+    { name: string; colors: string[]; arcColor: string; glow: string }
   > = {
     olive: {
       name: 'Lite Olive & Lavender',
-      colors: ['#A8C6FA', '#E8C5F0', '#FDE7A9', '#B8EAD0'],
-      arcColor: '#C3B1E1',
-      bg: '#0B1310',
-      glow: 'rgba(197, 216, 164, 0.45)',
+      colors: ['#8FA8FF', '#CBB4F5', '#FED668', '#D2F56C'],
+      arcColor: '#8FA8FF',
+      glow: 'rgba(210, 245, 108, 0.5)',
     },
     lavender: {
       name: 'Soft Lavender Mist',
       colors: ['#C3B1E1', '#B4C5E4', '#D8B4E2', '#A8D8B9'],
       arcColor: '#B4C5E4',
-      bg: '#0E0F1A',
-      glow: 'rgba(195, 177, 225, 0.45)',
+      glow: 'rgba(195, 177, 225, 0.5)',
     },
     matcha: {
       name: 'Matcha & Pastel Peach',
       colors: ['#BFD8B8', '#F7C59F', '#E8A598', '#D4E09B'],
       arcColor: '#BFD8B8',
-      bg: '#0A120E',
-      glow: 'rgba(191, 216, 184, 0.45)',
+      glow: 'rgba(191, 216, 184, 0.5)',
     },
     rose: {
       name: 'Moonlit Rose & Lilac',
       colors: ['#D8C3E8', '#F2BAC9', '#E8DAB2', '#B8D8BA'],
       arcColor: '#F2BAC9',
-      bg: '#140D14',
-      glow: 'rgba(242, 186, 201, 0.45)',
+      glow: 'rgba(242, 186, 201, 0.5)',
     },
   };
 
   const currentPal = palettes[activePalette];
 
   return (
-    <section id="desk-clock" className="py-24 px-4 sm:px-8 relative bg-still-darkBg text-white overflow-hidden">
-      {/* Background ambient lighting */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] rounded-full blur-[160px] pointer-events-none transition-colors duration-700"
-        style={{ background: currentPal.glow }}
-      />
-
+    <section id="desk-clock" className="py-24 px-4 sm:px-8 relative bg-pop-cream text-slate-900 overflow-hidden border-b border-slate-100">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono tracking-widest uppercase glass-panel-dark text-emerald-300 border border-emerald-400/20 mb-4">
-            <span>Section 08</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-lime text-pop-forest border border-pop-forest/20 shadow-cartoon-sm mb-4">
+            <span>⏰ Section 08</span>
             <span>•</span>
             <span>FullScreenDeskClockOverlay.kt</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-serif font-medium tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-5xl font-sans font-extrabold tracking-tight mb-4 text-slate-900">
             Focus Desk Clock & StandBy Mode
           </h2>
-          <p className="text-slate-300 text-base sm:text-lg font-light leading-relaxed">
+          <p className="text-slate-600 text-base sm:text-lg font-normal leading-relaxed">
             Turn your bedside nightstand or work desk into an organic sanctuary. Overlapping pastel digits,
             a precision 270° battery telemetry gauge, and strict distraction-free DND.
           </p>
@@ -96,17 +84,17 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
               soundEngine.playBreatheBell();
             }}
             data-cursor="pointer"
-            className="mt-6 px-6 py-3 rounded-full bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-400/40 text-xs font-mono uppercase tracking-wider inline-flex items-center gap-2 transition-all shadow-lg"
+            className="mt-6 px-7 py-3 rounded-full bg-slate-950 text-white text-xs font-bold font-mono uppercase tracking-wider inline-flex items-center gap-2 shadow-cartoon hover:bg-slate-800 transition-all transform hover:-translate-y-0.5"
           >
             <Maximize2 className="w-4 h-4" />
             <span>Launch StandBy Fullscreen Mode</span>
           </button>
         </div>
 
-        {/* HORIZONTAL SCREENSHOT SHOWCASE (Wide Panoramic Horizon Tilt) */}
+        {/* HORIZONTAL SCREENSHOT SHOWCASE (Panoramic Horizon Stand) */}
         <div className="mb-16">
           <div className="text-center mb-4">
-            <span className="text-xs uppercase font-mono tracking-wider text-slate-400">
+            <span className="text-xs uppercase font-mono font-bold tracking-wider text-slate-500">
               Panoramic Horizon Perspective • Scroll to Observe Responsive 3D Stand Pitch
             </span>
           </div>
@@ -142,23 +130,24 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
 
         {/* Interactive Customization Studio */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Live Interactive Desk Clock Simulator */}
-          <div className="lg:col-span-8 glass-card-dark rounded-3xl p-6 sm:p-10 border border-white/15 shadow-2xl relative overflow-hidden">
+          {/* Main Simulator Display */}
+          <div className="lg:col-span-8 bg-white rounded-3xl p-6 sm:p-10 border-2 border-slate-900/10 shadow-cartoon relative overflow-hidden">
             {/* DND Status Pill */}
             <div className="flex items-center justify-between mb-8">
-              <div className="px-4 py-1.5 rounded-full bg-black/40 border border-white/10 text-xs font-mono text-slate-300 flex items-center gap-2">
-                <BellOff className="w-3.5 h-3.5 text-slate-400" />
+              <div className="px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-mono text-slate-700 flex items-center gap-2 font-bold">
+                <BellOff className="w-3.5 h-3.5 text-slate-500" />
                 <span>Focus Active • Notifications & Sounds Muted</span>
               </div>
-              <div className="text-xs font-mono text-emerald-300">Live Simulator</div>
+              <div className="text-xs font-mono font-bold text-pop-forest px-3 py-1 rounded-full bg-pop-lime">
+                Live Simulator
+              </div>
             </div>
 
-            {/* Main Clock Face Display */}
+            {/* Digits Display */}
             <div className="grid grid-cols-1 sm:grid-cols-12 gap-8 items-center py-6">
-              {/* Digits Display */}
               <div className="sm:col-span-7 flex items-center justify-center">
                 {clockStyle === 'bubble' && (
-                  <div className="flex items-center tracking-tighter text-6xl sm:text-8xl md:text-9xl font-bold select-none drop-shadow-2xl">
+                  <div className="flex items-center tracking-tighter text-6xl sm:text-8xl md:text-9xl font-extrabold select-none drop-shadow-md">
                     <span style={{ color: currentPal.colors[0] }}>{currentTime.hours[0]}</span>
                     <span style={{ color: currentPal.colors[1] }} className="-ml-3 sm:-ml-5">
                       {currentTime.hours[1]}
@@ -172,17 +161,17 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
                   </div>
                 )}
                 {clockStyle === 'serif' && (
-                  <div className="font-serif italic text-6xl sm:text-8xl font-medium tracking-tight text-slate-100">
+                  <div className="font-serif italic text-6xl sm:text-8xl font-bold tracking-tight text-slate-900">
                     {currentTime.hours}:{currentTime.minutes}
                   </div>
                 )}
                 {clockStyle === 'mono' && (
-                  <div className="font-mono text-5xl sm:text-7xl font-bold tracking-widest text-emerald-300">
+                  <div className="font-mono text-5xl sm:text-7xl font-extrabold tracking-widest text-pop-forest">
                     {currentTime.hours}:{currentTime.minutes}
                   </div>
                 )}
                 {clockStyle === 'geometric' && (
-                  <div className="font-sans font-light text-6xl sm:text-8xl tracking-tight text-white">
+                  <div className="font-sans font-light text-6xl sm:text-8xl tracking-tight text-slate-900">
                     {currentTime.hours}
                     <span className="text-slate-400">:</span>
                     {currentTime.minutes}
@@ -194,26 +183,24 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
               <div className="sm:col-span-5 flex flex-col items-center justify-center">
                 <div className="relative w-44 h-44 flex items-center justify-center">
                   <svg className="w-full h-full transform -rotate-45" viewBox="0 0 100 100">
-                    {/* Background Arc */}
                     <circle
                       cx="50"
                       cy="50"
                       r="40"
                       fill="none"
-                      stroke="rgba(255, 255, 255, 0.1)"
-                      strokeWidth="6"
+                      stroke="#F1F5F9"
+                      strokeWidth="7"
                       strokeDasharray="188.5"
                       strokeDashoffset="62.8"
                       strokeLinecap="round"
                     />
-                    {/* Active Arc */}
                     <circle
                       cx="50"
                       cy="50"
                       r="40"
                       fill="none"
                       stroke={currentPal.arcColor}
-                      strokeWidth="6"
+                      strokeWidth="7"
                       strokeDasharray="188.5"
                       strokeDashoffset="95"
                       strokeLinecap="round"
@@ -221,15 +208,14 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
                     />
                   </svg>
 
-                  {/* Inside Telemetry Text */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                    <span className="text-xl sm:text-2xl font-bold font-mono text-white">81.59%</span>
-                    <div className="flex items-center gap-3 text-[11px] font-mono text-slate-400 mt-1">
+                    <span className="text-2xl font-extrabold font-mono text-slate-900">81.59%</span>
+                    <div className="flex items-center gap-3 text-xs font-mono font-bold text-slate-600 mt-1">
                       <span className="flex items-center gap-1">
-                        <Zap className="w-3 h-3 text-amber-300" /> 0 W
+                        <Zap className="w-3.5 h-3.5 text-amber-500 fill-current" /> 0 W
                       </span>
                       <span className="flex items-center gap-1">
-                        <Thermometer className="w-3 h-3 text-rose-400" /> 40°C
+                        <Thermometer className="w-3.5 h-3.5 text-rose-500" /> 40°C
                       </span>
                     </div>
                   </div>
@@ -238,12 +224,11 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
             </div>
           </div>
 
-          {/* Right Column: Style & Palette Controls */}
+          {/* Controls */}
           <div className="lg:col-span-4 flex flex-col gap-6">
-            {/* 4 Typography Styles */}
-            <div className="glass-card-dark rounded-3xl p-6 border border-white/10">
-              <h4 className="text-sm font-semibold text-white mb-3 flex items-center gap-2">
-                <Clock className="w-4 h-4 text-emerald-300" />
+            <div className="bg-white rounded-3xl p-6 border-2 border-slate-900/10 shadow-cartoon-sm">
+              <h4 className="text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
+                <Clock className="w-4 h-4 text-pop-forest" />
                 <span>Typography Styles</span>
               </h4>
               <div className="grid grid-cols-2 gap-2">
@@ -260,10 +245,10 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
                       soundEngine.playStepClick();
                     }}
                     data-cursor="pointer"
-                    className={`p-3 rounded-2xl text-xs text-left transition-all ${
+                    className={`p-3 rounded-2xl text-xs text-left transition-all cartoon-sticker ${
                       clockStyle === s.id
-                        ? 'bg-emerald-500/25 border-2 border-emerald-400 text-white font-medium'
-                        : 'bg-white/5 border border-white/10 text-slate-400 hover:text-white'
+                        ? 'bg-pop-lime text-pop-forest font-bold border-2 border-pop-forest shadow-cartoon-sm'
+                        : 'bg-slate-50 border border-slate-200 text-slate-600 hover:bg-slate-100'
                     }`}
                   >
                     {s.label}
@@ -272,11 +257,10 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
               </div>
             </div>
 
-            {/* 4 Pastel Palettes Picker */}
-            <div className="glass-card-dark rounded-3xl p-6 border border-white/10">
-              <h4 className="text-sm font-semibold text-white mb-3 flex items-center gap-2">
-                <Palette className="w-4 h-4 text-purple-300" />
-                <span>4 Curated Pastel Palettes</span>
+            <div className="bg-white rounded-3xl p-6 border-2 border-slate-900/10 shadow-cartoon-sm">
+              <h4 className="text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
+                <Palette className="w-4 h-4 text-purple-600" />
+                <span>Curated Pastel Palettes</span>
               </h4>
               <div className="space-y-2.5">
                 {(Object.keys(palettes) as PastelPaletteKey[]).map((key) => {
@@ -289,18 +273,18 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
                         soundEngine.playKalimba(2);
                       }}
                       data-cursor="pointer"
-                      className={`w-full p-3 rounded-2xl flex items-center justify-between transition-all ${
+                      className={`w-full p-3 rounded-2xl flex items-center justify-between transition-all cartoon-sticker ${
                         activePalette === key
-                          ? 'bg-white/15 border-2 border-white/40 shadow-md'
-                          : 'bg-white/5 border border-white/5 text-slate-400 hover:text-white'
+                          ? 'bg-pop-lavender/40 border-2 border-slate-900 shadow-cartoon-sm font-bold'
+                          : 'bg-slate-50 border border-slate-200 text-slate-600 hover:bg-slate-100'
                       }`}
                     >
-                      <span className="text-xs font-medium text-slate-200">{pal.name}</span>
+                      <span className="text-xs text-slate-900">{pal.name}</span>
                       <div className="flex items-center gap-1.5">
                         {pal.colors.map((c, idx) => (
                           <span
                             key={idx}
-                            className="w-3.5 h-3.5 rounded-full border border-white/20 shadow-sm"
+                            className="w-4 h-4 rounded-full border-2 border-slate-900 shadow-sm"
                             style={{ background: c }}
                           />
                         ))}

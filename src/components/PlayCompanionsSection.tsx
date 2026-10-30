@@ -5,7 +5,6 @@ import { AdaptiveScreenshotFrame } from './AdaptiveScreenshotFrame';
 import { soundEngine } from '../utils/audio';
 
 type CompanionTab = 'mewmew' | 'emo' | 'games';
-
 type EmoExpression = 'normal' | 'happy' | 'sleepy' | 'curious' | 'wink' | 'surprised' | 'heart';
 
 export const PlayCompanionsSection: React.FC = () => {
@@ -14,7 +13,6 @@ export const PlayCompanionsSection: React.FC = () => {
   // Mew Mew State
   const [catAction, setCatAction] = useState('Sleeping peacefully on your desk 💤');
   const [catAffection, setCatAffection] = useState(72);
-  const [hearts, setHearts] = useState<{ id: number; x: number; y: number }[]>([]);
 
   // EMO Robot State
   const [emoExpr, setEmoExpr] = useState<EmoExpression>('happy');
@@ -27,16 +25,10 @@ export const PlayCompanionsSection: React.FC = () => {
   // Bubble Pop State
   const [bubbles, setBubbles] = useState([true, true, true, true, true, true, true, true]);
 
-  const handleCatPet = (e: React.MouseEvent) => {
+  const handleCatPet = () => {
     soundEngine.playCatPurr();
-    setCatAffection((prev) => Math.min(100, prev + 4));
+    setCatAffection((prev) => Math.min(100, prev + 5));
     setCatAction('Purring softly with warmth and contentment ✨');
-
-    const newHeart = { id: Date.now(), x: e.clientX % 100, y: e.clientY % 100 };
-    setHearts((prev) => [...prev, newHeart]);
-    setTimeout(() => {
-      setHearts((prev) => prev.filter((h) => h.id !== newHeart.id));
-    }, 1500);
   };
 
   const startReflexTest = () => {
@@ -58,7 +50,6 @@ export const PlayCompanionsSection: React.FC = () => {
       setReflexState('result');
       soundEngine.playBreatheBell();
     } else if (reflexState === 'waiting') {
-      // Too early
       setReflexState('idle');
       soundEngine.playStepClick();
     }
@@ -79,38 +70,35 @@ export const PlayCompanionsSection: React.FC = () => {
   };
 
   return (
-    <section id="companions" className="py-24 px-4 sm:px-8 relative bg-still-darkBg text-white overflow-hidden">
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/3 right-1/3 w-[500px] h-[500px] bg-rose-500/10 rounded-full blur-[140px] pointer-events-none" />
-
+    <section id="companions" className="py-24 px-4 sm:px-8 relative bg-white text-slate-900 overflow-hidden border-b border-slate-100">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono tracking-widest uppercase glass-panel-dark text-emerald-300 border border-emerald-400/20 mb-4">
-            <span>Section 07</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-coral text-white border border-slate-900/15 shadow-cartoon-sm mb-4">
+            <span>🐾 Section 07</span>
             <span>•</span>
             <span>PlaygroundScreen.kt</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-serif font-medium tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-5xl font-sans font-extrabold tracking-tight mb-4 text-slate-900">
             Play & Sensory Companions
           </h2>
-          <p className="text-slate-300 text-base sm:text-lg font-light leading-relaxed">
+          <p className="text-slate-600 text-base sm:text-lg font-normal leading-relaxed">
             Nurture digital mindfulness companions and engage with micro sensory distractions
             designed to dissolve mental fatigue.
           </p>
 
           {/* Tab Switcher */}
-          <div className="inline-flex items-center gap-2 p-1.5 rounded-full glass-card-dark border border-white/15 mt-8 shadow-xl">
+          <div className="inline-flex items-center gap-2 p-1.5 rounded-full bg-white border-2 border-slate-900/10 mt-8 shadow-cartoon-sm">
             <button
               onClick={() => {
                 setTab('mewmew');
                 soundEngine.playScrubTick();
               }}
               data-cursor="pointer"
-              className={`px-5 py-2 rounded-full text-xs font-medium tracking-wider uppercase transition-all flex items-center gap-2 ${
+              className={`px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all flex items-center gap-2 ${
                 tab === 'mewmew'
-                  ? 'bg-rose-500/30 text-rose-200 border border-rose-400/40 shadow-sm'
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-pop-coral text-white border border-rose-400 shadow-sm'
+                  : 'text-slate-600 hover:text-slate-950'
               }`}
             >
               <Cat className="w-3.5 h-3.5" />
@@ -123,10 +111,10 @@ export const PlayCompanionsSection: React.FC = () => {
                 soundEngine.playScrubTick();
               }}
               data-cursor="pointer"
-              className={`px-5 py-2 rounded-full text-xs font-medium tracking-wider uppercase transition-all flex items-center gap-2 ${
+              className={`px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all flex items-center gap-2 ${
                 tab === 'emo'
-                  ? 'bg-amber-500/30 text-amber-200 border border-amber-400/40 shadow-sm'
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-pop-yellow text-slate-900 border border-amber-400 shadow-sm'
+                  : 'text-slate-600 hover:text-slate-950'
               }`}
             >
               <Bot className="w-3.5 h-3.5" />
@@ -139,10 +127,10 @@ export const PlayCompanionsSection: React.FC = () => {
                 soundEngine.playScrubTick();
               }}
               data-cursor="pointer"
-              className={`px-5 py-2 rounded-full text-xs font-medium tracking-wider uppercase transition-all flex items-center gap-2 ${
+              className={`px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all flex items-center gap-2 ${
                 tab === 'games'
-                  ? 'bg-emerald-500/30 text-emerald-200 border border-emerald-400/40 shadow-sm'
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
+                  : 'text-slate-600 hover:text-slate-950'
               }`}
             >
               <Gamepad2 className="w-3.5 h-3.5" />
@@ -154,49 +142,52 @@ export const PlayCompanionsSection: React.FC = () => {
         {/* Tab 1: Mew Mew Virtual Cat Companion */}
         {tab === 'mewmew' && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center animate-in fade-in duration-500">
-            {/* Interactive Cat Playground Card */}
             <div className="lg:col-span-7 flex flex-col gap-6">
-              <div className="glass-card-dark rounded-3xl p-6 sm:p-8 border border-white/10 relative overflow-hidden">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-slate-900/10 shadow-cartoon-sm relative overflow-hidden">
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <h3 className="text-xl font-serif text-white flex items-center gap-2">
-                      <Cat className="w-5 h-5 text-rose-300" />
+                    <h3 className="text-xl font-bold text-slate-900 flex items-center gap-2">
+                      <Cat className="w-5 h-5 text-pop-coral" />
                       <span>Mew Mew — Your Calming Desk Feline</span>
                     </h3>
-                    <p className="text-xs text-slate-400">Click cat to pet & listen to relaxing purrs</p>
+                    <p className="text-xs text-slate-500">Click cat to pet & listen to relaxing purrs</p>
                   </div>
-                  <span className="text-xs font-mono text-rose-300 font-semibold">{catAffection}% Affection</span>
+                  <span className="text-xs font-mono font-bold text-pop-coral px-3 py-1 rounded-full bg-rose-50 border border-rose-200">
+                    {catAffection}% Affection
+                  </span>
                 </div>
 
                 {/* Affection Progress Bar */}
-                <div className="w-full h-2 rounded-full bg-white/10 overflow-hidden mb-6">
+                <div className="w-full h-3 rounded-full bg-slate-100 overflow-hidden mb-6 border border-slate-200">
                   <div
-                    className="h-full bg-gradient-to-r from-rose-400 to-amber-300 rounded-full transition-all duration-500"
+                    className="h-full bg-gradient-to-r from-pop-coral to-pop-yellow rounded-full transition-all duration-500"
                     style={{ width: `${catAffection}%` }}
                   />
                 </div>
 
-                {/* Interactive Cat Avatar Stage */}
+                {/* Interactive Cartoon Cat Stage */}
                 <div
                   onClick={handleCatPet}
                   data-cursor="pointer"
-                  className="relative h-64 rounded-2xl bg-gradient-to-b from-white/5 to-white/10 border border-white/10 flex flex-col items-center justify-center cursor-pointer group shadow-inner"
+                  className="relative h-64 rounded-3xl bg-gradient-to-b from-rose-50 to-amber-50 border-2 border-slate-900/10 flex flex-col items-center justify-center cursor-pointer group shadow-inner cartoon-sticker"
                 >
                   <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    whileHover={{ scale: 1.08 }}
+                    whileTap={{ scale: 0.94 }}
                     className="flex flex-col items-center"
                   >
-                    <div className="w-28 h-28 rounded-full bg-gradient-to-tr from-rose-400/40 via-amber-300/30 to-purple-400/30 flex items-center justify-center shadow-xl border border-white/30 mb-3 relative">
-                      <span className="text-5xl select-none">🐱</span>
-                      <span className="absolute -top-1 -right-1 text-base animate-bounce">💖</span>
+                    <div className="w-28 h-28 rounded-full bg-white border-4 border-slate-900 flex items-center justify-center shadow-cartoon mb-3 relative">
+                      <span className="text-5xl select-none animate-bounce">🐱</span>
+                      <span className="absolute -top-2 -right-2 text-xl">💖</span>
                     </div>
-                    <span className="text-sm font-semibold text-rose-200">Tap to Pet & Purr</span>
-                    <span className="text-xs text-slate-300 font-mono mt-1 text-center px-4">{catAction}</span>
+                    <span className="text-sm font-bold text-slate-900 px-4 py-1 rounded-full bg-white border border-slate-300 shadow-sm">
+                      Tap to Pet & Purr
+                    </span>
+                    <span className="text-xs text-slate-600 font-mono mt-2 text-center px-4 font-semibold">{catAction}</span>
                   </motion.div>
                 </div>
 
-                {/* Action Buttons */}
+                {/* Cartoon Action Buttons */}
                 <div className="flex flex-wrap gap-2 mt-6">
                   {[
                     { label: 'Walk ↔', desc: 'Mew Mew stretches their paws' },
@@ -212,7 +203,7 @@ export const PlayCompanionsSection: React.FC = () => {
                         soundEngine.playKalimba(2);
                       }}
                       data-cursor="pointer"
-                      className="px-3.5 py-2 rounded-xl text-xs font-mono bg-white/5 hover:bg-rose-500/20 text-slate-300 hover:text-rose-200 border border-white/10 transition-colors"
+                      className="px-4 py-2 rounded-2xl text-xs font-mono font-bold bg-slate-50 hover:bg-rose-50 text-slate-700 hover:text-pop-coral border border-slate-200 transition-all cartoon-sticker"
                     >
                       {act.label}
                     </button>
@@ -221,37 +212,34 @@ export const PlayCompanionsSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Companion Screenshot Frame */}
             <div className="lg:col-span-5 flex flex-col items-center">
               <AdaptiveScreenshotFrame
                 src="./assets/screenshots/play-emo-robot.jpeg"
                 alt="inStill Companion Screen"
                 orientation="vertical"
                 tiltDirection="right"
-                glowColor="rgba(242, 186, 201, 0.45)"
+                glowColor="rgba(250, 123, 96, 0.45)"
                 badge="PlaygroundScreen.kt"
               />
             </div>
           </div>
         )}
 
-        {/* Tab 2: EMO Robot Companion */}
+        {/* Tab 2: EMO Robot */}
         {tab === 'emo' && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center animate-in fade-in duration-500">
-            {/* EMO OLED Expression Simulator */}
             <div className="lg:col-span-7 flex flex-col gap-6">
-              <div className="glass-card-dark rounded-3xl p-6 sm:p-8 border border-white/10">
-                <h3 className="text-xl font-serif text-white mb-2 flex items-center gap-2">
-                  <Bot className="w-5 h-5 text-amber-300" />
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-slate-900/10 shadow-cartoon-sm">
+                <h3 className="text-xl font-bold text-slate-900 mb-2 flex items-center gap-2">
+                  <Bot className="w-5 h-5 text-amber-500" />
                   <span>EMO Desktop AI OLED Robot</span>
                 </h3>
-                <p className="text-xs text-slate-400 mb-6">
+                <p className="text-xs text-slate-500 mb-6">
                   Interactive companion with bio-mimetic glowing eye expressions and playful circus routines.
                 </p>
 
                 {/* OLED Screen Box */}
-                <div className="relative h-60 rounded-3xl bg-black border-2 border-slate-700/80 p-6 flex flex-col items-center justify-center shadow-2xl overflow-hidden mb-6">
-                  {/* Glowing OLED Eyes */}
+                <div className="relative h-60 rounded-3xl bg-slate-950 border-4 border-slate-800 p-6 flex flex-col items-center justify-center shadow-cartoon overflow-hidden mb-6">
                   <div className="flex items-center gap-8">
                     {emoExpr === 'happy' && (
                       <>
@@ -285,12 +273,11 @@ export const PlayCompanionsSection: React.FC = () => {
                     )}
                   </div>
 
-                  <span className="text-xs font-mono text-amber-300/80 mt-6 tracking-widest uppercase">
+                  <span className="text-xs font-mono font-bold text-amber-300 mt-6 tracking-widest uppercase">
                     EMO Expression: {emoExpr}
                   </span>
                 </div>
 
-                {/* Expression Selector Chips */}
                 <div className="flex flex-wrap gap-2">
                   {(['normal', 'happy', 'sleepy', 'curious', 'wink', 'surprised', 'heart'] as EmoExpression[]).map((exp) => (
                     <button
@@ -300,10 +287,10 @@ export const PlayCompanionsSection: React.FC = () => {
                         soundEngine.playKalimba(1);
                       }}
                       data-cursor="pointer"
-                      className={`px-3.5 py-1.5 rounded-xl text-xs font-mono uppercase transition-all ${
+                      className={`px-4 py-2 rounded-2xl text-xs font-mono font-bold uppercase transition-all cartoon-sticker ${
                         emoExpr === exp
-                          ? 'bg-amber-500/30 text-amber-200 border border-amber-400/50 shadow-sm'
-                          : 'bg-white/5 text-slate-400 hover:text-white border border-white/5'
+                          ? 'bg-pop-yellow text-slate-900 border-2 border-slate-900 shadow-cartoon-sm'
+                          : 'bg-slate-50 text-slate-600 hover:bg-slate-100 border border-slate-200'
                       }`}
                     >
                       {exp}
@@ -313,33 +300,31 @@ export const PlayCompanionsSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Real Screenshot */}
             <div className="lg:col-span-5 flex flex-col items-center">
               <AdaptiveScreenshotFrame
                 src="./assets/screenshots/play-emo-robot.jpeg"
                 alt="EMO Robot Screen"
                 orientation="vertical"
                 tiltDirection="left"
-                glowColor="rgba(247, 197, 159, 0.45)"
+                glowColor="rgba(254, 214, 104, 0.45)"
                 badge="Circus Mode Activated"
               />
             </div>
           </div>
         )}
 
-        {/* Tab 3: Sensory Mini-Games (Tile Shift, Reflex Core, Bubble Pop) */}
+        {/* Tab 3: Games */}
         {tab === 'games' && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center animate-in fade-in duration-500">
-            {/* Left: Playable Reflex Core & Bubble Pop */}
             <div className="lg:col-span-6 flex flex-col gap-6">
               {/* Playable Reflex Core */}
-              <div className="glass-card-dark rounded-3xl p-6 border border-white/10">
+              <div className="bg-white rounded-3xl p-6 sm:p-7 border-2 border-slate-900/10 shadow-cartoon-sm">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-serif text-white flex items-center gap-2">
-                    <Zap className="w-4 h-4 text-amber-300" />
+                  <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+                    <Zap className="w-4 h-4 text-amber-500" />
                     <span>Playable: Reflex Core</span>
                   </h3>
-                  <span className="text-xs font-mono text-emerald-300">
+                  <span className="text-xs font-mono font-bold text-pop-forest px-3 py-1 rounded-full bg-pop-lime">
                     {reactionTime !== null ? `${reactionTime} ms` : 'Tap to Test'}
                   </span>
                 </div>
@@ -347,42 +332,42 @@ export const PlayCompanionsSection: React.FC = () => {
                 <div
                   onClick={reflexState === 'ready' ? handleReflexTap : startReflexTest}
                   data-cursor="pointer"
-                  className={`h-40 rounded-2xl flex flex-col items-center justify-center cursor-pointer transition-all duration-300 ${
+                  className={`h-40 rounded-3xl flex flex-col items-center justify-center cursor-pointer transition-all duration-300 cartoon-sticker ${
                     reflexState === 'waiting'
-                      ? 'bg-amber-900/40 border-2 border-amber-500/50'
+                      ? 'bg-amber-100 border-4 border-amber-500 text-amber-900'
                       : reflexState === 'ready'
-                      ? 'bg-emerald-600/60 border-2 border-emerald-400 scale-102 shadow-2xl animate-pulse'
-                      : 'bg-white/5 border border-white/10 hover:bg-white/10'
+                      ? 'bg-pop-lime border-4 border-pop-forest text-pop-forest scale-102 shadow-cartoon animate-pulse'
+                      : 'bg-slate-50 border-2 border-slate-200 hover:bg-slate-100'
                   }`}
                 >
                   {reflexState === 'idle' && (
-                    <span className="text-sm font-semibold text-white">Click Here to Start Reaction Test</span>
+                    <span className="text-sm font-bold text-slate-800">Click Here to Start Reaction Test</span>
                   )}
                   {reflexState === 'waiting' && (
-                    <span className="text-sm font-semibold text-amber-300">Wait for Green...</span>
+                    <span className="text-sm font-bold text-amber-800">Wait for Green...</span>
                   )}
                   {reflexState === 'ready' && (
-                    <span className="text-xl font-bold font-mono tracking-wider uppercase text-emerald-200">
+                    <span className="text-2xl font-black font-mono tracking-wider uppercase text-pop-forest">
                       TAP NOW!
                     </span>
                   )}
                   {reflexState === 'result' && (
                     <div className="text-center">
-                      <div className="text-2xl font-mono font-bold text-emerald-300">{reactionTime} ms</div>
-                      <div className="text-xs text-slate-300 mt-1">Excellent speed! Click to retry.</div>
+                      <div className="text-3xl font-mono font-extrabold text-pop-forest">{reactionTime} ms</div>
+                      <div className="text-xs text-slate-600 mt-1 font-semibold">Great speed! Click to retry.</div>
                     </div>
                   )}
                 </div>
               </div>
 
               {/* Playable Bubble Pop */}
-              <div className="glass-card-dark rounded-3xl p-6 border border-white/10">
+              <div className="bg-white rounded-3xl p-6 border-2 border-slate-900/10 shadow-cartoon-sm">
                 <div className="flex items-center justify-between mb-4">
-                  <h4 className="text-sm font-semibold text-white">Spatial Bubble Pop</h4>
+                  <h4 className="text-sm font-bold text-slate-900">Spatial Bubble Pop</h4>
                   <button
                     onClick={resetBubbles}
                     data-cursor="pointer"
-                    className="p-1.5 rounded-full bg-white/5 hover:bg-white/10 text-slate-300"
+                    className="p-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700"
                     title="Reset Bubbles"
                   >
                     <RefreshCw className="w-3.5 h-3.5" />
@@ -395,27 +380,27 @@ export const PlayCompanionsSection: React.FC = () => {
                       disabled={!active}
                       onClick={() => popBubble(i)}
                       data-cursor="pointer"
-                      className={`h-14 rounded-2xl transition-all duration-200 flex items-center justify-center ${
+                      className={`h-14 rounded-2xl transition-all duration-200 flex items-center justify-center cartoon-sticker ${
                         active
-                          ? 'glass-card border border-white/40 shadow-md hover:scale-105 active:scale-90 bg-emerald-400/20'
-                          : 'bg-white/5 border border-white/5 opacity-20'
+                          ? 'bg-pop-lime/40 border-2 border-pop-forest shadow-cartoon-sm hover:scale-110 active:scale-95'
+                          : 'bg-slate-100 border border-slate-200 opacity-25'
                       }`}
                     >
-                      {active ? <span className="w-3 h-3 rounded-full bg-white/40 blur-[1px]" /> : null}
+                      {active ? <span className="w-3.5 h-3.5 rounded-full bg-white shadow-sm" /> : null}
                     </button>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Right: Side-by-side Screenshots for Tile Shift & Reflex Core */}
+            {/* Right: Side-by-side Screenshots */}
             <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
               <AdaptiveScreenshotFrame
                 src="./assets/screenshots/play-game-2048.jpeg"
                 alt="Tile Shift 2048 Game"
                 orientation="vertical"
                 tiltDirection="left"
-                glowColor="rgba(216, 70, 95, 0.35)"
+                glowColor="rgba(250, 123, 96, 0.4)"
                 badge="Tile Shift 2048"
               />
               <AdaptiveScreenshotFrame
@@ -423,7 +408,7 @@ export const PlayCompanionsSection: React.FC = () => {
                 alt="Reflex Core Frost Game"
                 orientation="vertical"
                 tiltDirection="right"
-                glowColor="rgba(247, 197, 159, 0.35)"
+                glowColor="rgba(254, 214, 104, 0.4)"
                 badge="Reflex Core"
               />
             </div>

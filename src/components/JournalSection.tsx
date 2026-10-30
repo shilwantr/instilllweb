@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { PenLine, Footprints, Droplets, TrendingUp, Sparkles, X, Check } from 'lucide-react';
+import { PenLine, TrendingUp, X } from 'lucide-react';
 import { AdaptiveScreenshotFrame } from './AdaptiveScreenshotFrame';
 import { soundEngine } from '../utils/audio';
 
 export const JournalSection: React.FC = () => {
-  // Metric and Interval Toggles
   const [metric, setMetric] = useState<'mood' | 'steps' | 'water'>('mood');
   const [interval, setInterval] = useState<'hrs' | 'days' | 'weeks' | 'months'>('days');
 
-  // Interactive Journal Entry Composer Modal State
   const [isComposerOpen, setIsComposerOpen] = useState(false);
   const [entryTitle, setEntryTitle] = useState('Evening Stillness');
   const [entryContent, setEntryContent] = useState(
@@ -17,43 +15,34 @@ export const JournalSection: React.FC = () => {
   );
   const [entryMood, setEntryMood] = useState('Centred & Serene');
 
-  const splinePoints: Record<string, number[]> = {
-    mood: [65, 72, 85, 78, 92, 88, 95],
-    steps: [4500, 7200, 8900, 10200, 6800, 11400, 9500],
-    water: [1800, 2200, 2500, 2100, 2500, 2400, 2500],
-  };
-
   return (
-    <section id="journal" className="py-24 px-4 sm:px-8 relative bg-still-darkBg/95 text-white overflow-hidden">
-      {/* Background radial glow */}
-      <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-pastelLavender-gauge/10 rounded-full blur-3xl pointer-events-none" />
-
+    <section id="journal" className="py-24 px-4 sm:px-8 relative bg-white text-slate-900 overflow-hidden border-b border-slate-100">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono tracking-widest uppercase glass-panel-dark text-emerald-300 border border-emerald-400/20 mb-4">
-            <span>Section 05</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-lavender text-purple-950 border border-slate-900/15 shadow-cartoon-sm mb-4">
+            <span>📖 Section 05</span>
             <span>•</span>
             <span>JournalScreen.kt</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-serif font-medium tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-5xl font-sans font-extrabold tracking-tight mb-4 text-slate-900">
             Journal & Multi-Scale Trend Analytics
           </h2>
-          <p className="text-slate-300 text-base sm:text-lg font-light leading-relaxed">
+          <p className="text-slate-600 text-base sm:text-lg font-normal leading-relaxed">
             Reflective journaling paired with automated pedometer and hydration tracking,
             synthesized into mathematical cubic spline trend curves.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Real App Screenshot in Adaptive Tilt Frame */}
+          {/* Left: App Screenshot in Light Frame */}
           <div className="lg:col-span-5 flex flex-col items-center order-2 lg:order-1">
             <AdaptiveScreenshotFrame
               src="./assets/screenshots/journal-metrics.jpeg"
               alt="inStill Journal and Telemetry Metrics"
               orientation="vertical"
               tiltDirection="left"
-              glowColor="rgba(195, 177, 225, 0.4)"
+              glowColor="rgba(203, 180, 245, 0.45)"
               badge="JournalScreen.kt"
               hotspots={[
                 {
@@ -78,21 +67,20 @@ export const JournalSection: React.FC = () => {
             />
           </div>
 
-          {/* Right Column: Interactive Spline Chart & Reflections Composer */}
+          {/* Right: Interactive Spline Chart & Reflections Composer */}
           <div className="lg:col-span-7 flex flex-col gap-6 order-1 lg:order-2">
-            {/* Interactive Trend Chart Card */}
-            <div className="glass-card-dark rounded-3xl p-6 sm:p-8 border border-white/10">
+            {/* Chart Card */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-slate-900/10 shadow-cartoon-sm">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                 <div>
-                  <h3 className="text-lg font-serif font-medium text-white flex items-center gap-2">
-                    <TrendingUp className="w-5 h-5 text-emerald-300" />
+                  <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+                    <TrendingUp className="w-5 h-5 text-pop-forest" />
                     <span>Hermite Cubic Spline Trends</span>
                   </h3>
-                  <p className="text-xs text-slate-400">Continuous biometric trajectory analytics</p>
+                  <p className="text-xs text-slate-500">Continuous biometric trajectory analytics</p>
                 </div>
 
-                {/* Metric Selector Tabs */}
-                <div className="flex items-center gap-1.5 p-1 rounded-xl bg-white/5 border border-white/10 self-start sm:self-auto">
+                <div className="flex items-center gap-1.5 p-1 rounded-xl bg-slate-100 border border-slate-200 self-start sm:self-auto">
                   {(['mood', 'steps', 'water'] as const).map((m) => (
                     <button
                       key={m}
@@ -101,10 +89,10 @@ export const JournalSection: React.FC = () => {
                         soundEngine.playStepClick();
                       }}
                       data-cursor="pointer"
-                      className={`px-3 py-1 rounded-lg text-xs font-mono uppercase transition-all ${
+                      className={`px-3 py-1 rounded-lg text-xs font-mono font-bold uppercase transition-all ${
                         metric === m
-                          ? 'bg-emerald-500/30 text-emerald-200 border border-emerald-400/40'
-                          : 'text-slate-400 hover:text-white'
+                          ? 'bg-pop-lime text-pop-forest shadow-sm'
+                          : 'text-slate-600 hover:text-slate-950'
                       }`}
                     >
                       {m}
@@ -113,7 +101,7 @@ export const JournalSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Time Interval Tabs */}
+              {/* Time Intervals */}
               <div className="flex items-center gap-2 mb-6">
                 {(['hrs', 'days', 'weeks', 'months'] as const).map((t) => (
                   <button
@@ -123,10 +111,10 @@ export const JournalSection: React.FC = () => {
                       soundEngine.playScrubTick();
                     }}
                     data-cursor="pointer"
-                    className={`px-3 py-1 rounded-full text-xs font-mono uppercase transition-all ${
+                    className={`px-3.5 py-1 rounded-full text-xs font-mono font-bold uppercase transition-all ${
                       interval === t
-                        ? 'bg-white/20 text-white font-semibold'
-                        : 'bg-white/5 text-slate-400 hover:text-white'
+                        ? 'bg-slate-900 text-white shadow-cartoon-sm'
+                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                     }`}
                   >
                     {t}
@@ -134,29 +122,26 @@ export const JournalSection: React.FC = () => {
                 ))}
               </div>
 
-              {/* The Spline Curve SVG */}
+              {/* Spline SVG */}
               <div className="h-44 w-full relative">
                 <svg className="w-full h-full overflow-visible" viewBox="0 0 600 120" preserveAspectRatio="none">
                   <defs>
-                    <linearGradient id="splineGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#C3B1E1" stopOpacity="0.45" />
-                      <stop offset="100%" stopColor="#C3B1E1" stopOpacity="0.0" />
+                    <linearGradient id="splineLightGradient" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#CBB4F5" stopOpacity="0.5" />
+                      <stop offset="100%" stopColor="#CBB4F5" stopOpacity="0.0" />
                     </linearGradient>
                   </defs>
-                  {/* Fill area */}
                   <path
                     d="M 0,80 C 100,50 150,90 200,40 C 280,10 350,60 420,25 C 500,10 550,40 600,15 L 600,120 L 0,120 Z"
-                    fill="url(#splineGradient)"
+                    fill="url(#splineLightGradient)"
                   />
-                  {/* Stroke path */}
                   <path
                     d="M 0,80 C 100,50 150,90 200,40 C 280,10 350,60 420,25 C 500,10 550,40 600,15"
                     fill="none"
-                    stroke="#C3B1E1"
+                    stroke="#7C3AED"
                     strokeWidth="3.5"
                     strokeLinecap="round"
                   />
-                  {/* Points */}
                   {[
                     { x: 0, y: 80 },
                     { x: 100, y: 50 },
@@ -170,14 +155,14 @@ export const JournalSection: React.FC = () => {
                       key={i}
                       cx={pt.x}
                       cy={pt.y}
-                      r="4.5"
-                      className="fill-purple-300 stroke-white stroke-2 shadow-md hover:scale-125 transition-transform"
+                      r="5.5"
+                      className="fill-pop-yellow stroke-slate-900 stroke-2 shadow-cartoon-sm hover:scale-125 transition-transform"
                     />
                   ))}
                 </svg>
               </div>
 
-              <div className="flex items-center justify-between text-xs font-mono text-slate-400 mt-4 pt-3 border-t border-white/5">
+              <div className="flex items-center justify-between text-xs font-mono font-bold text-slate-500 mt-4 pt-3 border-t border-slate-100">
                 <span>Mon</span>
                 <span>Tue</span>
                 <span>Wed</span>
@@ -188,15 +173,15 @@ export const JournalSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Quick Reflections Composer Trigger Card */}
-            <div className="glass-card-dark rounded-3xl p-6 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            {/* Quick Reflections Composer Trigger */}
+            <div className="bg-white rounded-3xl p-6 border-2 border-slate-900/10 shadow-cartoon-sm flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-purple-500/20 text-purple-300 flex items-center justify-center border border-purple-400/30">
+                <div className="w-12 h-12 rounded-2xl bg-pop-lavender text-purple-950 flex items-center justify-center border-2 border-slate-900 shadow-cartoon-sm">
                   <PenLine className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="text-base font-semibold text-white">Reflections & Thoughts Composer</h4>
-                  <p className="text-xs text-slate-400">Capture daily insights, mood shifts, and gratitude milestones.</p>
+                  <h4 className="text-base font-bold text-slate-900">Reflections & Thoughts Composer</h4>
+                  <p className="text-xs text-slate-500">Capture daily insights, mood shifts, and gratitude milestones.</p>
                 </div>
               </div>
 
@@ -206,7 +191,7 @@ export const JournalSection: React.FC = () => {
                   soundEngine.playKalimba(2);
                 }}
                 data-cursor="pointer"
-                className="px-6 py-2.5 rounded-full bg-still-buttonDark text-white text-xs font-medium tracking-wider uppercase hover:bg-emerald-600 transition-colors shadow-lg"
+                className="px-7 py-3 rounded-full bg-slate-950 text-white text-xs font-bold tracking-wider uppercase hover:bg-slate-800 transition-colors shadow-cartoon"
               >
                 Write Entry
               </button>
@@ -215,24 +200,24 @@ export const JournalSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Interactive Modal: Reflections Composer */}
+      {/* Interactive Modal */}
       <AnimatePresence>
         {isComposerOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md">
             <motion.div
               initial={{ opacity: 0, scale: 0.94, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.94, y: 20 }}
-              className="max-w-lg w-full rounded-3xl glass-card-dark p-6 sm:p-8 border border-white/20 shadow-2xl relative"
+              className="max-w-lg w-full rounded-3xl bg-white p-6 sm:p-8 border-2 border-slate-900 shadow-cartoon relative"
             >
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-mono uppercase tracking-widest text-emerald-300">
-                  New Journal Reflection
+                <span className="text-xs font-mono font-bold uppercase tracking-widest text-pop-forest">
+                  ✨ New Journal Reflection
                 </span>
                 <button
                   onClick={() => setIsComposerOpen(false)}
                   data-cursor="pointer"
-                  className="p-1.5 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white"
+                  className="p-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -240,27 +225,27 @@ export const JournalSection: React.FC = () => {
 
               <div className="space-y-4">
                 <div>
-                  <label className="text-xs text-slate-300 font-medium block mb-1">Title</label>
+                  <label className="text-xs text-slate-700 font-bold block mb-1">Title</label>
                   <input
                     type="text"
                     value={entryTitle}
                     onChange={(e) => setEntryTitle(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-2xl bg-white/5 border border-white/15 text-white text-sm focus:outline-none focus:border-emerald-400"
+                    className="w-full px-4 py-2.5 rounded-2xl bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:outline-none focus:border-pop-forest font-semibold"
                   />
                 </div>
 
                 <div>
-                  <label className="text-xs text-slate-300 font-medium block mb-1">Reflections</label>
+                  <label className="text-xs text-slate-700 font-bold block mb-1">Reflections</label>
                   <textarea
                     rows={4}
                     value={entryContent}
                     onChange={(e) => setEntryContent(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-2xl bg-white/5 border border-white/15 text-white text-sm focus:outline-none focus:border-emerald-400 resize-none leading-relaxed"
+                    className="w-full px-4 py-2.5 rounded-2xl bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:outline-none focus:border-pop-forest resize-none leading-relaxed font-normal"
                   />
                 </div>
 
                 <div>
-                  <label className="text-xs text-slate-300 font-medium block mb-1">Mood Tag</label>
+                  <label className="text-xs text-slate-700 font-bold block mb-1">Mood Tag</label>
                   <div className="flex flex-wrap gap-2">
                     {['Centred & Serene', 'Grateful', 'Deep Focus', 'Reflective Stillness'].map((tag) => (
                       <button
@@ -270,10 +255,10 @@ export const JournalSection: React.FC = () => {
                           soundEngine.playScrubTick();
                         }}
                         type="button"
-                        className={`px-3 py-1 rounded-full text-xs transition-all ${
+                        className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
                           entryMood === tag
-                            ? 'bg-emerald-500/30 text-emerald-200 border border-emerald-400'
-                            : 'bg-white/5 text-slate-400 hover:text-white'
+                            ? 'bg-pop-lime text-pop-forest border-2 border-pop-forest shadow-cartoon-sm'
+                            : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                         }`}
                       >
                         {tag}
@@ -282,11 +267,11 @@ export const JournalSection: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-end gap-3 pt-3 border-t border-white/10">
+                <div className="flex items-center justify-end gap-3 pt-4 border-t border-slate-100">
                   <button
                     onClick={() => setIsComposerOpen(false)}
                     data-cursor="pointer"
-                    className="px-5 py-2 rounded-full text-xs text-slate-400 hover:text-white"
+                    className="px-5 py-2 rounded-full text-xs font-bold text-slate-600 hover:text-slate-950"
                   >
                     Cancel
                   </button>
@@ -296,7 +281,7 @@ export const JournalSection: React.FC = () => {
                       setIsComposerOpen(false);
                     }}
                     data-cursor="pointer"
-                    className="px-6 py-2 rounded-full bg-still-buttonDark text-white text-xs font-semibold hover:bg-emerald-600 transition-colors shadow-md"
+                    className="px-7 py-2.5 rounded-full bg-slate-950 text-white text-xs font-bold hover:bg-slate-800 transition-colors shadow-cartoon-sm"
                   >
                     Save Entry
                   </button>

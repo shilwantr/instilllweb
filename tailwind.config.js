@@ -6,18 +6,29 @@ export default {
     extend: {
       colors: {
         still: {
-          lightBg: '#F2F5F7',
-          lightCard: '#F8FAFC',
+          lightBg: '#FAFBF9',
+          lightCard: '#FFFFFF',
           darkBg: '#0B1310',
           darkCard: '#182621',
-          slatePrimary: '#0F172A',
-          slateSecondary: '#334155',
-          forestSage: '#1F5C3F',
+          slatePrimary: '#111827',
+          slateSecondary: '#4B5563',
+          forestSage: '#154734',
           celadonSage: '#8FAF9B',
-          buttonLight: '#2D5A47',
-          buttonDark: '#6B9E88',
+          buttonLight: '#154734',
+          buttonDark: '#2D5A47',
         },
-        // The 4 Curated Pastel Theme Palettes:
+        // Wix Pop Cartoon Palette from Reference
+        pop: {
+          lime: '#D2F56C',
+          forest: '#0A4839',
+          periwinkle: '#8FA8FF',
+          coral: '#FA7B60',
+          yellow: '#FED668',
+          lavender: '#CBB4F5',
+          mint: '#A7F3D0',
+          cream: '#FAFBF8',
+        },
+        // Pastel Themes
         pastelOlive: {
           gauge: '#C5D8A4',
           dustyPink: '#D5A6BD',
@@ -47,6 +58,12 @@ export default {
           dustySky: '#A3C4DC',
         },
       },
+      boxShadow: {
+        'cartoon': '4px 4px 0px 0px rgba(15, 23, 42, 0.9)',
+        'cartoon-sm': '2px 2px 0px 0px rgba(15, 23, 42, 0.9)',
+        'cartoon-lime': '4px 4px 0px 0px #0A4839',
+        'soft-float': '0 20px 40px -15px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0,0,0,0.04)',
+      },
       fontFamily: {
         serif: ['"Playfair Display"', 'Georgia', 'serif'],
         sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
@@ -54,13 +71,23 @@ export default {
       },
       animation: {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'float-slow': 'float 6s ease-in-out infinite',
+        'float-slow': 'float 5s ease-in-out infinite',
+        'float-alt': 'floatAlt 6s ease-in-out infinite',
+        'wiggle': 'wiggle 3s ease-in-out infinite',
         'sand-flow': 'sand 1.5s linear infinite',
       },
       keyframes: {
         float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-10px)' },
+          '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+          '50%': { transform: 'translateY(-8px) rotate(1deg)' },
+        },
+        floatAlt: {
+          '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+          '50%': { transform: 'translateY(-10px) rotate(-1.5deg)' },
+        },
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-2deg)' },
+          '50%': { transform: 'rotate(2deg)' },
         },
         sand: {
           '0%': { transform: 'translateY(-2px) scale(0.8)', opacity: '0.4' },

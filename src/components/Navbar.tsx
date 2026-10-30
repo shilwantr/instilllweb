@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Moon, Volume2, Sparkles, User, Clock, Menu, X } from 'lucide-react';
+import { Clock, Volume2, Sparkles, Menu, X, ArrowUpRight } from 'lucide-react';
 import { LivingTheme } from './LivingCanvas';
 import { soundEngine } from '../utils/audio';
 
@@ -21,9 +21,9 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > 30);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -40,10 +40,10 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 pt-4 transition-all duration-300">
       <nav
-        className={`max-w-6xl mx-auto rounded-full transition-all duration-300 px-5 sm:px-7 py-3 flex items-center justify-between ${
+        className={`max-w-6xl mx-auto rounded-full transition-all duration-300 px-5 sm:px-8 py-3.5 flex items-center justify-between ${
           scrolled
-            ? 'glass-card-dark text-white border border-white/15 shadow-xl'
-            : 'glass-panel-dark text-slate-100 border border-white/10 backdrop-blur-xl'
+            ? 'bg-white/95 text-slate-900 border-2 border-slate-900/10 shadow-lg backdrop-blur-xl'
+            : 'bg-white/80 text-slate-900 border border-slate-200/80 shadow-sm backdrop-blur-md'
         }`}
       >
         {/* Brand Logotype */}
@@ -53,25 +53,25 @@ export const Navbar: React.FC<NavbarProps> = ({
           className="flex items-center gap-2.5 group"
           onClick={() => soundEngine.playScrubTick()}
         >
-          <div className="w-8 h-8 rounded-full bg-still-forestSage/70 border border-emerald-400/40 flex items-center justify-center text-emerald-300 font-bold text-xs tracking-wider transition-transform group-hover:scale-105">
+          <div className="w-8 h-8 rounded-full bg-pop-forest flex items-center justify-center text-pop-lime font-bold text-xs tracking-wider transition-transform group-hover:scale-110 shadow-sm">
             S
           </div>
           <div className="flex flex-col">
-            <span className="font-serif tracking-[0.28em] text-lg font-bold text-white uppercase group-hover:text-emerald-300 transition-colors">
+            <span className="font-serif tracking-[0.22em] text-lg font-bold text-slate-900 uppercase group-hover:text-pop-forest transition-colors">
               inStill
             </span>
           </div>
         </a>
 
         {/* Center Nav Links (Desktop) */}
-        <div className="hidden lg:flex items-center gap-7 text-xs font-medium tracking-wider uppercase text-slate-300">
+        <div className="hidden lg:flex items-center gap-7 text-xs font-semibold tracking-wider uppercase text-slate-600">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               data-cursor="pointer"
               onClick={() => soundEngine.playScrubTick()}
-              className="hover:text-emerald-300 transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-emerald-400 after:transition-all hover:after:w-full"
+              className="hover:text-pop-forest transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-pop-forest after:transition-all hover:after:w-full"
             >
               {link.name}
             </a>
@@ -88,9 +88,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             }}
             data-cursor="pointer"
             title="Cycle Living Canvas Theme"
-            className="px-3 py-1.5 rounded-full text-xs font-mono font-medium tracking-wider bg-white/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 flex items-center gap-1.5 transition-all"
+            className="px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-pop-lime text-pop-forest border border-pop-forest/20 flex items-center gap-1.5 transition-transform hover:scale-105 shadow-sm"
           >
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-pop-forest animate-pulse" />
             <span>• {currentTheme}</span>
           </button>
 
@@ -102,9 +102,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             }}
             data-cursor="pointer"
             title="Open Fullscreen StandBy Desk Clock"
-            className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-slate-200 border border-white/15 transition-all"
+            className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
           >
-            <Clock className="w-4 h-4 text-emerald-300" />
+            <Clock className="w-4 h-4 text-pop-forest" />
           </button>
 
           {/* Soundscapes Modal Button */}
@@ -115,15 +115,26 @@ export const Navbar: React.FC<NavbarProps> = ({
             }}
             data-cursor="pointer"
             title="Test Sensory Soundscapes"
-            className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-slate-200 border border-white/15 transition-all"
+            className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
           >
-            <Volume2 className="w-4 h-4 text-amber-300" />
+            <Volume2 className="w-4 h-4 text-pop-coral" />
           </button>
+
+          {/* Black Pill CTA button (matching reference) */}
+          <a
+            href="#today"
+            data-cursor="pointer"
+            onClick={() => soundEngine.playBreatheBell()}
+            className="hidden sm:flex items-center gap-1.5 px-5 py-2 rounded-full bg-slate-950 hover:bg-slate-800 text-white text-xs font-semibold tracking-wide transition-all shadow-sm hover:shadow-md"
+          >
+            <span>Explore App</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </a>
 
           {/* Mobile Menu Hamburger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-full bg-white/10 text-slate-200 lg:hidden"
+            className="p-2 rounded-full bg-slate-100 text-slate-700 lg:hidden"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
@@ -133,8 +144,8 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Nav Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden mt-2 max-w-6xl mx-auto rounded-3xl p-5 glass-card-dark border border-white/15 shadow-2xl animate-in fade-in slide-in-from-top-4">
-          <div className="flex flex-col gap-3 text-sm tracking-wider uppercase">
+        <div className="lg:hidden mt-2 max-w-6xl mx-auto rounded-3xl p-5 bg-white text-slate-900 border border-slate-200 shadow-2xl animate-in fade-in slide-in-from-top-4">
+          <div className="flex flex-col gap-3 text-sm font-semibold tracking-wider uppercase">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -143,7 +154,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   soundEngine.playScrubTick();
                   setMobileMenuOpen(false);
                 }}
-                className="py-2 text-slate-300 hover:text-emerald-300 border-b border-white/5 transition-colors"
+                className="py-2 text-slate-700 hover:text-pop-forest border-b border-slate-100 transition-colors"
               >
                 {link.name}
               </a>

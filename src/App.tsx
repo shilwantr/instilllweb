@@ -18,11 +18,11 @@ import { SoundscapesModal } from './components/SoundscapesModal';
 import { LivingTheme } from './components/LivingCanvas';
 
 export const App: React.FC = () => {
-  const [currentTheme, setCurrentTheme] = useState<LivingTheme>('FW');
+  const [currentTheme, setCurrentTheme] = useState<LivingTheme>('CW');
   const [isClockModalOpen, setIsClockModalOpen] = useState(false);
   const [isSoundModalOpen, setIsSoundModalOpen] = useState(false);
 
-  const themeCycleOrder: LivingTheme[] = ['FW', 'CW', 'MS', 'CD', 'OA', 'TP', 'ZR', 'HW', 'TD', 'LT', 'RT'];
+  const themeCycleOrder: LivingTheme[] = ['CW', 'FW', 'MS', 'CD', 'OA', 'TP', 'ZR', 'HW', 'TD', 'LT', 'RT'];
 
   const cycleTheme = () => {
     const currentIndex = themeCycleOrder.indexOf(currentTheme);
@@ -31,7 +31,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-still-darkBg text-slate-100 font-sans selection:bg-emerald-500/30 selection:text-white">
+    <div className="relative min-h-screen bg-pop-cream text-slate-900 font-sans selection:bg-pop-lime selection:text-pop-forest">
       {/* Bespoke Translucent Hourglass Cursor (Desktop) */}
       <CustomCursor />
 
@@ -44,7 +44,7 @@ export const App: React.FC = () => {
       />
 
       <main>
-        {/* Section 1: Hero & Living Canvas Background */}
+        {/* Section 1: Hero with Tilted Cartoon Stickers */}
         <HeroSection
           currentTheme={currentTheme}
           onThemeSelect={(t) => setCurrentTheme(t)}
@@ -66,7 +66,7 @@ export const App: React.FC = () => {
         {/* Section 7: Play & Sensory Companions */}
         <PlayCompanionsSection />
 
-        {/* Section 8: Focus Desk Clock & StandBy Mode (Landscape Showcase) */}
+        {/* Section 8: Focus Desk Clock & StandBy Mode */}
         <DeskClockSection onOpenFullscreenModal={() => setIsClockModalOpen(true)} />
 
         {/* Section 9: DoomScroll Breaker (Digital Wellbeing) */}
