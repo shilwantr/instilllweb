@@ -112,7 +112,8 @@ export const TodayDashboardSection: React.FC = () => {
                       soundEngine.playKalimba(1);
                     }}
                     data-cursor="pointer"
-                    className="p-2 rounded-full bg-slate-100 hover:bg-rose-100 text-slate-600 transition-colors"
+                    aria-label={isFavorited ? 'Remove quote from favorites' : 'Add quote to favorites'}
+                    className="p-2 rounded-full bg-slate-100 hover:bg-rose-100 text-slate-700 transition-colors min-w-[36px] min-h-[36px] flex items-center justify-center"
                     title="Favorite Quote"
                   >
                     <Heart className={`w-4 h-4 ${isFavorited ? 'fill-rose-500 text-rose-500' : ''}`} />
@@ -120,7 +121,8 @@ export const TodayDashboardSection: React.FC = () => {
                   <button
                     onClick={handleNextQuote}
                     data-cursor="pointer"
-                    className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+                    aria-label="Generate new daily reflection quote"
+                    className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors min-w-[36px] min-h-[36px] flex items-center justify-center"
                     title="Re-roll Quote"
                   >
                     <RefreshCw className="w-4 h-4 hover:rotate-180 transition-transform duration-500" />
@@ -160,6 +162,7 @@ export const TodayDashboardSection: React.FC = () => {
                       soundEngine.playKalimba(idx);
                     }}
                     data-cursor="pointer"
+                    aria-label={`Log mood state: ${m.id}`}
                     className={`flex flex-col items-center justify-center p-1.5 xs:p-2 sm:p-3 rounded-2xl transition-all duration-200 cartoon-sticker min-h-[52px] ${
                       selectedMood === m.id
                         ? `${m.bg} border-2 shadow-cartoon scale-105 font-bold`
@@ -179,13 +182,13 @@ export const TodayDashboardSection: React.FC = () => {
               <div className="bg-white rounded-3xl p-5 border-2 border-slate-900/10 shadow-cartoon-sm flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs uppercase font-mono font-bold text-sky-700 flex items-center gap-1.5">
-                      <Droplet className="w-3.5 h-3.5 text-sky-500 fill-current" /> Hydration
+                    <span className="text-xs uppercase font-mono font-bold text-sky-800 flex items-center gap-1.5">
+                      <Droplet className="w-3.5 h-3.5 text-sky-600 fill-current" /> Hydration
                     </span>
-                    <span className="text-xs font-bold text-slate-500">{((waterMl / 2500) * 100).toFixed(0)}%</span>
+                    <span className="text-xs font-bold text-slate-600">{((waterMl / 2500) * 100).toFixed(0)}%</span>
                   </div>
                   <div className="text-2xl font-sans font-extrabold text-slate-900 mb-1">
-                    {(waterMl / 1000).toFixed(2)} <span className="text-sm font-normal text-slate-500">/ 2.5 L</span>
+                    {(waterMl / 1000).toFixed(2)} <span className="text-sm font-normal text-slate-600">/ 2.5 L</span>
                   </div>
                   {/* Progress bar */}
                   <div className="w-full h-2.5 rounded-full bg-slate-100 overflow-hidden mb-4 border border-slate-200">
@@ -200,6 +203,7 @@ export const TodayDashboardSection: React.FC = () => {
                   <button
                     onClick={() => addWater(150)}
                     data-cursor="pointer"
+                    aria-label="Add 150ml of water"
                     className="flex-1 py-1.5 text-xs font-bold rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-200 transition-colors"
                   >
                     +150ml
@@ -207,6 +211,7 @@ export const TodayDashboardSection: React.FC = () => {
                   <button
                     onClick={() => addWater(250)}
                     data-cursor="pointer"
+                    aria-label="Add 250ml of water"
                     className="flex-1 py-1.5 text-xs font-bold rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-200 transition-colors"
                   >
                     +250ml
@@ -214,6 +219,7 @@ export const TodayDashboardSection: React.FC = () => {
                   <button
                     onClick={() => addWater(500)}
                     data-cursor="pointer"
+                    aria-label="Add 500ml of water"
                     className="flex-1 py-1.5 text-xs font-bold rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-200 transition-colors"
                   >
                     +500ml
@@ -221,7 +227,8 @@ export const TodayDashboardSection: React.FC = () => {
                   <button
                     onClick={undoWater}
                     data-cursor="pointer"
-                    className="px-2.5 py-1.5 text-xs rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors font-semibold"
+                    aria-label="Undo last water intake"
+                    className="px-2.5 py-1.5 text-xs rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors font-semibold"
                     title="Undo last log"
                   >
                     Undo
@@ -292,6 +299,7 @@ export const TodayDashboardSection: React.FC = () => {
                 max="6"
                 step="1"
                 value={scrubberDay}
+                aria-label="Mood trend weekly day scrubber"
                 onChange={(e) => {
                   setScrubberDay(parseInt(e.target.value));
                   soundEngine.playScrubTick();

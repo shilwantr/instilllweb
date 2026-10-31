@@ -208,16 +208,20 @@ export const JournalSection: React.FC = () => {
               initial={{ opacity: 0, scale: 0.94, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.94, y: 20 }}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="journal-modal-heading"
               className="max-w-lg w-full rounded-3xl bg-white p-5 sm:p-8 border-2 border-slate-900 shadow-cartoon relative max-h-[90dvh] overflow-y-auto"
             >
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-mono font-bold uppercase tracking-widest text-pop-forest">
+                <span id="journal-modal-heading" className="text-xs font-mono font-bold uppercase tracking-widest text-pop-forest">
                   ✨ New Journal Reflection
                 </span>
                 <button
                   onClick={() => setIsComposerOpen(false)}
                   data-cursor="pointer"
-                  className="p-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600"
+                  aria-label="Close reflections composer"
+                  className="p-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 min-w-[36px] min-h-[36px] flex items-center justify-center"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -225,8 +229,10 @@ export const JournalSection: React.FC = () => {
 
               <div className="space-y-4">
                 <div>
-                  <label className="text-xs text-slate-700 font-bold block mb-1">Title</label>
+                  <label htmlFor="journal-entry-title" className="text-xs text-slate-700 font-bold block mb-1">Title</label>
                   <input
+                    id="journal-entry-title"
+                    name="entryTitle"
                     type="text"
                     value={entryTitle}
                     onChange={(e) => setEntryTitle(e.target.value)}
@@ -235,8 +241,10 @@ export const JournalSection: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="text-xs text-slate-700 font-bold block mb-1">Reflections</label>
+                  <label htmlFor="journal-entry-content" className="text-xs text-slate-700 font-bold block mb-1">Reflections</label>
                   <textarea
+                    id="journal-entry-content"
+                    name="entryContent"
                     rows={4}
                     value={entryContent}
                     onChange={(e) => setEntryContent(e.target.value)}
@@ -245,7 +253,7 @@ export const JournalSection: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="text-xs text-slate-700 font-bold block mb-1">Mood Tag</label>
+                  <span className="text-xs text-slate-700 font-bold block mb-1">Mood Tag</span>
                   <div className="flex flex-wrap gap-2">
                     {['Centred & Serene', 'Grateful', 'Deep Focus', 'Reflective Stillness'].map((tag) => (
                       <button
@@ -255,6 +263,7 @@ export const JournalSection: React.FC = () => {
                           soundEngine.playScrubTick();
                         }}
                         type="button"
+                        aria-label={`Select mood tag: ${tag}`}
                         className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
                           entryMood === tag
                             ? 'bg-pop-lime text-pop-forest border-2 border-pop-forest shadow-cartoon-sm'

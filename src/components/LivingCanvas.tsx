@@ -191,5 +191,5 @@ export const LivingCanvas: React.FC<LivingCanvasProps> = ({ theme, className = '
     };
   }, [theme, isMini]);
 
-  return <canvas ref={canvasRef} className={`w-full h-full block ${className}`} />;
+  return <canvas ref={canvasRef} aria-hidden="true" className={`w-full h-full block ${className}`} />;
 };

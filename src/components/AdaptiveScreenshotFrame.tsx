@@ -162,6 +162,11 @@ export const AdaptiveScreenshotFrame: React.FC<AdaptiveScreenshotFrameProps> = (
             <img
               src={src}
               alt={alt}
+              width={orientation === 'horizontal' ? 896 : 340}
+              height={orientation === 'horizontal' ? 504 : 736}
+              style={{
+                aspectRatio: orientation === 'horizontal' ? '16 / 9' : '340 / 736',
+              }}
               loading="lazy"
               decoding="async"
               className="w-full h-auto block select-none object-cover transform transition-transform duration-500 ease-out group-hover:scale-[1.015]"

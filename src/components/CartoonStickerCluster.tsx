@@ -93,6 +93,8 @@ export const CartoonStickerCluster: React.FC = () => {
         <img
           src="./assets/logo.png"
           alt="inSTILL Cuddling Cats Mascot"
+          width="96"
+          height="96"
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 select-none pointer-events-none"
         />
       </motion.div>

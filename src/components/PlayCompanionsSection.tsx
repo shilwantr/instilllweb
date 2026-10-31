@@ -363,11 +363,12 @@ export const PlayCompanionsSection: React.FC = () => {
               {/* Playable Bubble Pop */}
               <div className="bg-white rounded-3xl p-6 border-2 border-slate-900/10 shadow-cartoon-sm">
                 <div className="flex items-center justify-between mb-4">
-                  <h4 className="text-sm font-bold text-slate-900">Spatial Bubble Pop</h4>
+                  <h3 className="text-sm font-bold text-slate-900">Spatial Bubble Pop</h3>
                   <button
                     onClick={resetBubbles}
                     data-cursor="pointer"
-                    className="p-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700"
+                    aria-label="Reset all bubbles in bubble pop grid"
+                    className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 min-w-[36px] min-h-[36px] flex items-center justify-center"
                     title="Reset Bubbles"
                   >
                     <RefreshCw className="w-3.5 h-3.5" />
@@ -380,6 +381,7 @@ export const PlayCompanionsSection: React.FC = () => {
                       disabled={!active}
                       onClick={() => popBubble(i)}
                       data-cursor="pointer"
+                      aria-label={`Bubble ${i + 1}${active ? ' - ready to pop' : ' - popped'}`}
                       className={`h-14 rounded-2xl transition-all duration-200 flex items-center justify-center cartoon-sticker ${
                         active
                           ? 'bg-pop-lime/40 border-2 border-pop-forest shadow-cartoon-sm hover:scale-110 active:scale-95'

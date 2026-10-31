@@ -66,24 +66,28 @@ export const DoomBreakerSection: React.FC = () => {
               {/* Slider */}
               <div className="mb-6 p-4 rounded-2xl bg-slate-50 border border-slate-200">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-bold text-slate-800">Continuous Scroll Limit</span>
+                  <label htmlFor="scroll-limit-slider" className="text-xs font-bold text-slate-800 cursor-pointer">
+                    Continuous Scroll Limit
+                  </label>
                   <span className="text-xs font-mono text-pop-forest font-bold px-3 py-1 rounded-full bg-pop-lime">
                     {scrollLimit} min
                   </span>
                 </div>
                 <input
+                  id="scroll-limit-slider"
                   type="range"
                   min="1"
                   max="60"
                   step="1"
                   value={scrollLimit}
+                  aria-label="Continuous scroll limit in minutes"
                   onChange={(e) => {
                     setScrollLimit(parseInt(e.target.value));
                     soundEngine.playScrubTick();
                   }}
                   className="w-full accent-pop-forest cursor-pointer h-2.5 bg-slate-200 rounded-lg appearance-none"
                 />
-                <div className="flex justify-between text-[10px] font-mono font-bold text-slate-500 mt-1">
+                <div className="flex justify-between text-[10px] font-mono font-bold text-slate-600 mt-1">
                   <span>1m</span>
                   <span>15m</span>
                   <span>30m</span>
@@ -101,6 +105,7 @@ export const DoomBreakerSection: React.FC = () => {
                       key={app}
                       onClick={() => toggleApp(app)}
                       data-cursor="pointer"
+                      aria-label={`Toggle monitoring for ${app}. Currently ${enabled ? 'active' : 'inactive'}`}
                       className={`p-3 rounded-2xl text-xs font-bold transition-all flex items-center justify-between cartoon-sticker ${
                         enabled
                           ? 'bg-pop-lime text-pop-forest border-2 border-pop-forest shadow-cartoon-sm'
@@ -149,13 +154,16 @@ export const DoomBreakerSection: React.FC = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 30 }}
               transition={{ type: 'spring', damping: 22, stiffness: 200 }}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="doombreaker-modal-heading"
               className="max-w-md w-full rounded-[40px] bg-white p-6 sm:p-10 border-4 border-slate-900 shadow-cartoon text-center relative overflow-hidden max-h-[90dvh] overflow-y-auto"
             >
               <div className="w-20 h-20 rounded-full bg-pop-lime border-4 border-pop-forest flex items-center justify-center mx-auto mb-6 shadow-cartoon animate-pulse">
                 <Wind className="w-10 h-10 text-pop-forest" />
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-sans font-extrabold text-slate-900 mb-2">Time for Stillness</h3>
+              <h3 id="doombreaker-modal-heading" className="text-2xl sm:text-3xl font-sans font-extrabold text-slate-900 mb-2">Time for Stillness</h3>
               <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mb-6">
                 You’ve been immersed for 18 minutes. Take a gentle breath, soften your gaze, and let your nervous system recalibrate.
               </p>
@@ -163,15 +171,15 @@ export const DoomBreakerSection: React.FC = () => {
               <div className="grid grid-cols-3 gap-2 p-3 rounded-2xl bg-slate-50 border border-slate-200 mb-8 font-mono text-xs">
                 <div>
                   <div className="text-pop-forest font-bold text-base">18m</div>
-                  <div className="text-[10px] text-slate-500 font-bold">Current App</div>
+                  <div className="text-[10px] text-slate-600 font-bold">Current App</div>
                 </div>
                 <div>
                   <div className="text-amber-600 font-bold text-base">42m</div>
-                  <div className="text-[10px] text-slate-500 font-bold">Social Today</div>
+                  <div className="text-[10px] text-slate-600 font-bold">Social Today</div>
                 </div>
                 <div>
                   <div className="text-purple-700 font-bold text-base">48m</div>
-                  <div className="text-[10px] text-slate-500 font-bold">Rest Left</div>
+                  <div className="text-[10px] text-slate-600 font-bold">Rest Left</div>
                 </div>
               </div>
 

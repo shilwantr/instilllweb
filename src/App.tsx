@@ -32,6 +32,14 @@ export const App: React.FC = () => {
 
   return (
     <div className="relative min-h-screen bg-pop-cream text-slate-900 font-sans selection:bg-pop-lime selection:text-pop-forest">
+      {/* Skip to Main Content Link for Accessibility & Agentic Crawlers */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-5 focus:py-2.5 focus:bg-slate-950 focus:text-white focus:rounded-full focus:font-bold focus:shadow-cartoon focus:outline-none"
+      >
+        Skip to main content
+      </a>
+
       {/* Bespoke Translucent Hourglass Cursor (Desktop) */}
       <CustomCursor />
 
@@ -43,7 +51,7 @@ export const App: React.FC = () => {
         onOpenSoundModal={() => setIsSoundModalOpen(true)}
       />
 
-      <main>
+      <main id="main-content">
         {/* Section 1: Hero with Tilted Cartoon Stickers */}
         <HeroSection
           currentTheme={currentTheme}

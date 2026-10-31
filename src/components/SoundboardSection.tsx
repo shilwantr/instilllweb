@@ -118,7 +118,7 @@ export const SoundboardSection: React.FC = () => {
           </div>
 
           {activeVisualizer === 'none' && (
-            <span className="text-xs font-mono font-semibold text-slate-400">
+            <span className="text-xs font-mono font-semibold text-slate-600">
               Click any sound tile below to trigger live synthesis & visual ripples
             </span>
           )}
@@ -160,8 +160,10 @@ export const SoundboardSection: React.FC = () => {
             const Icon = cue.icon;
             return (
               <button
+                type="button"
                 key={cue.id}
                 onClick={() => triggerSound(cue.id, cue.visual)}
+                aria-label={`Synthesize audio cue: ${cue.title}, ${cue.subtitle}`}
                 data-cursor="pointer"
                 className="group p-6 rounded-3xl bg-white border-2 border-slate-900/10 hover:border-pop-forest text-left transition-all duration-200 hover:-translate-y-1.5 shadow-cartoon-sm hover:shadow-cartoon relative overflow-hidden cartoon-sticker"
               >
@@ -169,12 +171,12 @@ export const SoundboardSection: React.FC = () => {
                   <div className={`p-3.5 rounded-2xl ${cue.color} border-2 shadow-cartoon-sm group-hover:scale-110 transition-transform`}>
                     <Icon className="w-5 h-5" />
                   </div>
-                  <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
+                  <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
                     Web Audio
                   </span>
                 </div>
 
-                <div className="text-sm font-extrabold text-slate-900 font-mono mb-0.5">{cue.title}</div>
+                <h3 className="text-sm font-extrabold text-slate-900 font-mono mb-0.5">{cue.title}</h3>
                 <div className="text-xs text-pop-forest font-bold mb-2">{cue.subtitle}</div>
                 <p className="text-xs text-slate-600 leading-relaxed font-normal">{cue.desc}</p>
               </button>

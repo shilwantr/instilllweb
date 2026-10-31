@@ -48,12 +48,14 @@ export const TherapySection: React.FC = () => {
           </p>
 
           {/* Dual-Role Switcher */}
-          <div className="inline-flex flex-wrap justify-center items-center gap-1.5 sm:gap-2 p-1.5 rounded-3xl sm:rounded-full bg-white border-2 border-slate-900/10 mt-8 shadow-cartoon-sm">
+          <div className="inline-flex flex-wrap justify-center items-center gap-1.5 sm:gap-2 p-1.5 rounded-3xl sm:rounded-full bg-white border-2 border-slate-900/10 mt-8 shadow-cartoon-sm" role="group" aria-label="Telehealth perspective selector">
             <button
+              type="button"
               onClick={() => {
                 setRole('client');
                 soundEngine.playStepClick();
               }}
+              aria-label="Switch to Client View"
               data-cursor="pointer"
               className={`px-4 xs:px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all flex items-center gap-2 ${
                 role === 'client'
@@ -66,10 +68,12 @@ export const TherapySection: React.FC = () => {
             </button>
 
             <button
+              type="button"
               onClick={() => {
                 setRole('therapist');
                 soundEngine.playStepClick();
               }}
+              aria-label="Switch to Therapist View"
               data-cursor="pointer"
               className={`px-4 xs:px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all flex items-center gap-2 ${
                 role === 'therapist'
@@ -120,10 +124,12 @@ export const TherapySection: React.FC = () => {
                       <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /> HIPAA Compliant
                     </span>
                     <button
+                      type="button"
                       onClick={() => {
                         setIsCallActive(true);
                         soundEngine.playKalimba(3);
                       }}
+                      aria-label={`Start video consultation with ${doc.name}`}
                       data-cursor="pointer"
                       className="px-5 py-2.5 rounded-full bg-slate-950 text-white text-xs font-bold hover:bg-slate-800 transition-colors flex items-center justify-center gap-1.5 shadow-cartoon-sm w-full xs:w-auto"
                     >
@@ -167,12 +173,14 @@ export const TherapySection: React.FC = () => {
                   </div>
 
                   {/* Controls */}
-                  <div className="relative z-10 p-2.5 rounded-full bg-black/70 backdrop-blur-md border border-white/20 flex items-center justify-center gap-3 mx-auto shadow-2xl">
+                  <div className="relative z-10 p-2.5 rounded-full bg-black/70 backdrop-blur-md border border-white/20 flex items-center justify-center gap-3 mx-auto shadow-2xl" role="toolbar" aria-label="Video call controls">
                     <button
+                      type="button"
                       onClick={() => {
                         setIsMuted(!isMuted);
                         soundEngine.playStepClick();
                       }}
+                      aria-label={isMuted ? "Unmute microphone" : "Mute microphone"}
                       data-cursor="pointer"
                       className={`p-3 rounded-full transition-colors ${
                         isMuted ? 'bg-rose-500 text-white' : 'bg-white/15 text-white'
@@ -182,10 +190,12 @@ export const TherapySection: React.FC = () => {
                     </button>
 
                     <button
+                      type="button"
                       onClick={() => {
                         setIsVideoOff(!isVideoOff);
                         soundEngine.playStepClick();
                       }}
+                      aria-label={isVideoOff ? "Turn camera on" : "Turn camera off"}
                       data-cursor="pointer"
                       className={`p-3 rounded-full transition-colors ${
                         isVideoOff ? 'bg-rose-500 text-white' : 'bg-white/15 text-white'
@@ -195,10 +205,12 @@ export const TherapySection: React.FC = () => {
                     </button>
 
                     <button
+                      type="button"
                       onClick={() => {
                         soundEngine.playBreatheBell();
                         setIsCallActive(false);
                       }}
+                      aria-label="End video consultation call"
                       data-cursor="pointer"
                       className="px-5 py-3 rounded-full bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs uppercase flex items-center gap-1.5 shadow-lg"
                     >
@@ -215,7 +227,7 @@ export const TherapySection: React.FC = () => {
             <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
               <div>
                 <h3 className="text-xl font-bold text-slate-900">Practitioner Telehealth Portal</h3>
-                <p className="text-xs text-slate-500">Upcoming clinical consultations and synchronized client telemetry</p>
+                <p className="text-xs text-slate-600">Upcoming clinical consultations and synchronized client telemetry</p>
               </div>
               <span className="px-3.5 py-1.5 rounded-full bg-pop-yellow text-slate-900 text-xs font-mono font-bold">
                 Therapist Mode Active
@@ -230,15 +242,17 @@ export const TherapySection: React.FC = () => {
                 <div key={idx} className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
                     <div className="text-sm font-bold text-slate-900">{item.client}</div>
-                    <div className="text-xs text-slate-500 font-mono">{item.time} • {item.trend}</div>
+                    <div className="text-xs text-slate-600 font-mono">{item.time} • {item.trend}</div>
                   </div>
                   <button
+                    type="button"
                     onClick={() => {
                       setIsCallActive(true);
                       soundEngine.playBreatheBell();
                     }}
+                    aria-label={`Admit ${item.client} to video call`}
                     data-cursor="pointer"
-                    className="px-5 py-2.5 rounded-full bg-slate-950 text-white text-xs font-bold shadow-cartoon-sm"
+                    className="px-5 py-2.5 rounded-full bg-slate-950 text-white text-xs font-bold shadow-cartoon-sm hover:bg-slate-800 transition-colors"
                   >
                     Admit to Video Call
                   </button>

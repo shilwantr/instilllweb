@@ -57,6 +57,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             <img
               src="./assets/logo.png"
               alt="inStill Brand Logo"
+              width="44"
+              height="44"
               className="w-full h-full object-cover block select-none"
             />
           </div>
@@ -91,6 +93,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               soundEngine.playStepClick();
             }}
             data-cursor="pointer"
+            aria-label={`Cycle Living Canvas Theme. Current theme is ${currentTheme}`}
             title="Cycle Living Canvas Theme"
             className="hidden sm:flex px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-pop-lime text-pop-forest border border-pop-forest/20 items-center gap-1.5 transition-transform hover:scale-105 shadow-sm"
           >
@@ -105,6 +108,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               soundEngine.playBreatheBell();
             }}
             data-cursor="pointer"
+            aria-label="Open Fullscreen StandBy Desk Clock"
             title="Open Fullscreen StandBy Desk Clock"
             className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors min-w-[36px] min-h-[36px] flex items-center justify-center"
           >
@@ -118,6 +122,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               soundEngine.playKalimba(2);
             }}
             data-cursor="pointer"
+            aria-label="Open Sensory Soundscapes"
             title="Test Sensory Soundscapes"
             className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors min-w-[36px] min-h-[36px] flex items-center justify-center"
           >
@@ -130,12 +135,15 @@ export const Navbar: React.FC<NavbarProps> = ({
               soundEngine.playCatPurr();
             }}
             data-cursor="pointer"
+            aria-label="Pet inStill Cuddling Cats Mascot"
             title="Pet inStill Mascot"
             className="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border-2 border-slate-900/20 hover:border-pop-forest transition-transform hover:scale-110 shadow-cartoon-sm flex-shrink-0 bg-purple-100 cursor-pointer"
           >
             <img
               src="./assets/logo.png"
               alt="inStill Mascot Icon"
+              width="40"
+              height="40"
               className="w-full h-full object-cover block select-none"
             />
           </button>

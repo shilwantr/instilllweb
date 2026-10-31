@@ -63,7 +63,7 @@ export const ProfileLifelineSection: React.FC = () => {
               <span>Tap to Call 988 Lifeline (Free & Confidential)</span>
             </a>
 
-            <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500 mt-5 pt-4 border-t border-slate-100 font-mono font-bold">
+            <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-600 mt-5 pt-4 border-t border-slate-100 font-mono font-bold">
               <span>Text or Call: 988</span>
               <span>English & Spanish</span>
               <span>TTY Capable</span>
@@ -73,7 +73,7 @@ export const ProfileLifelineSection: React.FC = () => {
           {/* Gentle Push Micro-Reminders & Privacy */}
           <div className="lg:col-span-6 flex flex-col gap-6">
             <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-slate-900/10 shadow-cartoon-sm">
-              <h4 className="text-base font-bold text-slate-900 mb-4 flex items-center justify-between">
+              <h3 className="text-base font-bold text-slate-900 mb-4 flex items-center justify-between">
                 <span className="flex items-center gap-2">
                   <Bell className="w-5 h-5 text-amber-500" />
                   <span>Gentle Push Micro-Reminders</span>
@@ -81,7 +81,7 @@ export const ProfileLifelineSection: React.FC = () => {
                 <span className="px-3 py-1 rounded-full bg-pop-lime text-pop-forest text-[11px] font-mono font-bold border border-pop-forest/20">
                   On-Device Only
                 </span>
-              </h4>
+              </h3>
 
               <div className="space-y-3 mb-6">
                 {[
@@ -92,9 +92,13 @@ export const ProfileLifelineSection: React.FC = () => {
                   <div key={item.key} className="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-slate-50 border border-slate-200">
                     <div>
                       <div className="text-xs sm:text-sm font-bold text-slate-900">{item.label}</div>
-                      <div className="text-[11px] text-slate-500">{item.desc}</div>
+                      <div className="text-[11px] text-slate-600">{item.desc}</div>
                     </div>
                     <button
+                      type="button"
+                      role="switch"
+                      aria-checked={reminders[item.key]}
+                      aria-label={`Toggle ${item.label}`}
                       onClick={() => toggleReminder(item.key)}
                       data-cursor="pointer"
                       className={`w-12 h-6 rounded-full transition-colors relative flex items-center px-0.5 border-2 border-slate-900 flex-shrink-0 ${
@@ -115,7 +119,7 @@ export const ProfileLifelineSection: React.FC = () => {
                 <span className="flex items-center gap-1.5">
                   <Shield className="w-4 h-4 text-emerald-600 flex-shrink-0" /> End-to-End Encrypted Local Vault
                 </span>
-                <span className="text-slate-500 font-mono text-[11px]">Zero Cloud Telemetry</span>
+                <span className="text-slate-600 font-mono text-[11px]">Zero Cloud Telemetry</span>
               </div>
             </div>
           </div>

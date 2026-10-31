@@ -49,12 +49,17 @@ export const StandByClockModal: React.FC<StandByClockModalProps> = ({ isOpen, on
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-[1000] bg-black flex flex-col justify-between p-4 sm:p-12 overflow-hidden select-none safe-area-p">
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="standby-clock-heading"
+        className="fixed inset-0 z-[1000] bg-black flex flex-col justify-between p-4 sm:p-12 overflow-hidden select-none safe-area-p"
+      >
         {/* Top Bar with DND indicator and Close */}
         <div className="flex items-center justify-between z-20 gap-2">
           <div className="px-3 sm:px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-mono text-slate-300 flex items-center gap-1.5 sm:gap-2">
             <BellOff className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
-            <span className="hidden sm:inline">Focus Active • Notifications & Sounds Muted</span>
+            <span id="standby-clock-heading" className="hidden sm:inline">Focus Active • Notifications & Sounds Muted</span>
             <span className="sm:hidden font-bold">Focus Mode</span>
           </div>
 
@@ -66,6 +71,7 @@ export const StandByClockModal: React.FC<StandByClockModalProps> = ({ isOpen, on
                 soundEngine.playKalimba(2);
               }}
               data-cursor="pointer"
+              aria-label={`Cycle clock color palette. Currently ${currentPal.name}`}
               className="px-3 sm:px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-xs font-mono text-slate-300 flex items-center gap-1.5 transition-colors"
             >
               <Palette className="w-3.5 h-3.5 text-purple-300 flex-shrink-0" />
@@ -79,6 +85,7 @@ export const StandByClockModal: React.FC<StandByClockModalProps> = ({ isOpen, on
                 onClose();
               }}
               data-cursor="pointer"
+              aria-label="Close fullscreen desk clock"
               className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-slate-200 border border-white/15 transition-colors min-w-[36px] min-h-[36px] flex items-center justify-center"
               title="Close Fullscreen Desk Clock"
             >

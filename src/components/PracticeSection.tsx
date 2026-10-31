@@ -243,6 +243,7 @@ export const PracticeSection: React.FC = () => {
                 <motion.button
                   onClick={toggleBreathing}
                   data-cursor="visualizer"
+                  aria-label={isBreathingActive ? "Stop breathing exercise" : "Start breathing exercise"}
                   animate={{
                     scale:
                       isBreathingActive && currentPhase.name === 'Inhale'
@@ -285,7 +286,7 @@ export const PracticeSection: React.FC = () => {
                     <span className="text-sm font-bold tracking-widest uppercase text-pop-forest px-3 py-1 rounded-full bg-pop-lime/60">
                       {isBreathingActive ? currentPhase.name : 'Tap to Start'}
                     </span>
-                    <span className="text-xs text-slate-500 font-medium mt-2">
+                    <span className="text-xs text-slate-600 font-medium mt-2">
                       {isBreathingActive ? 'Tap bubble to pause' : 'Bilateral acoustic rhythm'}
                     </span>
                   </div>
@@ -293,7 +294,7 @@ export const PracticeSection: React.FC = () => {
               </div>
 
               <div className="text-center max-w-md">
-                <h4 className="text-base font-bold text-slate-900 mb-1">{currentPatternConfig.name}</h4>
+                <h3 className="text-base font-bold text-slate-900 mb-1">{currentPatternConfig.name}</h3>
                 <p className="text-xs text-slate-600">{currentPatternConfig.subtitle}</p>
               </div>
             </div>
@@ -358,6 +359,7 @@ export const PracticeSection: React.FC = () => {
                         min="0"
                         max="100"
                         value={level}
+                        aria-label={`Mixer volume for ${name}`}
                         onChange={(e) => {
                           const val = parseInt(e.target.value);
                           setMixerLevels((prev) => ({ ...prev, [name]: val }));
@@ -372,7 +374,7 @@ export const PracticeSection: React.FC = () => {
 
               {/* Bilateral Tracks */}
               <div className="bg-white rounded-3xl p-6 border-2 border-slate-900/10 shadow-cartoon-sm space-y-3">
-                <h4 className="text-sm font-bold text-slate-900 mb-2">Bilateral & EMDR Track Library</h4>
+                <h3 className="text-sm font-bold text-slate-900 mb-2">Bilateral & EMDR Track Library</h3>
                 {[
                   { title: 'Bilateral Tranquility Variation 1', time: '10 min', note: 'Alternating acoustic panning' },
                   { title: 'Bilateral Harp Harmonic', time: '7 min', note: 'Solfeggio 432 Hz tuning' },
@@ -386,16 +388,17 @@ export const PracticeSection: React.FC = () => {
                       <button
                         onClick={() => soundEngine.playKalimba(i * 2)}
                         data-cursor="pointer"
-                        className="w-8 h-8 rounded-full bg-pop-lavender text-purple-900 flex items-center justify-center hover:scale-110 transition-transform shadow-sm"
+                        aria-label={`Play audio preview for ${track.title}`}
+                        className="w-8 h-8 rounded-full bg-pop-lavender text-purple-900 flex items-center justify-center hover:scale-110 transition-transform shadow-sm min-w-[32px] min-h-[32px]"
                       >
                         <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
                       </button>
                       <div>
                         <div className="text-xs font-bold text-slate-900">{track.title}</div>
-                        <div className="text-[11px] text-slate-500">{track.note}</div>
+                        <div className="text-[11px] text-slate-600">{track.note}</div>
                       </div>
                     </div>
-                    <span className="text-xs font-mono font-bold text-slate-600">{track.time}</span>
+                    <span className="text-xs font-mono font-bold text-slate-700">{track.time}</span>
                   </div>
                 ))}
               </div>

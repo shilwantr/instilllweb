@@ -107,6 +107,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     soundEngine.playStepClick();
                   }}
                   data-cursor="pointer"
+                  aria-label={`Select canvas theme: ${t.label}`}
                   className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-bold transition-all ${
                     currentTheme === t.id
                       ? 'bg-pop-lime text-pop-forest border-2 border-pop-forest shadow-cartoon-sm'
@@ -138,6 +139,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 soundEngine.playScrubTick();
               }}
               data-cursor="pointer"
+              aria-label="Switch mockup to Clean White theme"
               className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all ${
                 selectedDashboardVariant === 'light'
                   ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
@@ -152,6 +154,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 soundEngine.playScrubTick();
               }}
               data-cursor="pointer"
+              aria-label="Switch mockup to Ferris Wheel theme"
               className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all ${
                 selectedDashboardVariant === 'dark'
                   ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
@@ -166,6 +169,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 soundEngine.playScrubTick();
               }}
               data-cursor="pointer"
+              aria-label="Switch mockup to Cosmic Dusk theme"
               className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all ${
                 selectedDashboardVariant === 'cosmic'
                   ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'

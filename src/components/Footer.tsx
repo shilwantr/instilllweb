@@ -19,6 +19,8 @@ export const Footer: React.FC = () => {
                 <img
                   src="./assets/logo.png"
                   alt="inStill Logo"
+                  width="44"
+                  height="44"
                   className="w-full h-full object-cover block"
                 />
               </div>
@@ -26,7 +28,7 @@ export const Footer: React.FC = () => {
                 in<span className="font-extrabold">STILL</span>
               </span>
             </div>
-            <p className="text-slate-600 text-sm leading-relaxed max-w-sm mb-6">
+            <p className="text-slate-700 text-sm leading-relaxed max-w-sm mb-6">
               Mindful Presence & Daily Balance. A luxury sensory wellness ecosystem engineered with 60 FPS liquid canvas shaders, bio-responsive breathwork, and clinical telehealth.
             </p>
 
@@ -41,8 +43,8 @@ export const Footer: React.FC = () => {
 
           {/* Quick Nav Links */}
           <div className="md:col-span-3">
-            <h4 className="text-xs uppercase font-mono font-bold tracking-widest text-slate-900 mb-4">Experience</h4>
-            <ul className="space-y-2.5 text-xs font-semibold text-slate-600">
+            <h2 className="text-xs uppercase font-mono font-bold tracking-widest text-slate-900 mb-4">Experience</h2>
+            <ul className="space-y-2.5 text-xs font-semibold text-slate-700">
               <li>
                 <a href="#today" className="hover:text-pop-forest transition-colors">
                   Today: Daily Hub
@@ -73,8 +75,8 @@ export const Footer: React.FC = () => {
 
           {/* Ecosystem Links */}
           <div className="md:col-span-2">
-            <h4 className="text-xs uppercase font-mono font-bold tracking-widest text-slate-900 mb-4">Ecosystem</h4>
-            <ul className="space-y-2.5 text-xs font-semibold text-slate-600">
+            <h2 className="text-xs uppercase font-mono font-bold tracking-widest text-slate-900 mb-4">Ecosystem</h2>
+            <ul className="space-y-2.5 text-xs font-semibold text-slate-700">
               <li>
                 <a href="#companions" className="hover:text-pop-forest transition-colors">
                   Mew Mew & EMO AI
@@ -108,13 +110,14 @@ export const Footer: React.FC = () => {
             <button
               onClick={scrollToTop}
               data-cursor="pointer"
+              aria-label="Scroll back to top of page"
               className="p-3.5 rounded-full bg-slate-950 text-white hover:bg-slate-800 transition-all flex items-center gap-2 text-xs font-mono font-bold shadow-cartoon transform hover:-translate-y-0.5"
             >
               <span>Back to Top</span>
               <ArrowUp className="w-4 h-4" />
             </button>
 
-            <div className="text-[11px] font-mono text-slate-500 mt-6 md:mt-0 text-left md:text-right font-medium">
+            <div className="text-[11px] font-mono text-slate-600 mt-6 md:mt-0 text-left md:text-right font-medium">
               <div>Encrypted Local State</div>
               <div>Zero Ad Tracking</div>
             </div>
@@ -122,7 +125,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Credits */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4 font-medium">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-600 gap-4 font-medium">
           <div className="flex items-center gap-1.5">
             <span>Crafted with gentle care for mindful living.</span>
           </div>

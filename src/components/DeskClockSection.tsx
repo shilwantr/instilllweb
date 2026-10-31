@@ -84,6 +84,7 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
               soundEngine.playBreatheBell();
             }}
             data-cursor="pointer"
+            aria-label="Launch StandBy Fullscreen Mode"
             className="mt-6 px-7 py-3 rounded-full bg-slate-950 text-white text-xs font-bold font-mono uppercase tracking-wider inline-flex items-center gap-2 shadow-cartoon hover:bg-slate-800 transition-all transform hover:-translate-y-0.5"
           >
             <Maximize2 className="w-4 h-4" />
@@ -227,10 +228,10 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
           {/* Controls */}
           <div className="lg:col-span-4 flex flex-col gap-6">
             <div className="bg-white rounded-3xl p-6 border-2 border-slate-900/10 shadow-cartoon-sm">
-              <h4 className="text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <h3 className="text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
                 <Clock className="w-4 h-4 text-pop-forest" />
                 <span>Typography Styles</span>
-              </h4>
+              </h3>
               <div className="grid grid-cols-2 gap-2">
                 {[
                   { id: 'bubble', label: 'Bubble Overlap' },
@@ -245,6 +246,7 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
                       soundEngine.playStepClick();
                     }}
                     data-cursor="pointer"
+                    aria-label={`Select clock typography: ${s.label}`}
                     className={`p-3 rounded-2xl text-xs text-left transition-all cartoon-sticker ${
                       clockStyle === s.id
                         ? 'bg-pop-lime text-pop-forest font-bold border-2 border-pop-forest shadow-cartoon-sm'
@@ -258,10 +260,10 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
             </div>
 
             <div className="bg-white rounded-3xl p-6 border-2 border-slate-900/10 shadow-cartoon-sm">
-              <h4 className="text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <h3 className="text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
                 <Palette className="w-4 h-4 text-purple-600" />
                 <span>Curated Pastel Palettes</span>
-              </h4>
+              </h3>
               <div className="space-y-2.5">
                 {(Object.keys(palettes) as PastelPaletteKey[]).map((key) => {
                   const pal = palettes[key];
@@ -273,6 +275,7 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
                         soundEngine.playKalimba(2);
                       }}
                       data-cursor="pointer"
+                      aria-label={`Select pastel palette: ${pal.name}`}
                       className={`w-full p-3 rounded-2xl flex items-center justify-between transition-all cartoon-sticker ${
                         activePalette === key
                           ? 'bg-pop-lavender/40 border-2 border-slate-900 shadow-cartoon-sm font-bold'

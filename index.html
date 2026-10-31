@@ -6,19 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="inStill — A luxury digital wellness ecosystem engineered with 60 FPS liquid canvas shaders, bio-responsive breathwork, telehealth therapy, companion pets, and digital wellbeing." />
     <meta name="theme-color" content="#FAFAF7" />
+    <link rel="canonical" href="https://www.instilll.in/" />
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:title" content="inStill — Mindful Presence & Daily Balance" />
     <meta property="og:description" content="A luxury sensory wellness ecosystem engineered with 60 FPS liquid canvas shaders, bio-responsive breathwork, and clinical telehealth." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://shilwantr.github.io/instilllweb/" />
+    <meta property="og:url" content="https://www.instilll.in/" />
+    <meta property="og:image" content="https://www.instilll.in/assets/logo.png" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="inStill — Mindful Presence & Daily Balance" />
+    <meta name="twitter:description" content="A luxury sensory wellness ecosystem engineered with 60 FPS liquid canvas shaders, bio-responsive breathwork, and clinical telehealth." />
+    <meta name="twitter:image" content="https://www.instilll.in/assets/logo.png" />
+
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
     <meta name="google-site-verification" content="googlef43bde990bef98d7" />
     <title>inStill — Mindful Presence & Daily Balance</title>
+
+    <!-- Preload LCP Candidate for 100/100 Core Web Vitals -->
+    <link rel="preload" as="image" href="./assets/screenshots/dashboard-light.jpeg" fetchpriority="high" />
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Schema.org JSON-LD Structured Data for Google Search & Agentic Browsing -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://www.instilll.in/#webapp",
+          "name": "inStill",
+          "url": "https://www.instilll.in/",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "All modern browsers, Android, iOS",
+          "description": "Mindful Presence & Daily Balance. A luxury digital wellness ecosystem engineered with 60 FPS liquid canvas shaders, bio-responsive breathwork, telehealth therapy, companion pets, and digital wellbeing.",
+          "browserRequirements": "Requires JavaScript and HTML5 Canvas support",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://www.instilll.in/#organization",
+          "name": "inStill",
+          "url": "https://www.instilll.in/",
+          "logo": "https://www.instilll.in/assets/logo.png"
+        }
+      ]
+    }
+    </script>
   </head>
-  <body class="bg-still-darkBg text-still-slatePrimary selection:bg-still-celadonSage/30 selection:text-white overflow-x-hidden antialiased">
+  <body class="bg-pop-cream text-slate-900 selection:bg-pop-lime selection:text-pop-forest overflow-x-hidden antialiased">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

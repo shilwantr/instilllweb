@@ -129,6 +129,7 @@ export const LivingThemesMatrix: React.FC<LivingThemesMatrixProps> = ({
                   soundEngine.playBreatheBell();
                 }}
                 data-cursor="pointer"
+                aria-label={`Select theme: ${t.name} (${t.code})${isSelected ? ', currently active' : ''}`}
                 className={`group rounded-3xl p-4 text-left transition-all duration-200 relative overflow-hidden flex flex-col justify-between cartoon-sticker ${
                   isSelected
                     ? 'bg-white border-4 border-pop-forest shadow-cartoon scale-[1.02]'
