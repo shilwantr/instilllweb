@@ -70,53 +70,34 @@ export const ProfileLifelineSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Account, Reminders & Security */}
+          {/* Gentle Push Micro-Reminders & Privacy */}
           <div className="lg:col-span-6 flex flex-col gap-6">
-            <div className="bg-white rounded-3xl p-6 border-2 border-slate-900/10 shadow-cartoon-sm">
-              <div className="flex flex-col xs:flex-row xs:items-center justify-between gap-3 mb-4">
-                <div className="flex items-center gap-3.5">
-                  <div className="w-12 h-12 rounded-2xl bg-pop-lime text-pop-forest border-2 border-pop-forest flex items-center justify-center font-bold text-sm shadow-cartoon-sm flex-shrink-0">
-                    RS
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold text-slate-900">Roy S.</div>
-                    <div className="text-xs text-slate-500 font-mono truncate max-w-[200px] sm:max-w-none">royshilwant@gmail.com</div>
-                  </div>
-                </div>
-                <span className="px-3.5 py-1.5 rounded-full bg-pop-lime text-pop-forest text-xs font-mono font-bold border border-pop-forest/20 self-start xs:self-auto">
-                  Verified Identity
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-slate-900/10 shadow-cartoon-sm">
+              <h4 className="text-base font-bold text-slate-900 mb-4 flex items-center justify-between">
+                <span className="flex items-center gap-2">
+                  <Bell className="w-5 h-5 text-amber-500" />
+                  <span>Gentle Push Micro-Reminders</span>
                 </span>
-              </div>
-
-              <div className="flex items-center justify-between pt-3 border-t border-slate-100 text-xs text-slate-600 font-semibold">
-                <span className="flex items-center gap-1.5">
-                  <Shield className="w-3.5 h-3.5 text-emerald-600" /> Firebase Auth & Firestore Vault
+                <span className="px-3 py-1 rounded-full bg-pop-lime text-pop-forest text-[11px] font-mono font-bold border border-pop-forest/20">
+                  On-Device Only
                 </span>
-                <span className="text-slate-500 font-mono">Zero Cloud Telemetry</span>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-3xl p-6 border-2 border-slate-900/10 shadow-cartoon-sm">
-              <h4 className="text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
-                <Bell className="w-4 h-4 text-amber-500" />
-                <span>Gentle Push Micro-Reminders</span>
               </h4>
 
-              <div className="space-y-3">
+              <div className="space-y-3 mb-6">
                 {[
                   { key: 'hydration' as const, label: 'Hydration Chime', desc: 'Subtle water drop chime every 90 minutes' },
                   { key: 'windDown' as const, label: 'Evening Wind-Down', desc: 'Prompts StandBy Desk Clock at 22:00' },
                   { key: 'breatheBreak' as const, label: 'Vagal Breathwork Reminder', desc: 'Midday 4-4-4-4 nervous system recharge' },
                 ].map((item) => (
-                  <div key={item.key} className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 border border-slate-200">
+                  <div key={item.key} className="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-slate-50 border border-slate-200">
                     <div>
-                      <div className="text-xs font-bold text-slate-900">{item.label}</div>
+                      <div className="text-xs sm:text-sm font-bold text-slate-900">{item.label}</div>
                       <div className="text-[11px] text-slate-500">{item.desc}</div>
                     </div>
                     <button
                       onClick={() => toggleReminder(item.key)}
                       data-cursor="pointer"
-                      className={`w-12 h-6 rounded-full transition-colors relative flex items-center px-0.5 border-2 border-slate-900 ${
+                      className={`w-12 h-6 rounded-full transition-colors relative flex items-center px-0.5 border-2 border-slate-900 flex-shrink-0 ${
                         reminders[item.key] ? 'bg-pop-lime' : 'bg-slate-300'
                       }`}
                     >
@@ -128,6 +109,13 @@ export const ProfileLifelineSection: React.FC = () => {
                     </button>
                   </div>
                 ))}
+              </div>
+
+              <div className="flex flex-col xs:flex-row xs:items-center justify-between gap-2 pt-4 border-t border-slate-100 text-xs text-slate-600 font-semibold">
+                <span className="flex items-center gap-1.5">
+                  <Shield className="w-4 h-4 text-emerald-600 flex-shrink-0" /> End-to-End Encrypted Local Vault
+                </span>
+                <span className="text-slate-500 font-mono text-[11px]">Zero Cloud Telemetry</span>
               </div>
             </div>
           </div>

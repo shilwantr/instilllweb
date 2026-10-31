@@ -224,8 +224,8 @@ export const TherapySection: React.FC = () => {
 
             <div className="space-y-4">
               {[
-                { client: 'Patient #9482 (Roy S.)', time: '14:00 PM EST', status: 'In Waiting Room', trend: 'Anxiety elevated (HRV: 42ms)' },
-                { client: 'Patient #8120 (Clara M.)', time: '15:30 PM EST', status: 'Scheduled', trend: 'Mood stable • 7-day streak' },
+                { client: 'Client #9482 (Anonymous)', time: '14:00 PM EST', status: 'In Waiting Room', trend: 'Anxiety elevated (HRV: 42ms)' },
+                { client: 'Client #8120 (Anonymous)', time: '15:30 PM EST', status: 'Scheduled', trend: 'Mood stable • 7-day streak' },
               ].map((item, idx) => (
                 <div key={idx} className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
