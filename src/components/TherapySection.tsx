@@ -48,14 +48,14 @@ export const TherapySection: React.FC = () => {
           </p>
 
           {/* Dual-Role Switcher */}
-          <div className="inline-flex items-center gap-2 p-1.5 rounded-full bg-white border-2 border-slate-900/10 mt-8 shadow-cartoon-sm">
+          <div className="inline-flex flex-wrap justify-center items-center gap-1.5 sm:gap-2 p-1.5 rounded-3xl sm:rounded-full bg-white border-2 border-slate-900/10 mt-8 shadow-cartoon-sm">
             <button
               onClick={() => {
                 setRole('client');
                 soundEngine.playStepClick();
               }}
               data-cursor="pointer"
-              className={`px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all flex items-center gap-2 ${
+              className={`px-4 xs:px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all flex items-center gap-2 ${
                 role === 'client'
                   ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
                   : 'text-slate-600 hover:text-slate-950'
@@ -71,7 +71,7 @@ export const TherapySection: React.FC = () => {
                 soundEngine.playStepClick();
               }}
               data-cursor="pointer"
-              className={`px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all flex items-center gap-2 ${
+              className={`px-4 xs:px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all flex items-center gap-2 ${
                 role === 'therapist'
                   ? 'bg-pop-yellow text-slate-900 border border-amber-400 shadow-sm'
                   : 'text-slate-600 hover:text-slate-950'
@@ -115,9 +115,9 @@ export const TherapySection: React.FC = () => {
 
                   <p className="text-xs text-slate-600 leading-relaxed mb-4">{doc.bio}</p>
 
-                  <div className="flex items-center justify-between pt-3 border-t border-slate-100">
+                  <div className="flex flex-col xs:flex-row xs:items-center justify-between gap-3 pt-3 border-t border-slate-100">
                     <span className="text-xs text-slate-500 flex items-center gap-1 font-medium">
-                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> HIPAA Compliant
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /> HIPAA Compliant
                     </span>
                     <button
                       onClick={() => {
@@ -125,7 +125,7 @@ export const TherapySection: React.FC = () => {
                         soundEngine.playKalimba(3);
                       }}
                       data-cursor="pointer"
-                      className="px-5 py-2.5 rounded-full bg-slate-950 text-white text-xs font-bold hover:bg-slate-800 transition-colors flex items-center gap-1.5 shadow-cartoon-sm"
+                      className="px-5 py-2.5 rounded-full bg-slate-950 text-white text-xs font-bold hover:bg-slate-800 transition-colors flex items-center justify-center gap-1.5 shadow-cartoon-sm w-full xs:w-auto"
                     >
                       <Video className="w-3.5 h-3.5" />
                       <span>Start Video Consult</span>

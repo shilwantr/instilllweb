@@ -54,7 +54,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-6xl xl:text-7xl font-sans font-extrabold tracking-tight text-slate-900 leading-[1.08] mb-6">
+          <h1 className="text-3xl xs:text-4xl sm:text-6xl xl:text-7xl font-sans font-extrabold tracking-tight text-slate-900 leading-[1.12] mb-6">
             The Art of Presence.{' '}
             <span className="font-serif italic font-normal text-pop-forest underline decoration-pop-lime decoration-wavy decoration-2">
               The Science of Calm.
@@ -62,18 +62,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </h1>
 
           {/* Subheadline */}
-          <p className="text-base sm:text-xl text-slate-600 font-normal leading-relaxed max-w-xl mb-8">
+          <p className="text-sm xs:text-base sm:text-xl text-slate-600 font-normal leading-relaxed max-w-xl mb-8">
             A luxury digital wellness ecosystem engineered with 60 FPS liquid canvas shaders,
             bio-responsive breathwork, telehealth therapy, companion pets, and digital wellbeing interventions.
           </p>
 
-          {/* CTAs (Inspired by reference image's bold black pill button) */}
-          <div className="flex flex-wrap items-center gap-4 mb-10">
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-10 w-full sm:w-auto">
             <a
               href="#today"
               data-cursor="pointer"
               onClick={() => soundEngine.playBreatheBell()}
-              className="px-8 py-4 rounded-full bg-slate-950 text-white font-bold text-sm tracking-wide shadow-cartoon hover:bg-slate-800 transition-all transform hover:-translate-y-1 active:translate-y-0 flex items-center gap-2.5"
+              className="px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-slate-950 text-white font-bold text-sm tracking-wide shadow-cartoon hover:bg-slate-800 transition-all transform hover:-translate-y-1 active:translate-y-0 flex items-center justify-center gap-2.5 text-center"
             >
               <span>Explore Dashboard</span>
               <ArrowDown className="w-4 h-4" />
@@ -85,9 +85,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 soundEngine.playKalimba(3);
               }}
               data-cursor="pointer"
-              className="px-8 py-4 rounded-full bg-white text-slate-900 font-bold text-sm tracking-wide border-2 border-slate-900/15 shadow-cartoon-sm hover:border-pop-forest hover:bg-pop-lime/20 transition-all transform hover:-translate-y-1 flex items-center gap-2"
+              className="px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-white text-slate-900 font-bold text-sm tracking-wide border-2 border-slate-900/15 shadow-cartoon-sm hover:border-pop-forest hover:bg-pop-lime/20 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2 text-center"
             >
-              <Volume2 className="w-4 h-4 text-pop-coral" />
+              <Volume2 className="w-4 h-4 text-pop-coral flex-shrink-0" />
               <span>Listen to Soundscapes</span>
             </button>
           </div>

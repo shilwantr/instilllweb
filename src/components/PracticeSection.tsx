@@ -140,14 +140,14 @@ export const PracticeSection: React.FC = () => {
           </p>
 
           {/* Mode Switcher Tabs */}
-          <div className="inline-flex items-center gap-2 p-1.5 rounded-full bg-white border-2 border-slate-900/10 mt-8 shadow-cartoon-sm">
+          <div className="inline-flex flex-wrap justify-center items-center gap-1.5 sm:gap-2 p-1.5 rounded-3xl sm:rounded-full bg-white border-2 border-slate-900/10 mt-8 shadow-cartoon-sm">
             <button
               onClick={() => {
                 setActiveMode('breathe');
                 soundEngine.playScrubTick();
               }}
               data-cursor="pointer"
-              className={`px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all flex items-center gap-2 ${
+              className={`px-3.5 xs:px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all flex items-center gap-2 ${
                 activeMode === 'breathe'
                   ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
                   : 'text-slate-600 hover:text-slate-950'
@@ -163,7 +163,7 @@ export const PracticeSection: React.FC = () => {
                 soundEngine.playScrubTick();
               }}
               data-cursor="pointer"
-              className={`px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all flex items-center gap-2 ${
+              className={`px-3.5 xs:px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all flex items-center gap-2 ${
                 activeMode === 'heal'
                   ? 'bg-pop-lavender text-purple-950 border border-purple-400 shadow-sm'
                   : 'text-slate-600 hover:text-slate-950'
@@ -179,7 +179,7 @@ export const PracticeSection: React.FC = () => {
                 soundEngine.playScrubTick();
               }}
               data-cursor="pointer"
-              className={`px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all flex items-center gap-2 ${
+              className={`px-3.5 xs:px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all flex items-center gap-2 ${
                 activeMode === 'sleep'
                   ? 'bg-pop-periwinkle text-slate-900 border border-blue-400 shadow-sm'
                   : 'text-slate-600 hover:text-slate-950'
@@ -208,7 +208,7 @@ export const PracticeSection: React.FC = () => {
                       soundEngine.playStepClick();
                     }}
                     data-cursor="pointer"
-                    className={`px-4 py-2 rounded-2xl text-xs font-mono font-bold transition-all cartoon-sticker ${
+                    className={`px-3 xs:px-4 py-2 rounded-2xl text-xs font-mono font-bold transition-all cartoon-sticker ${
                       pattern === key
                         ? 'bg-pop-lime text-pop-forest border-2 border-pop-forest shadow-cartoon-sm'
                         : 'bg-white text-slate-700 hover:bg-slate-50 border border-slate-200'
@@ -220,7 +220,7 @@ export const PracticeSection: React.FC = () => {
               </div>
 
               {/* The Liquid Glass Bubble Orb */}
-              <div className="relative w-72 h-72 sm:w-80 sm:h-80 flex items-center justify-center mb-8">
+              <div className="relative w-64 h-64 xs:w-72 xs:h-72 sm:w-80 sm:h-80 flex items-center justify-center mb-8">
                 {/* Outer Breathing Aura */}
                 <motion.div
                   animate={{

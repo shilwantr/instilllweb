@@ -50,7 +50,7 @@ export const SoundscapesModal: React.FC<SoundscapesModalProps> = ({ isOpen, onCl
         initial={{ opacity: 0, scale: 0.94, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.94, y: 20 }}
-        className="max-w-lg w-full rounded-3xl glass-card-dark p-6 sm:p-8 border border-white/20 shadow-2xl relative"
+        className="max-w-lg w-full rounded-3xl glass-card-dark p-5 sm:p-8 border border-white/20 shadow-2xl relative max-h-[90dvh] overflow-y-auto"
       >
         <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
           <div className="flex items-center gap-3">
@@ -65,7 +65,7 @@ export const SoundscapesModal: React.FC<SoundscapesModalProps> = ({ isOpen, onCl
           <button
             onClick={onClose}
             data-cursor="pointer"
-            className="p-1.5 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors"
+            className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors min-w-[36px] min-h-[36px] flex items-center justify-center"
           >
             <X className="w-5 h-5" />
           </button>
@@ -77,15 +77,15 @@ export const SoundscapesModal: React.FC<SoundscapesModalProps> = ({ isOpen, onCl
             return (
               <div
                 key={t.id}
-                className="p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/5 flex items-center justify-between transition-all"
+                className="p-3.5 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/5 flex items-center justify-between gap-3 transition-all"
               >
-                <div className="flex items-center gap-3.5">
-                  <div className="p-2 rounded-xl bg-emerald-500/20 text-emerald-300">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="p-2 rounded-xl bg-emerald-500/20 text-emerald-300 flex-shrink-0">
                     <Icon className="w-4 h-4" />
                   </div>
-                  <div>
-                    <div className="text-sm font-semibold text-white">{t.title}</div>
-                    <div className="text-[11px] text-slate-400 font-mono">{t.freq}</div>
+                  <div className="min-w-0">
+                    <div className="text-sm font-semibold text-white truncate">{t.title}</div>
+                    <div className="text-[11px] text-slate-400 font-mono truncate">{t.freq}</div>
                   </div>
                 </div>
 
@@ -96,7 +96,7 @@ export const SoundscapesModal: React.FC<SoundscapesModalProps> = ({ isOpen, onCl
                     setTimeout(() => setPlayingId(null), 2500);
                   }}
                   data-cursor="pointer"
-                  className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold flex items-center gap-1.5 transition-colors shadow-md"
+                  className="px-3.5 sm:px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold flex items-center gap-1.5 transition-colors shadow-md flex-shrink-0"
                 >
                   <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
                   <span>{playingId === t.id ? 'Playing...' : 'Play'}</span>

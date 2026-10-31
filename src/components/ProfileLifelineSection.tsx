@@ -57,15 +57,15 @@ export const ProfileLifelineSection: React.FC = () => {
               href="tel:988"
               onClick={() => soundEngine.playBreatheBell()}
               data-cursor="pointer"
-              className="w-full py-4 rounded-full bg-slate-950 text-white font-bold text-sm tracking-wide shadow-cartoon hover:bg-slate-800 transition-all flex items-center justify-center gap-3 group transform hover:-translate-y-0.5"
+              className="w-full py-3.5 sm:py-4 px-4 rounded-full bg-slate-950 text-white font-bold text-xs sm:text-sm tracking-wide shadow-cartoon hover:bg-slate-800 transition-all flex items-center justify-center gap-2.5 sm:gap-3 group transform hover:-translate-y-0.5 text-center"
             >
-              <Phone className="w-5 h-5 group-hover:rotate-12 transition-transform text-pop-lime" />
+              <Phone className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform text-pop-lime flex-shrink-0" />
               <span>Tap to Call 988 Lifeline (Free & Confidential)</span>
             </a>
 
-            <div className="flex flex-wrap items-center justify-between text-xs text-slate-500 mt-5 pt-4 border-t border-slate-100 font-mono font-bold">
+            <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500 mt-5 pt-4 border-t border-slate-100 font-mono font-bold">
               <span>Text or Call: 988</span>
-              <span>Available in English & Spanish</span>
+              <span>English & Spanish</span>
               <span>TTY Capable</span>
             </div>
           </div>
@@ -73,17 +73,17 @@ export const ProfileLifelineSection: React.FC = () => {
           {/* Account, Reminders & Security */}
           <div className="lg:col-span-6 flex flex-col gap-6">
             <div className="bg-white rounded-3xl p-6 border-2 border-slate-900/10 shadow-cartoon-sm">
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex flex-col xs:flex-row xs:items-center justify-between gap-3 mb-4">
                 <div className="flex items-center gap-3.5">
-                  <div className="w-12 h-12 rounded-2xl bg-pop-lime text-pop-forest border-2 border-pop-forest flex items-center justify-center font-bold text-sm shadow-cartoon-sm">
+                  <div className="w-12 h-12 rounded-2xl bg-pop-lime text-pop-forest border-2 border-pop-forest flex items-center justify-center font-bold text-sm shadow-cartoon-sm flex-shrink-0">
                     RS
                   </div>
                   <div>
                     <div className="text-sm font-bold text-slate-900">Roy S.</div>
-                    <div className="text-xs text-slate-500 font-mono">royshilwant@gmail.com</div>
+                    <div className="text-xs text-slate-500 font-mono truncate max-w-[200px] sm:max-w-none">royshilwant@gmail.com</div>
                   </div>
                 </div>
-                <span className="px-3.5 py-1.5 rounded-full bg-pop-lime text-pop-forest text-xs font-mono font-bold border border-pop-forest/20">
+                <span className="px-3.5 py-1.5 rounded-full bg-pop-lime text-pop-forest text-xs font-mono font-bold border border-pop-forest/20 self-start xs:self-auto">
                   Verified Identity
                 </span>
               </div>

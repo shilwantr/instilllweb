@@ -88,14 +88,14 @@ export const PlayCompanionsSection: React.FC = () => {
           </p>
 
           {/* Tab Switcher */}
-          <div className="inline-flex items-center gap-2 p-1.5 rounded-full bg-white border-2 border-slate-900/10 mt-8 shadow-cartoon-sm">
+          <div className="inline-flex flex-wrap justify-center items-center gap-1.5 sm:gap-2 p-1.5 rounded-3xl sm:rounded-full bg-white border-2 border-slate-900/10 mt-8 shadow-cartoon-sm">
             <button
               onClick={() => {
                 setTab('mewmew');
                 soundEngine.playScrubTick();
               }}
               data-cursor="pointer"
-              className={`px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all flex items-center gap-2 ${
+              className={`px-3.5 xs:px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all flex items-center gap-2 ${
                 tab === 'mewmew'
                   ? 'bg-pop-coral text-white border border-rose-400 shadow-sm'
                   : 'text-slate-600 hover:text-slate-950'
@@ -111,7 +111,7 @@ export const PlayCompanionsSection: React.FC = () => {
                 soundEngine.playScrubTick();
               }}
               data-cursor="pointer"
-              className={`px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all flex items-center gap-2 ${
+              className={`px-3.5 xs:px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all flex items-center gap-2 ${
                 tab === 'emo'
                   ? 'bg-pop-yellow text-slate-900 border border-amber-400 shadow-sm'
                   : 'text-slate-600 hover:text-slate-950'
@@ -127,7 +127,7 @@ export const PlayCompanionsSection: React.FC = () => {
                 soundEngine.playScrubTick();
               }}
               data-cursor="pointer"
-              className={`px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all flex items-center gap-2 ${
+              className={`px-3.5 xs:px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all flex items-center gap-2 ${
                 tab === 'games'
                   ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
                   : 'text-slate-600 hover:text-slate-950'

@@ -48,9 +48,9 @@ export const DoomBreakerSection: React.FC = () => {
           {/* Settings Simulation */}
           <div className="lg:col-span-7 flex flex-col gap-6">
             <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-slate-900/10 shadow-cartoon-sm">
-              <div className="flex items-center justify-between mb-6">
+              <div className="flex flex-col xs:flex-row xs:items-center justify-between gap-3 mb-6">
                 <div className="flex items-center gap-3">
-                  <div className="p-3 rounded-2xl bg-amber-100 text-amber-900 border-2 border-slate-900 shadow-cartoon-sm">
+                  <div className="p-3 rounded-2xl bg-amber-100 text-amber-900 border-2 border-slate-900 shadow-cartoon-sm flex-shrink-0">
                     <ShieldAlert className="w-6 h-6" />
                   </div>
                   <div>
@@ -58,7 +58,7 @@ export const DoomBreakerSection: React.FC = () => {
                     <p className="text-xs text-slate-500">Full-screen gentle intervention over predatory infinite feeds</p>
                   </div>
                 </div>
-                <div className="px-3 py-1 rounded-full bg-pop-lime text-pop-forest font-mono text-xs font-bold border border-pop-forest">
+                <div className="px-3 py-1 rounded-full bg-pop-lime text-pop-forest font-mono text-xs font-bold border border-pop-forest self-start xs:self-auto">
                   Active
                 </div>
               </div>
@@ -149,7 +149,7 @@ export const DoomBreakerSection: React.FC = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 30 }}
               transition={{ type: 'spring', damping: 22, stiffness: 200 }}
-              className="max-w-md w-full rounded-[40px] bg-white p-8 sm:p-10 border-4 border-slate-900 shadow-cartoon text-center relative overflow-hidden"
+              className="max-w-md w-full rounded-[40px] bg-white p-6 sm:p-10 border-4 border-slate-900 shadow-cartoon text-center relative overflow-hidden max-h-[90dvh] overflow-y-auto"
             >
               <div className="w-20 h-20 rounded-full bg-pop-lime border-4 border-pop-forest flex items-center justify-center mx-auto mb-6 shadow-cartoon animate-pulse">
                 <Wind className="w-10 h-10 text-pop-forest" />

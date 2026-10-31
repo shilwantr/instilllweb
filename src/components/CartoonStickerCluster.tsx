@@ -5,7 +5,7 @@ import { soundEngine } from '../utils/audio';
 
 export const CartoonStickerCluster: React.FC = () => {
   return (
-    <div className="relative w-full max-w-lg mx-auto py-8 flex items-center justify-center select-none">
+    <div className="relative w-full max-w-lg mx-auto py-6 sm:py-8 flex items-center justify-center select-none scale-[0.82] xs:scale-[0.9] sm:scale-100 origin-center">
       {/* 1. Dark Forest Green Rounded Square with Padlock (Top Left) */}
       <motion.div
         whileHover={{ scale: 1.08, rotate: -4 }}

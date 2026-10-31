@@ -208,7 +208,7 @@ export const JournalSection: React.FC = () => {
               initial={{ opacity: 0, scale: 0.94, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.94, y: 20 }}
-              className="max-w-lg w-full rounded-3xl bg-white p-6 sm:p-8 border-2 border-slate-900 shadow-cartoon relative"
+              className="max-w-lg w-full rounded-3xl bg-white p-5 sm:p-8 border-2 border-slate-900 shadow-cartoon relative max-h-[90dvh] overflow-y-auto"
             >
               <div className="flex items-center justify-between mb-4">
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-pop-forest">

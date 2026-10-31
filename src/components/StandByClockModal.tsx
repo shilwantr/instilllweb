@@ -49,15 +49,16 @@ export const StandByClockModal: React.FC<StandByClockModalProps> = ({ isOpen, on
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-[1000] bg-black flex flex-col justify-between p-6 sm:p-12 overflow-hidden select-none">
+      <div className="fixed inset-0 z-[1000] bg-black flex flex-col justify-between p-4 sm:p-12 overflow-hidden select-none safe-area-p">
         {/* Top Bar with DND indicator and Close */}
-        <div className="flex items-center justify-between z-20">
-          <div className="px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-mono text-slate-300 flex items-center gap-2">
-            <BellOff className="w-3.5 h-3.5 text-slate-400" />
-            <span>Focus Active • Notifications & Sounds Muted</span>
+        <div className="flex items-center justify-between z-20 gap-2">
+          <div className="px-3 sm:px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-mono text-slate-300 flex items-center gap-1.5 sm:gap-2">
+            <BellOff className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
+            <span className="hidden sm:inline">Focus Active • Notifications & Sounds Muted</span>
+            <span className="sm:hidden font-bold">Focus Mode</span>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             {/* Palette Switcher */}
             <button
               onClick={() => {
@@ -65,10 +66,10 @@ export const StandByClockModal: React.FC<StandByClockModalProps> = ({ isOpen, on
                 soundEngine.playKalimba(2);
               }}
               data-cursor="pointer"
-              className="px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-xs font-mono text-slate-300 flex items-center gap-1.5 transition-colors"
+              className="px-3 sm:px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-xs font-mono text-slate-300 flex items-center gap-1.5 transition-colors"
             >
-              <Palette className="w-3.5 h-3.5 text-purple-300" />
-              <span>{currentPal.name}</span>
+              <Palette className="w-3.5 h-3.5 text-purple-300 flex-shrink-0" />
+              <span className="hidden md:inline">{currentPal.name}</span>
             </button>
 
             {/* Exit StandBy */}
@@ -78,7 +79,7 @@ export const StandByClockModal: React.FC<StandByClockModalProps> = ({ isOpen, on
                 onClose();
               }}
               data-cursor="pointer"
-              className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-slate-200 border border-white/15 transition-colors"
+              className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-slate-200 border border-white/15 transition-colors min-w-[36px] min-h-[36px] flex items-center justify-center"
               title="Close Fullscreen Desk Clock"
             >
               <X className="w-5 h-5" />
@@ -87,15 +88,15 @@ export const StandByClockModal: React.FC<StandByClockModalProps> = ({ isOpen, on
         </div>
 
         {/* Center Display: 2-Column StandBy Layout */}
-        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-8 items-center justify-center my-auto">
+        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center justify-center my-auto">
           {/* Overlapping Digits */}
           <div className="md:col-span-7 flex items-center justify-center md:justify-start">
-            <div className="flex items-center tracking-tighter text-7xl sm:text-9xl md:text-[13rem] font-bold select-none drop-shadow-2xl">
+            <div className="flex items-center tracking-tighter text-6xl xs:text-7xl sm:text-9xl md:text-[13rem] font-bold select-none drop-shadow-2xl">
               <span style={{ color: currentPal.colors[0] }}>{time.hours[0]}</span>
-              <span style={{ color: currentPal.colors[1] }} className="-ml-4 sm:-ml-8 md:-ml-12">
+              <span style={{ color: currentPal.colors[1] }} className="-ml-3 sm:-ml-8 md:-ml-12">
                 {time.hours[1]}
               </span>
-              <span style={{ color: currentPal.colors[2] }} className="-ml-4 sm:-ml-8 md:-ml-12">
+              <span style={{ color: currentPal.colors[2] }} className="-ml-3 sm:-ml-8 md:-ml-12">
                 {time.minutes[0]}
               </span>
               <span style={{ color: currentPal.colors[3] }} className="-ml-4 sm:-ml-8 md:-ml-12">

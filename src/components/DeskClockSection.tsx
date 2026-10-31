@@ -133,12 +133,12 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
           {/* Main Simulator Display */}
           <div className="lg:col-span-8 bg-white rounded-3xl p-6 sm:p-10 border-2 border-slate-900/10 shadow-cartoon relative overflow-hidden">
             {/* DND Status Pill */}
-            <div className="flex items-center justify-between mb-8">
-              <div className="px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-mono text-slate-700 flex items-center gap-2 font-bold">
-                <BellOff className="w-3.5 h-3.5 text-slate-500" />
-                <span>Focus Active • Notifications & Sounds Muted</span>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 mb-6">
+              <div className="px-3.5 sm:px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-mono text-slate-700 flex items-center gap-2 font-bold">
+                <BellOff className="w-3.5 h-3.5 text-slate-500 flex-shrink-0" />
+                <span>Focus Active <span className="hidden sm:inline">• Notifications & Sounds Muted</span></span>
               </div>
-              <div className="text-xs font-mono font-bold text-pop-forest px-3 py-1 rounded-full bg-pop-lime">
+              <div className="text-xs font-mono font-bold text-pop-forest px-3 py-1 rounded-full bg-pop-lime self-start sm:self-auto">
                 Live Simulator
               </div>
             </div>
@@ -147,31 +147,31 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
             <div className="grid grid-cols-1 sm:grid-cols-12 gap-8 items-center py-6">
               <div className="sm:col-span-7 flex items-center justify-center">
                 {clockStyle === 'bubble' && (
-                  <div className="flex items-center tracking-tighter text-6xl sm:text-8xl md:text-9xl font-extrabold select-none drop-shadow-md">
+                  <div className="flex items-center tracking-tighter text-5xl xs:text-7xl sm:text-8xl md:text-9xl font-extrabold select-none drop-shadow-md">
                     <span style={{ color: currentPal.colors[0] }}>{currentTime.hours[0]}</span>
-                    <span style={{ color: currentPal.colors[1] }} className="-ml-3 sm:-ml-5">
+                    <span style={{ color: currentPal.colors[1] }} className="-ml-2 xs:-ml-3 sm:-ml-5">
                       {currentTime.hours[1]}
                     </span>
-                    <span style={{ color: currentPal.colors[2] }} className="-ml-3 sm:-ml-5">
+                    <span style={{ color: currentPal.colors[2] }} className="-ml-2 xs:-ml-3 sm:-ml-5">
                       {currentTime.minutes[0]}
                     </span>
-                    <span style={{ color: currentPal.colors[3] }} className="-ml-3 sm:-ml-5">
+                    <span style={{ color: currentPal.colors[3] }} className="-ml-2 xs:-ml-3 sm:-ml-5">
                       {currentTime.minutes[1]}
                     </span>
                   </div>
                 )}
                 {clockStyle === 'serif' && (
-                  <div className="font-serif italic text-6xl sm:text-8xl font-bold tracking-tight text-slate-900">
+                  <div className="font-serif italic text-5xl xs:text-7xl sm:text-8xl font-bold tracking-tight text-slate-900">
                     {currentTime.hours}:{currentTime.minutes}
                   </div>
                 )}
                 {clockStyle === 'mono' && (
-                  <div className="font-mono text-5xl sm:text-7xl font-extrabold tracking-widest text-pop-forest">
+                  <div className="font-mono text-4xl xs:text-6xl sm:text-7xl font-extrabold tracking-widest text-pop-forest">
                     {currentTime.hours}:{currentTime.minutes}
                   </div>
                 )}
                 {clockStyle === 'geometric' && (
-                  <div className="font-sans font-light text-6xl sm:text-8xl tracking-tight text-slate-900">
+                  <div className="font-sans font-light text-5xl xs:text-7xl sm:text-8xl tracking-tight text-slate-900">
                     {currentTime.hours}
                     <span className="text-slate-400">:</span>
                     {currentTime.minutes}

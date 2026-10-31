@@ -83,8 +83,8 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
 
         {/* Right Status Actions */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          {/* Interactive Theme Pill */}
+        <div className="flex items-center gap-1 sm:gap-2.5">
+          {/* Interactive Theme Pill (hidden on xs screens to avoid overcrowding) */}
           <button
             onClick={() => {
               onThemeCycle();
@@ -92,7 +92,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             }}
             data-cursor="pointer"
             title="Cycle Living Canvas Theme"
-            className="px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-pop-lime text-pop-forest border border-pop-forest/20 flex items-center gap-1.5 transition-transform hover:scale-105 shadow-sm"
+            className="hidden sm:flex px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-pop-lime text-pop-forest border border-pop-forest/20 items-center gap-1.5 transition-transform hover:scale-105 shadow-sm"
           >
             <span className="w-2 h-2 rounded-full bg-pop-forest animate-pulse" />
             <span>• {currentTheme}</span>
@@ -106,7 +106,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             }}
             data-cursor="pointer"
             title="Open Fullscreen StandBy Desk Clock"
-            className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+            className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors min-w-[36px] min-h-[36px] flex items-center justify-center"
           >
             <Clock className="w-4 h-4 text-pop-forest" />
           </button>
@@ -119,19 +119,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             }}
             data-cursor="pointer"
             title="Test Sensory Soundscapes"
-            className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+            className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors min-w-[36px] min-h-[36px] flex items-center justify-center"
           >
             <Volume2 className="w-4 h-4 text-pop-coral" />
           </button>
 
-          {/* Top-Right Mascot Avatar Icon (Directly matching user request) */}
+          {/* Top-Right Mascot Avatar Icon */}
           <button
             onClick={() => {
               soundEngine.playCatPurr();
             }}
             data-cursor="pointer"
             title="Pet inStill Mascot"
-            className="w-10 h-10 rounded-full overflow-hidden border-2 border-slate-900/20 hover:border-pop-forest transition-transform hover:scale-110 shadow-cartoon-sm flex-shrink-0 bg-purple-100 cursor-pointer"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border-2 border-slate-900/20 hover:border-pop-forest transition-transform hover:scale-110 shadow-cartoon-sm flex-shrink-0 bg-purple-100 cursor-pointer"
           >
             <img
               src="./assets/logo.png"
@@ -143,7 +143,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Mobile Menu Hamburger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-full bg-slate-100 text-slate-700 lg:hidden"
+            className="p-2 rounded-full bg-slate-100 text-slate-700 lg:hidden min-w-[36px] min-h-[36px] flex items-center justify-center"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
@@ -153,8 +153,33 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Nav Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden mt-2 max-w-6xl mx-auto rounded-3xl p-5 bg-white text-slate-900 border border-slate-200 shadow-2xl animate-in fade-in slide-in-from-top-4">
-          <div className="flex flex-col gap-3 text-sm font-semibold tracking-wider uppercase">
+        <div className="lg:hidden mt-2 max-w-6xl mx-auto rounded-3xl p-5 bg-white/95 backdrop-blur-2xl text-slate-900 border-2 border-slate-900/10 shadow-2xl animate-in fade-in slide-in-from-top-4 max-h-[85dvh] overflow-y-auto">
+          {/* Quick Controls in Mobile Drawer */}
+          <div className="grid grid-cols-2 gap-2 mb-4 pb-4 border-b border-slate-100">
+            <button
+              onClick={() => {
+                onThemeCycle();
+                soundEngine.playStepClick();
+              }}
+              className="py-2.5 px-3 rounded-2xl bg-pop-lime text-pop-forest border border-pop-forest/20 text-xs font-mono font-bold flex items-center justify-center gap-1.5 shadow-sm"
+            >
+              <span className="w-2 h-2 rounded-full bg-pop-forest animate-pulse" />
+              <span>Theme: {currentTheme}</span>
+            </button>
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenClockModal();
+                soundEngine.playBreatheBell();
+              }}
+              className="py-2.5 px-3 rounded-2xl bg-slate-100 text-slate-800 text-xs font-mono font-bold flex items-center justify-center gap-1.5"
+            >
+              <Clock className="w-3.5 h-3.5 text-pop-forest" />
+              <span>StandBy Clock</span>
+            </button>
+          </div>
+
+          <div className="flex flex-col gap-1 text-sm font-semibold tracking-wider uppercase">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -163,9 +188,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                   soundEngine.playScrubTick();
                   setMobileMenuOpen(false);
                 }}
-                className="py-2 text-slate-700 hover:text-pop-forest border-b border-slate-100 transition-colors"
+                className="py-3 px-3 rounded-xl text-slate-700 hover:text-pop-forest hover:bg-slate-50 transition-colors flex items-center justify-between"
               >
-                {link.name}
+                <span>{link.name}</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
               </a>
             ))}
           </div>

@@ -142,7 +142,7 @@ export const TodayDashboardSection: React.FC = () => {
             </div>
 
             {/* 2. 5-State Mood Check-In Bar */}
-            <div className="bg-white rounded-3xl p-6 border-2 border-slate-900/10 shadow-cartoon-sm">
+            <div className="bg-white rounded-3xl p-4 sm:p-6 border-2 border-slate-900/10 shadow-cartoon-sm">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-700">
                   How are you feeling right now?
@@ -151,7 +151,7 @@ export const TodayDashboardSection: React.FC = () => {
                   {selectedMood}
                 </span>
               </div>
-              <div className="grid grid-cols-5 gap-3">
+              <div className="grid grid-cols-5 gap-1.5 sm:gap-3">
                 {moods.map((m, idx) => (
                   <button
                     key={m.id}
@@ -160,14 +160,14 @@ export const TodayDashboardSection: React.FC = () => {
                       soundEngine.playKalimba(idx);
                     }}
                     data-cursor="pointer"
-                    className={`flex flex-col items-center justify-center p-3 rounded-2xl transition-all duration-200 cartoon-sticker ${
+                    className={`flex flex-col items-center justify-center p-1.5 xs:p-2 sm:p-3 rounded-2xl transition-all duration-200 cartoon-sticker min-h-[52px] ${
                       selectedMood === m.id
                         ? `${m.bg} border-2 shadow-cartoon scale-105 font-bold`
                         : 'bg-slate-50 border border-slate-200 text-slate-600 hover:bg-slate-100'
                     }`}
                   >
-                    <span className="text-2xl mb-1 select-none">{m.emoji}</span>
-                    <span className="text-[11px] font-semibold">{m.id}</span>
+                    <span className="text-lg xs:text-xl sm:text-2xl mb-0.5 sm:mb-1 select-none">{m.emoji}</span>
+                    <span className="text-[9px] xs:text-[10px] sm:text-[11px] font-semibold tracking-tight truncate max-w-full">{m.id}</span>
                   </button>
                 ))}
               </div>

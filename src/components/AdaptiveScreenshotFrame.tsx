@@ -51,6 +51,7 @@ export const AdaptiveScreenshotFrame: React.FC<AdaptiveScreenshotFrameProps> = (
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
+    if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) return;
     const rect = containerRef.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
@@ -140,8 +141,8 @@ export const AdaptiveScreenshotFrame: React.FC<AdaptiveScreenshotFrameProps> = (
           }}
           className={`group relative overflow-hidden transition-shadow duration-300 ${
             orientation === 'horizontal'
-              ? 'landscape-frame max-w-4xl mx-auto shadow-2xl w-full'
-              : 'phone-frame-dark max-w-[320px] sm:max-w-[340px] mx-auto shadow-2xl w-full'
+              ? 'landscape-frame max-w-4xl mx-auto shadow-2xl w-full p-2.5 sm:p-3.5'
+              : 'phone-frame-dark max-w-[280px] xs:max-w-[310px] sm:max-w-[340px] mx-auto shadow-2xl w-full'
           }`}
         >
           {/* Device Top Dynamic Island (Vertical Mockup) */}
