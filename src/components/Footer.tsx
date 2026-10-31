@@ -79,7 +79,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2.5 text-xs font-semibold text-slate-700">
               <li>
                 <a href="#companions" className="hover:text-pop-forest transition-colors">
-                  Mew Mew & EMO AI
+                  Mew Mew & Companions
                 </a>
               </li>
               <li>
@@ -131,9 +131,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-6 font-mono text-[11px]">
-            <span>MIT License</span>
-            <span>GitHub: shilwantr/instilllweb</span>
-            <span>© {new Date().getFullYear()} inStill Ecosystem</span>
+            <span>© {new Date().getFullYear()} inStill. All rights reserved.</span>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Wind, Music, Moon, Play, Volume2, CloudRain, Waves, Sparkles } from 'lucide-react';
+import { Wind, Music, Moon, Play, Volume2, CloudRain, Waves } from 'lucide-react';
 import { AdaptiveScreenshotFrame } from './AdaptiveScreenshotFrame';
 import { soundEngine } from '../utils/audio';
 

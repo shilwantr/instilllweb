@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Volume2, Play, Pause, Bell, Droplet, Sparkles, Wind } from 'lucide-react';
+import { X, Volume2, Play, Pause, Bell, Droplet, Music, Wind } from 'lucide-react';
 import { soundEngine } from '../utils/audio';
 
 interface SoundscapesModalProps {
@@ -40,7 +40,7 @@ export const SoundscapesModal: React.FC<SoundscapesModalProps> = ({ isOpen, onCl
       title: 'Pentatonic Kalimba Arpeggio',
       freq: '528 Hz • Miraculous Frequency',
       action: () => soundEngine.playKalimba(3),
-      icon: Sparkles,
+      icon: Music,
     },
   ];
 

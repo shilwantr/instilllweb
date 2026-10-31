@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Lock, Search, Globe, MousePointer, Sparkles, Heart, Smile } from 'lucide-react';
+import { Lock, Search, Globe, MousePointer, Heart, Smile } from 'lucide-react';
 import { soundEngine } from '../utils/audio';
 
 export const CartoonStickerCluster: React.FC = () => {
@@ -64,8 +64,8 @@ export const CartoonStickerCluster: React.FC = () => {
         </div>
 
         <div className="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/80 text-pop-forest text-xs font-bold uppercase tracking-wider">
-          <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-          <span>Active</span>
+          <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
+          <span>Sanctuary</span>
         </div>
       </motion.div>
 

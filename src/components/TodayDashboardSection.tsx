@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Heart, RefreshCw, Droplet, Flame, Footprints, Clock, ArrowRight, UserCheck, Sparkles } from 'lucide-react';
+import { Heart, RefreshCw, Droplet, Flame, Footprints, Clock, ArrowRight, UserCheck } from 'lucide-react';
 import { AdaptiveScreenshotFrame } from './AdaptiveScreenshotFrame';
 import { soundEngine } from '../utils/audio';
 

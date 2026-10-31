@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Volume2, Bell, Droplet, Sparkles, Activity, Disc, Radio } from 'lucide-react';
+import { Volume2, Bell, Droplet, SlidersHorizontal, Activity, Disc, Radio } from 'lucide-react';
 import { soundEngine } from '../utils/audio';
 
 export const SoundboardSection: React.FC = () => {
@@ -85,7 +85,7 @@ export const SoundboardSection: React.FC = () => {
       title: 'GRAPH_TICK',
       subtitle: 'Microscopic Glass Tick',
       desc: '4200 Hz haptic feedback when scrubbing spline graphs and sliders.',
-      icon: Sparkles,
+      icon: SlidersHorizontal,
       visual: 'fanfare' as const,
       color: 'bg-pop-coral text-white border-rose-400',
     },

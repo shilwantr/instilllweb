@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Sparkles, Volume2, ShieldCheck, Heart, Smile } from 'lucide-react';
+import { ArrowDown, Palette, Volume2, ShieldCheck, Heart, Smile } from 'lucide-react';
 import { LivingCanvas, LivingTheme } from './LivingCanvas';
 import { AdaptiveScreenshotFrame } from './AdaptiveScreenshotFrame';
 import { CartoonStickerCluster } from './CartoonStickerCluster';
@@ -95,7 +95,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Living Canvas Theme Quick Switcher */}
           <div className="p-4 rounded-3xl bg-white/90 border-2 border-slate-900/10 shadow-cartoon-sm max-w-lg w-full">
             <div className="text-xs uppercase tracking-widest text-slate-600 font-bold mb-2.5 flex items-center gap-2">
-              <Sparkles className="w-3.5 h-3.5 text-pop-forest" />
+              <Palette className="w-3.5 h-3.5 text-pop-forest" />
               <span>Switch Living Canvas Theme</span>
             </div>
             <div className="flex flex-wrap gap-2">

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Clock, Volume2, Sparkles, Menu, X, ArrowUpRight } from 'lucide-react';
+import { Clock, Volume2, Menu, X, ArrowUpRight } from 'lucide-react';
 import { LivingTheme } from './LivingCanvas';
 import { soundEngine } from '../utils/audio';
 

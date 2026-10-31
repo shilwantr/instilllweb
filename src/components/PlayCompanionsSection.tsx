@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Cat, Bot, Gamepad2, Heart, Sparkles, RefreshCw, Zap } from 'lucide-react';
+import { Cat, Smile, Gamepad2, Heart, RefreshCw, Zap } from 'lucide-react';
 import { AdaptiveScreenshotFrame } from './AdaptiveScreenshotFrame';
 import { soundEngine } from '../utils/audio';
 
@@ -111,14 +111,15 @@ export const PlayCompanionsSection: React.FC = () => {
                 soundEngine.playScrubTick();
               }}
               data-cursor="pointer"
+              aria-label="Switch to EMO Companion tab"
               className={`px-3.5 xs:px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all flex items-center gap-2 ${
                 tab === 'emo'
                   ? 'bg-pop-yellow text-slate-900 border border-amber-400 shadow-sm'
                   : 'text-slate-600 hover:text-slate-950'
               }`}
             >
-              <Bot className="w-3.5 h-3.5" />
-              <span>EMO Robot</span>
+              <Smile className="w-3.5 h-3.5" />
+              <span>EMO Companion</span>
             </button>
 
             <button
@@ -225,17 +226,17 @@ export const PlayCompanionsSection: React.FC = () => {
           </div>
         )}
 
-        {/* Tab 2: EMO Robot */}
+        {/* Tab 2: EMO Companion */}
         {tab === 'emo' && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center animate-in fade-in duration-500">
             <div className="lg:col-span-7 flex flex-col gap-6">
               <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-slate-900/10 shadow-cartoon-sm">
                 <h3 className="text-xl font-bold text-slate-900 mb-2 flex items-center gap-2">
-                  <Bot className="w-5 h-5 text-amber-500" />
-                  <span>EMO Desktop AI OLED Robot</span>
+                  <Smile className="w-5 h-5 text-amber-500" />
+                  <span>EMO Desktop Companion Pet</span>
                 </h3>
-                <p className="text-xs text-slate-500 mb-6">
-                  Interactive companion with bio-mimetic glowing eye expressions and playful circus routines.
+                <p className="text-xs text-slate-600 mb-6">
+                  Interactive companion with expressive glowing eyes and playful calming routines.
                 </p>
 
                 {/* OLED Screen Box */}
@@ -303,7 +304,7 @@ export const PlayCompanionsSection: React.FC = () => {
             <div className="lg:col-span-5 flex flex-col items-center">
               <AdaptiveScreenshotFrame
                 src="./assets/screenshots/play-emo-robot.jpeg"
-                alt="EMO Robot Screen"
+                alt="EMO Companion Screen"
                 orientation="vertical"
                 tiltDirection="left"
                 glowColor="rgba(254, 214, 104, 0.45)"

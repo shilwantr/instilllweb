@@ -98,7 +98,7 @@ A production-grade, sensory-rich showcase and marketing website for **inStill** 
 ### Installation
 
 ```bash
-git clone https://github.com/shilwantr/instilllweb.git
+git clone https://github.com/instilll/instilllweb.git
 cd instilllweb
 npm install
 ```
