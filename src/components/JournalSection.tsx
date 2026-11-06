@@ -5,6 +5,7 @@ import { AdaptiveScreenshotFrame } from './AdaptiveScreenshotFrame';
 import { soundEngine } from '../utils/audio';
 
 export const JournalSection: React.FC = () => {
+  const [journalView, setJournalView] = useState<'reflection-day' | 'reflection-night' | 'metrics'>('reflection-day');
   const [metric, setMetric] = useState<'mood' | 'steps' | 'water'>('mood');
   const [interval, setInterval] = useState<'hrs' | 'days' | 'weeks' | 'months'>('days');
 
@@ -35,15 +36,78 @@ export const JournalSection: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left: App Screenshot in Light Frame */}
+          {/* Left: App Screenshot in Light Frame with Aesthetic View Switcher */}
           <div className="lg:col-span-5 flex flex-col items-center order-2 lg:order-1">
+            <div className="flex flex-wrap justify-center items-center gap-1.5 p-1.5 rounded-full bg-white border-2 border-slate-900/10 shadow-cartoon-sm mb-4">
+              <button
+                type="button"
+                onClick={() => {
+                  setJournalView('reflection-day');
+                  soundEngine.playStepClick();
+                }}
+                className={`px-3 sm:px-4 py-1.5 text-xs font-bold rounded-full transition-all ${
+                  journalView === 'reflection-day'
+                    ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                Book (Day)
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setJournalView('reflection-night');
+                  soundEngine.playStepClick();
+                }}
+                className={`px-3 sm:px-4 py-1.5 text-xs font-bold rounded-full transition-all ${
+                  journalView === 'reflection-night'
+                    ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                Book (Night)
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setJournalView('metrics');
+                  soundEngine.playStepClick();
+                }}
+                className={`px-3 sm:px-4 py-1.5 text-xs font-bold rounded-full transition-all ${
+                  journalView === 'metrics'
+                    ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                Splines & Steps
+              </button>
+            </div>
+
             <AdaptiveScreenshotFrame
-              src="./assets/screenshots/journal-metrics.jpeg"
-              alt="inStill Journal and Telemetry Metrics"
+              src={
+                journalView === 'reflection-day'
+                  ? './assets/screenshots/journal-reflection-light.jpeg'
+                  : journalView === 'reflection-night'
+                  ? './assets/screenshots/journal-reflection-dark.jpeg'
+                  : './assets/screenshots/journal-metrics-light.jpeg'
+              }
+              alt={`inStill Journal Screen - ${journalView}`}
               orientation="vertical"
               tiltDirection="left"
-              glowColor="rgba(203, 180, 245, 0.45)"
-              badge="JournalScreen.kt"
+              glowColor={
+                journalView === 'reflection-day'
+                  ? 'rgba(210, 245, 108, 0.45)'
+                  : journalView === 'reflection-night'
+                  ? 'rgba(143, 168, 255, 0.45)'
+                  : 'rgba(203, 180, 245, 0.45)'
+              }
+              badge={
+                journalView === 'reflection-day'
+                  ? 'Reflections Book • Day'
+                  : journalView === 'reflection-night'
+                  ? 'Reflections Book • Night'
+                  : 'Telemetry & Splines'
+              }
               hotspots={[
                 {
                   x: 50,

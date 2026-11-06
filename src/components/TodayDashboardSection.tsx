@@ -24,6 +24,7 @@ const quotesList = [
 ];
 
 export const TodayDashboardSection: React.FC = () => {
+  const [dashboardTheme, setDashboardTheme] = useState<'day' | 'night' | 'activity'>('day');
   const [quoteIndex, setQuoteIndex] = useState(0);
   const [isFavorited, setIsFavorited] = useState(false);
   const [selectedMood, setSelectedMood] = useState<string>('Okay');
@@ -338,15 +339,79 @@ export const TodayDashboardSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Actual App Screenshot in Clean White Frame */}
+          {/* Right Column: Actual App Screenshot in Clean White Frame with Light & Dark Aesthetic Switcher */}
           <div className="lg:col-span-5 flex flex-col items-center">
+            {/* Light / Dark / Activity Aesthetic Switcher */}
+            <div className="flex items-center gap-1.5 p-1.5 rounded-full bg-white border-2 border-slate-900/10 shadow-cartoon-sm mb-4">
+              <button
+                type="button"
+                onClick={() => {
+                  setDashboardTheme('day');
+                  soundEngine.playStepClick();
+                }}
+                className={`px-3 sm:px-4 py-1.5 text-xs font-bold rounded-full transition-all ${
+                  dashboardTheme === 'day'
+                    ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                Daylight (CW)
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setDashboardTheme('night');
+                  soundEngine.playStepClick();
+                }}
+                className={`px-3 sm:px-4 py-1.5 text-xs font-bold rounded-full transition-all ${
+                  dashboardTheme === 'night'
+                    ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                Nightfall (FW)
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setDashboardTheme('activity');
+                  soundEngine.playStepClick();
+                }}
+                className={`px-3 sm:px-4 py-1.5 text-xs font-bold rounded-full transition-all ${
+                  dashboardTheme === 'activity'
+                    ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                Activity & Sensors
+              </button>
+            </div>
+
             <AdaptiveScreenshotFrame
-              src="./assets/screenshots/dashboard-light.jpeg"
-              alt="inStill Light Dashboard Clean White"
+              src={
+                dashboardTheme === 'day'
+                  ? './assets/screenshots/dashboard-light.jpeg'
+                  : dashboardTheme === 'night'
+                  ? './assets/screenshots/dashboard-dark.jpeg'
+                  : './assets/screenshots/dashboard-activity-light.jpeg'
+              }
+              alt={`inStill Dashboard View - ${dashboardTheme}`}
               orientation="vertical"
               tiltDirection="right"
-              glowColor="rgba(210, 245, 108, 0.45)"
-              badge="Clean White (CW) Theme"
+              glowColor={
+                dashboardTheme === 'day'
+                  ? 'rgba(210, 245, 108, 0.45)'
+                  : dashboardTheme === 'night'
+                  ? 'rgba(143, 168, 255, 0.45)'
+                  : 'rgba(254, 214, 104, 0.45)'
+              }
+              badge={
+                dashboardTheme === 'day'
+                  ? 'Clean White (CW) Theme'
+                  : dashboardTheme === 'night'
+                  ? 'Ferris Wheel (FW) Night'
+                  : 'Sensor Telemetry (CW)'
+              }
               hotspots={[
                 {
                   x: 50,

@@ -48,6 +48,8 @@ const breathingConfig: Record<BreathingPattern, { name: string; subtitle: string
 export const PracticeSection: React.FC = () => {
   const [activeMode, setActiveMode] = useState<PracticeMode>('breathe');
   const [pattern, setPattern] = useState<BreathingPattern>('box');
+  const [breatheTheme, setBreatheTheme] = useState<'light' | 'dark'>('light');
+  const [healTheme, setHealTheme] = useState<'light' | 'dark'>('dark');
   const [isBreathingActive, setIsBreathingActive] = useState(false);
   const [phaseIndex, setPhaseIndex] = useState(0);
   const [phaseSecondsLeft, setPhaseSecondsLeft] = useState(4);
@@ -299,15 +301,50 @@ export const PracticeSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Right: Actual Breathe Screen Mockup */}
+            {/* Right: Actual Breathe Screen Mockup with Light/Dark Theme Switcher */}
             <div className="lg:col-span-5 flex flex-col items-center">
+              <div className="flex items-center gap-1.5 p-1.5 rounded-full bg-white border-2 border-slate-900/10 shadow-cartoon-sm mb-4">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setBreatheTheme('light');
+                    soundEngine.playStepClick();
+                  }}
+                  className={`px-3.5 py-1 text-xs font-bold rounded-full transition-all ${
+                    breatheTheme === 'light'
+                      ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  Day Vagus (CW)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setBreatheTheme('dark');
+                    soundEngine.playStepClick();
+                  }}
+                  className={`px-3.5 py-1 text-xs font-bold rounded-full transition-all ${
+                    breatheTheme === 'dark'
+                      ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  Night Calm (FW)
+                </button>
+              </div>
+
               <AdaptiveScreenshotFrame
-                src="./assets/screenshots/breathe-orb.jpeg"
-                alt="inStill Breathe Screen"
+                src={
+                  breatheTheme === 'light'
+                    ? './assets/screenshots/breathe-light.jpeg'
+                    : './assets/screenshots/breathe-dark.jpeg'
+                }
+                alt={`inStill Breathe Screen - ${breatheTheme} mode`}
                 orientation="vertical"
                 tiltDirection="right"
-                glowColor="rgba(210, 245, 108, 0.45)"
-                badge="BreatheScreen.kt"
+                glowColor={breatheTheme === 'light' ? 'rgba(210, 245, 108, 0.45)' : 'rgba(143, 168, 255, 0.45)'}
+                badge={breatheTheme === 'light' ? 'BreatheScreen • Day' : 'BreatheScreen • Night'}
                 hotspots={[
                   {
                     x: 50,
@@ -405,13 +442,48 @@ export const PracticeSection: React.FC = () => {
             </div>
 
             <div className="lg:col-span-5 flex flex-col items-center">
+              <div className="flex items-center gap-1.5 p-1.5 rounded-full bg-white border-2 border-slate-900/10 shadow-cartoon-sm mb-4">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setHealTheme('light');
+                    soundEngine.playStepClick();
+                  }}
+                  className={`px-3.5 py-1 text-xs font-bold rounded-full transition-all ${
+                    healTheme === 'light'
+                      ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  Acoustic Day (CW)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setHealTheme('dark');
+                    soundEngine.playStepClick();
+                  }}
+                  className={`px-3.5 py-1 text-xs font-bold rounded-full transition-all ${
+                    healTheme === 'dark'
+                      ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  Obsidian Night (FW)
+                </button>
+              </div>
+
               <AdaptiveScreenshotFrame
-                src="./assets/screenshots/heal-music.jpeg"
-                alt="inStill Heal Bilateral Music Screen"
+                src={
+                  healTheme === 'light'
+                    ? './assets/screenshots/heal-light.jpeg'
+                    : './assets/screenshots/heal-dark.jpeg'
+                }
+                alt={`inStill Heal Bilateral Music Screen - ${healTheme} mode`}
                 orientation="vertical"
                 tiltDirection="left"
-                glowColor="rgba(203, 180, 245, 0.45)"
-                badge="Heal Mode: EMDR Audio"
+                glowColor={healTheme === 'light' ? 'rgba(210, 245, 108, 0.45)' : 'rgba(203, 180, 245, 0.45)'}
+                badge={healTheme === 'light' ? 'Heal Mode • Acoustic Day' : 'Heal Mode • EMDR Night'}
               />
             </div>
           </div>

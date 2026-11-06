@@ -9,6 +9,9 @@ type EmoExpression = 'normal' | 'happy' | 'sleepy' | 'curious' | 'wink' | 'surpr
 
 export const PlayCompanionsSection: React.FC = () => {
   const [tab, setTab] = useState<CompanionTab>('mewmew');
+  const [emoTheme, setEmoTheme] = useState<'light' | 'dark'>('light');
+  const [selectedGameScreenshot, setSelectedGameScreenshot] = useState<'2048' | 'reflex' | 'bubble'>('2048');
+  const [gameTheme, setGameTheme] = useState<'light' | 'dark'>('light');
 
   // Mew Mew State
   const [catAction, setCatAction] = useState('Sleeping peacefully on your desk 💤');
@@ -215,12 +218,12 @@ export const PlayCompanionsSection: React.FC = () => {
 
             <div className="lg:col-span-5 flex flex-col items-center">
               <AdaptiveScreenshotFrame
-                src="./assets/screenshots/play-emo-robot.jpeg"
-                alt="inStill Companion Screen"
+                src="./assets/screenshots/dashboard-cosmic.jpeg"
+                alt="inStill Mew Mew Cuddling Cats Mascot"
                 orientation="vertical"
                 tiltDirection="right"
                 glowColor="rgba(250, 123, 96, 0.45)"
-                badge="PlaygroundScreen.kt"
+                badge="Mew Mew Sanctuary"
               />
             </div>
           </div>
@@ -302,13 +305,48 @@ export const PlayCompanionsSection: React.FC = () => {
             </div>
 
             <div className="lg:col-span-5 flex flex-col items-center">
+              <div className="flex items-center gap-1.5 p-1.5 rounded-full bg-white border-2 border-slate-900/10 shadow-cartoon-sm mb-4">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setEmoTheme('light');
+                    soundEngine.playStepClick();
+                  }}
+                  className={`px-3.5 py-1 text-xs font-bold rounded-full transition-all ${
+                    emoTheme === 'light'
+                      ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  Daylight Play (CW)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setEmoTheme('dark');
+                    soundEngine.playStepClick();
+                  }}
+                  className={`px-3.5 py-1 text-xs font-bold rounded-full transition-all ${
+                    emoTheme === 'dark'
+                      ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  Nightfall Glow (FW)
+                </button>
+              </div>
+
               <AdaptiveScreenshotFrame
-                src="./assets/screenshots/play-emo-robot.jpeg"
-                alt="EMO Companion Screen"
+                src={
+                  emoTheme === 'light'
+                    ? './assets/screenshots/play-emo-light.jpeg'
+                    : './assets/screenshots/play-emo-dark.jpeg'
+                }
+                alt={`EMO Companion Screen - ${emoTheme} mode`}
                 orientation="vertical"
                 tiltDirection="left"
-                glowColor="rgba(254, 214, 104, 0.45)"
-                badge="Circus Mode Activated"
+                glowColor={emoTheme === 'light' ? 'rgba(254, 214, 104, 0.45)' : 'rgba(143, 168, 255, 0.45)'}
+                badge={emoTheme === 'light' ? 'EMO Hoverboard • Day' : 'EMO Hoverboard • Night'}
               />
             </div>
           </div>
@@ -396,24 +434,78 @@ export const PlayCompanionsSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Right: Side-by-side Screenshots */}
-            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <AdaptiveScreenshotFrame
-                src="./assets/screenshots/play-game-2048.jpeg"
-                alt="Tile Shift 2048 Game"
-                orientation="vertical"
-                tiltDirection="left"
-                glowColor="rgba(250, 123, 96, 0.4)"
-                badge="Tile Shift 2048"
-              />
-              <AdaptiveScreenshotFrame
-                src="./assets/screenshots/play-game-reflex.jpeg"
-                alt="Reflex Core Frost Game"
-                orientation="vertical"
-                tiltDirection="right"
-                glowColor="rgba(254, 214, 104, 0.4)"
-                badge="Reflex Core"
-              />
+            {/* Right: Side-by-side Screenshots with Game/Theme Selector */}
+            <div className="lg:col-span-6 flex flex-col items-center">
+              <div className="flex flex-wrap items-center justify-center gap-1.5 p-1.5 rounded-full bg-white border-2 border-slate-900/10 shadow-cartoon-sm mb-4">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedGameScreenshot('2048');
+                    soundEngine.playStepClick();
+                  }}
+                  className={`px-3 py-1 text-xs font-bold rounded-full transition-all ${
+                    selectedGameScreenshot === '2048'
+                      ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  Tile Shift 2048 & Reflex
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedGameScreenshot('bubble');
+                    soundEngine.playStepClick();
+                  }}
+                  className={`px-3 py-1 text-xs font-bold rounded-full transition-all ${
+                    selectedGameScreenshot === 'bubble'
+                      ? 'bg-pop-lime text-pop-forest border border-pop-forest shadow-sm'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  Bubble Burst (Day & Night)
+                </button>
+              </div>
+
+              {selectedGameScreenshot === '2048' ? (
+                <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <AdaptiveScreenshotFrame
+                    src="./assets/screenshots/play-game-2048.jpeg"
+                    alt="Tile Shift 2048 Game Screen"
+                    orientation="vertical"
+                    tiltDirection="left"
+                    glowColor="rgba(250, 123, 96, 0.4)"
+                    badge="Tile Shift 2048"
+                  />
+                  <AdaptiveScreenshotFrame
+                    src="./assets/screenshots/play-game-reflex.jpeg"
+                    alt="Reflex Core Frost Game Screen"
+                    orientation="vertical"
+                    tiltDirection="right"
+                    glowColor="rgba(254, 214, 104, 0.4)"
+                    badge="Reflex Core (Day)"
+                  />
+                </div>
+              ) : (
+                <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <AdaptiveScreenshotFrame
+                    src="./assets/screenshots/play-game-bubble-light.jpeg"
+                    alt="Spatial Bubble Burst Game - Light"
+                    orientation="vertical"
+                    tiltDirection="left"
+                    glowColor="rgba(210, 245, 108, 0.45)"
+                    badge="Bubble Burst (Day)"
+                  />
+                  <AdaptiveScreenshotFrame
+                    src="./assets/screenshots/play-game-bubble-dark.jpeg"
+                    alt="Spatial Bubble Burst Game - Night"
+                    orientation="vertical"
+                    tiltDirection="right"
+                    glowColor="rgba(143, 168, 255, 0.45)"
+                    badge="Bubble Burst (Night)"
+                  />
+                </div>
+              )}
             </div>
           </div>
         )}

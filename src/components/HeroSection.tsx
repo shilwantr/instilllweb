@@ -183,31 +183,54 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Adaptive Phone Mockup in Light Porcelain Frame */}
           <AdaptiveScreenshotFrame
             src={dashboardImages[selectedDashboardVariant]}
-            alt="inStill Today Dashboard"
+            alt={`inStill Today Dashboard - ${selectedDashboardVariant} mode`}
             orientation="vertical"
             tiltDirection="left"
-            glowColor="rgba(210, 245, 108, 0.5)"
-            badge="DashboardScreen.kt"
-            hotspots={[
-              {
-                x: 48,
-                y: 22,
-                label: 'Daily Reflection',
-                detail: 'Dynamic daily wisdom quote with favorite heart and instant re-roll interactions.',
-              },
-              {
-                x: 48,
-                y: 43,
-                label: '5-State Mood Bar',
-                detail: 'Tactile mood check-in with spring physics and gentle haptic acoustic feedback.',
-              },
-              {
-                x: 48,
-                y: 63,
-                label: 'Glass Bubble Breathwork',
-                detail: 'Instant quick-launch for guided breath sessions with animated progress badge.',
-              },
-            ]}
+            glowColor={
+              selectedDashboardVariant === 'light'
+                ? 'rgba(210, 245, 108, 0.5)'
+                : selectedDashboardVariant === 'dark'
+                ? 'rgba(143, 168, 255, 0.45)'
+                : 'rgba(203, 180, 245, 0.5)'
+            }
+            badge={
+              selectedDashboardVariant === 'light'
+                ? 'Clean White (CW) Theme'
+                : selectedDashboardVariant === 'dark'
+                ? 'Ferris Wheel (FW) Night'
+                : 'Cosmic Sanctuary (CD)'
+            }
+            hotspots={
+              selectedDashboardVariant !== 'cosmic'
+                ? [
+                    {
+                      x: 48,
+                      y: 22,
+                      label: 'Daily Reflection',
+                      detail: 'Dynamic daily wisdom quote with favorite heart and instant re-roll interactions.',
+                    },
+                    {
+                      x: 48,
+                      y: 43,
+                      label: '5-State Mood Bar',
+                      detail: 'Tactile mood check-in with spring physics and gentle haptic acoustic feedback.',
+                    },
+                    {
+                      x: 48,
+                      y: 63,
+                      label: 'Glass Bubble Breathwork',
+                      detail: 'Instant quick-launch for guided breath sessions with animated progress badge.',
+                    },
+                  ]
+                : [
+                    {
+                      x: 50,
+                      y: 50,
+                      label: 'inStill Mascot Sanctuary',
+                      detail: 'Restful sleeping cats emblem marking your transition into mindful presence.',
+                    },
+                  ]
+            }
           />
         </motion.div>
       </div>

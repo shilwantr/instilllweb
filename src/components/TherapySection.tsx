@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Video, Mic, MicOff, VideoOff, Star, ShieldCheck, PhoneCall, UserCheck, Stethoscope } from 'lucide-react';
+import { AdaptiveScreenshotFrame } from './AdaptiveScreenshotFrame';
 import { soundEngine } from '../utils/audio';
 
 export const TherapySection: React.FC = () => {
@@ -223,41 +224,54 @@ export const TherapySection: React.FC = () => {
             </div>
           </div>
         ) : (
-          <div className="max-w-4xl mx-auto bg-white rounded-3xl p-6 sm:p-8 border-2 border-slate-900/10 shadow-cartoon-sm">
-            <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
-              <div>
-                <h3 className="text-xl font-bold text-slate-900">Practitioner Telehealth Portal</h3>
-                <p className="text-xs text-slate-600">Upcoming clinical consultations and synchronized client telemetry</p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-6xl mx-auto">
+            <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border-2 border-slate-900/10 shadow-cartoon-sm">
+              <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900">Practitioner Telehealth Portal</h3>
+                  <p className="text-xs text-slate-600">Upcoming clinical consultations and synchronized client telemetry</p>
+                </div>
+                <span className="px-3.5 py-1.5 rounded-full bg-pop-yellow text-slate-900 text-xs font-mono font-bold">
+                  Therapist Mode Active
+                </span>
               </div>
-              <span className="px-3.5 py-1.5 rounded-full bg-pop-yellow text-slate-900 text-xs font-mono font-bold">
-                Therapist Mode Active
-              </span>
+
+              <div className="space-y-4">
+                {[
+                  { client: 'Client #9482 (Anonymous)', time: '14:00 PM EST', status: 'In Waiting Room', trend: 'Anxiety elevated (HRV: 42ms)' },
+                  { client: 'Client #8120 (Anonymous)', time: '15:30 PM EST', status: 'Scheduled', trend: 'Mood stable • 7-day streak' },
+                ].map((item, idx) => (
+                  <div key={idx} className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                      <div className="text-sm font-bold text-slate-900">{item.client}</div>
+                      <div className="text-xs text-slate-600 font-mono">{item.time} • {item.trend}</div>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsCallActive(true);
+                        soundEngine.playBreatheBell();
+                      }}
+                      aria-label={`Admit ${item.client} to video call`}
+                      data-cursor="pointer"
+                      className="px-5 py-2.5 rounded-full bg-slate-950 text-white text-xs font-bold shadow-cartoon-sm hover:bg-slate-800 transition-colors"
+                    >
+                      Admit to Video Call
+                    </button>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="space-y-4">
-              {[
-                { client: 'Client #9482 (Anonymous)', time: '14:00 PM EST', status: 'In Waiting Room', trend: 'Anxiety elevated (HRV: 42ms)' },
-                { client: 'Client #8120 (Anonymous)', time: '15:30 PM EST', status: 'Scheduled', trend: 'Mood stable • 7-day streak' },
-              ].map((item, idx) => (
-                <div key={idx} className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                  <div>
-                    <div className="text-sm font-bold text-slate-900">{item.client}</div>
-                    <div className="text-xs text-slate-600 font-mono">{item.time} • {item.trend}</div>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setIsCallActive(true);
-                      soundEngine.playBreatheBell();
-                    }}
-                    aria-label={`Admit ${item.client} to video call`}
-                    data-cursor="pointer"
-                    className="px-5 py-2.5 rounded-full bg-slate-950 text-white text-xs font-bold shadow-cartoon-sm hover:bg-slate-800 transition-colors"
-                  >
-                    Admit to Video Call
-                  </button>
-                </div>
-              ))}
+            <div className="lg:col-span-5 flex flex-col items-center">
+              <AdaptiveScreenshotFrame
+                src="./assets/screenshots/telehealth-role-select.jpeg"
+                alt="inStill Telehealth Role Selection Screen"
+                orientation="vertical"
+                tiltDirection="right"
+                glowColor="rgba(254, 214, 104, 0.45)"
+                badge="Telehealth Mode Selection"
+              />
             </div>
           </div>
         )}
