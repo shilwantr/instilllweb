@@ -1,5 +1,27 @@
 # SPA Routing and clean sitemap paths
+/today  /today/index.html  200
+/breathe  /breathe/index.html  200
+/box-breathing  /box-breathing/index.html  200
+/heal  /heal/index.html  200
+/sleep  /sleep/index.html  200
+/journal  /journal/index.html  200
+/telehealth  /telehealth/index.html  200
+/companions  /companions/index.html  200
+/desk-clock  /desk-clock/index.html  200
+/doombreaker  /doombreaker/index.html  200
+/soundboard  /soundboard/index.html  200
+/safety  /safety/index.html  200
+/themes  /themes/index.html  200
+/soundscapes  /soundscapes/index.html  200
 /lab  /lab/index.html  200
+/about  /about/index.html  200
+/faq  /faq/index.html  200
+/contact  /contact/index.html  200
+/emdr-therapy  /emdr-therapy/index.html  200
+/circadian-clock  /circadian-clock/index.html  200
+/digital-wellbeing  /digital-wellbeing/index.html  200
+/pedometer-health  /pedometer-health/index.html  200
+/hydration  /hydration/index.html  200
 /privacy  /privacy/index.html  200
 /terms  /terms/index.html  200
 /privacy-policy  /privacy-policy/index.html  200

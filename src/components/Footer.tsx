@@ -124,6 +124,43 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
+        {/* Directory Navigation for Deep Crawling & SEO */}
+        <div className="py-6 border-b border-slate-100 flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-2 text-[11px] font-mono font-semibold text-slate-500">
+          <a href="/today" className="hover:text-pop-forest transition-colors">Today Rituals</a>
+          <span className="text-slate-300">•</span>
+          <a href="/breathe" className="hover:text-pop-forest transition-colors">Breathwork</a>
+          <span className="text-slate-300">•</span>
+          <a href="/box-breathing" className="hover:text-pop-forest transition-colors">Box Breathing</a>
+          <span className="text-slate-300">•</span>
+          <a href="/heal" className="hover:text-pop-forest transition-colors">Bilateral EMDR</a>
+          <span className="text-slate-300">•</span>
+          <a href="/sleep" className="hover:text-pop-forest transition-colors">Sleep Dreamscapes</a>
+          <span className="text-slate-300">•</span>
+          <a href="/journal" className="hover:text-pop-forest transition-colors">Reflective Journal</a>
+          <span className="text-slate-300">•</span>
+          <a href="/telehealth" className="hover:text-pop-forest transition-colors">Clinical Telehealth</a>
+          <span className="text-slate-300">•</span>
+          <a href="/companions" className="hover:text-pop-forest transition-colors">Mindful Companions</a>
+          <span className="text-slate-300">•</span>
+          <a href="/desk-clock" className="hover:text-pop-forest transition-colors">StandBy Clock</a>
+          <span className="text-slate-300">•</span>
+          <a href="/doombreaker" className="hover:text-pop-forest transition-colors">DoomBreaker</a>
+          <span className="text-slate-300">•</span>
+          <a href="/soundboard" className="hover:text-pop-forest transition-colors">Sensory Acoustics</a>
+          <span className="text-slate-300">•</span>
+          <a href="/safety" className="hover:text-pop-forest transition-colors">988 Lifeline</a>
+          <span className="text-slate-300">•</span>
+          <a href="/themes" className="hover:text-pop-forest transition-colors">Living Themes</a>
+          <span className="text-slate-300">•</span>
+          <a href="/about" className="hover:text-pop-forest transition-colors">About inStill</a>
+          <span className="text-slate-300">•</span>
+          <a href="/faq" className="hover:text-pop-forest transition-colors">FAQ</a>
+          <span className="text-slate-300">•</span>
+          <a href="/privacy" className="hover:text-pop-forest transition-colors">Privacy</a>
+          <span className="text-slate-300">•</span>
+          <a href="/terms" className="hover:text-pop-forest transition-colors">Terms</a>
+        </div>
+
         {/* Bottom Credits */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-600 gap-4 font-medium">
           <div className="flex items-center gap-1.5">

@@ -1,88 +1,459 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Main Homepage -->
   <url>
-    <loc>https://instilll.in/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <loc>https://www.instilll.in/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/" />
+    <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://instilll.in/lab</loc>
-    <lastmod>2026-10-30</lastmod>
+    <loc>https://instilll.in/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://instilll.com/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- Path: /today -->
+  <url>
+    <loc>https://www.instilll.in/today</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/today" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/today" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/today" />
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/today</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- Path: /breathe -->
+  <url>
+    <loc>https://www.instilll.in/breathe</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/breathe" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/breathe" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/breathe" />
+    <lastmod>2026-11-15</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/breathe</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- Path: /box-breathing -->
+  <url>
+    <loc>https://www.instilll.in/box-breathing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/box-breathing" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/box-breathing" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/box-breathing" />
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/box-breathing</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <!-- Path: /heal -->
+  <url>
+    <loc>https://www.instilll.in/heal</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/heal" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/heal" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/heal" />
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/heal</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- Path: /sleep -->
+  <url>
+    <loc>https://www.instilll.in/sleep</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/sleep" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/sleep" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/sleep" />
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/sleep</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <!-- Path: /journal -->
+  <url>
+    <loc>https://www.instilll.in/journal</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/journal" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/journal" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/journal" />
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/journal</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <!-- Path: /telehealth -->
+  <url>
+    <loc>https://www.instilll.in/telehealth</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/telehealth" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/telehealth" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/telehealth" />
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/telehealth</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <!-- Path: /companions -->
+  <url>
+    <loc>https://www.instilll.in/companions</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/companions" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/companions" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/companions" />
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/companions</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <!-- Path: /desk-clock -->
+  <url>
+    <loc>https://www.instilll.in/desk-clock</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/desk-clock" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/desk-clock" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/desk-clock" />
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/desk-clock</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <!-- Path: /doombreaker -->
+  <url>
+    <loc>https://www.instilll.in/doombreaker</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/doombreaker" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/doombreaker" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/doombreaker" />
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/doombreaker</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <!-- Path: /soundboard -->
+  <url>
+    <loc>https://www.instilll.in/soundboard</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/soundboard" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/soundboard" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/soundboard" />
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://instilll.in/soundboard</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Path: /safety -->
+  <url>
+    <loc>https://www.instilll.in/safety</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/safety" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/safety" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/safety" />
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/safety</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <!-- Path: /themes -->
+  <url>
+    <loc>https://www.instilll.in/themes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/themes" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/themes" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/themes" />
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/themes</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <!-- Path: /soundscapes -->
+  <url>
+    <loc>https://www.instilll.in/soundscapes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/soundscapes" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/soundscapes" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/soundscapes" />
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/soundscapes</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Path: /lab -->
+  <url>
+    <loc>https://www.instilll.in/lab</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/lab" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/lab" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/lab" />
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/lab</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <!-- Path: /about -->
+  <url>
+    <loc>https://www.instilll.in/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/about" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/about" />
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/about</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Path: /faq -->
+  <url>
+    <loc>https://www.instilll.in/faq</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/faq" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/faq" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/faq" />
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/faq</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <!-- Path: /contact -->
+  <url>
+    <loc>https://www.instilll.in/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/contact" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/contact" />
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/contact</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Path: /emdr-therapy -->
+  <url>
+    <loc>https://www.instilll.in/emdr-therapy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/emdr-therapy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/emdr-therapy" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/emdr-therapy" />
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/emdr-therapy</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <!-- Path: /circadian-clock -->
+  <url>
+    <loc>https://www.instilll.in/circadian-clock</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/circadian-clock" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/circadian-clock" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/circadian-clock" />
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/circadian-clock</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Path: /digital-wellbeing -->
+  <url>
+    <loc>https://www.instilll.in/digital-wellbeing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/digital-wellbeing" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/digital-wellbeing" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/digital-wellbeing" />
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/digital-wellbeing</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Path: /pedometer-health -->
+  <url>
+    <loc>https://www.instilll.in/pedometer-health</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/pedometer-health" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/pedometer-health" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/pedometer-health" />
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/pedometer-health</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Path: /hydration -->
+  <url>
+    <loc>https://www.instilll.in/hydration</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/hydration" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/hydration" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/hydration" />
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/hydration</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Path: /privacy -->
+  <url>
+    <loc>https://www.instilll.in/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/privacy" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/privacy" />
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://instilll.in/privacy</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Path: /terms -->
+  <url>
+    <loc>https://www.instilll.in/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/terms" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/terms" />
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://instilll.in/terms</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Path: /privacy-policy -->
+  <url>
+    <loc>https://www.instilll.in/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/privacy-policy" />
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://instilll.in/privacy-policy</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Path: /privacy-policy/spycam-pro -->
+  <url>
+    <loc>https://www.instilll.in/privacy-policy/spycam-pro</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/privacy-policy/spycam-pro" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/privacy-policy/spycam-pro" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/privacy-policy/spycam-pro" />
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://instilll.in/privacy-policy/spycam-pro</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://instilll.in/#today</loc>
-    <lastmod>2026-10-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://instilll.in/#practice</loc>
-    <lastmod>2026-10-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://instilll.in/#journal</loc>
-    <lastmod>2026-10-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://instilll.in/#telehealth</loc>
-    <lastmod>2026-10-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://instilll.in/#companions</loc>
-    <lastmod>2026-10-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://instilll.in/#desk-clock</loc>
-    <lastmod>2026-10-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://instilll.in/#soundboard</loc>
-    <lastmod>2026-10-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.65</priority>
-  </url>
-  <url>
-    <loc>https://instilll.in/#safety</loc>
-    <lastmod>2026-10-30</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 </urlset>
