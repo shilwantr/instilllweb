@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Clock, Volume2, Menu, X, ArrowUpRight } from 'lucide-react';
 import { LivingTheme } from './LivingCanvas';
 import { soundEngine } from '../utils/audio';
+import { InstilllBrand } from './InstilllBrand';
 
 interface NavbarProps {
   currentTheme: LivingTheme;
@@ -56,16 +57,14 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden border-2 border-slate-900/15 shadow-cartoon-sm transition-transform group-hover:scale-110 flex-shrink-0 bg-purple-100">
             <img
               src="./assets/logo.png"
-              alt="inStill Brand Logo"
+              alt="instilll Brand Logo"
               width="44"
               height="44"
               className="w-full h-full object-cover block select-none"
             />
           </div>
           <div className="flex items-center">
-            <span className="font-sans text-xl sm:text-2xl font-black text-slate-900 tracking-tight group-hover:text-pop-forest transition-colors">
-              in<span className="font-extrabold">STILL</span>
-            </span>
+            <InstilllBrand size="md" variant="lowercase" />
           </div>
         </a>
 
@@ -135,13 +134,13 @@ export const Navbar: React.FC<NavbarProps> = ({
               soundEngine.playCatPurr();
             }}
             data-cursor="pointer"
-            aria-label="Pet inStill Cuddling Cats Mascot"
-            title="Pet inStill Mascot"
+            aria-label="Pet instilll Cuddling Cats Mascot"
+            title="Pet instilll Mascot"
             className="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border-2 border-slate-900/20 hover:border-pop-forest transition-transform hover:scale-110 shadow-cartoon-sm flex-shrink-0 bg-purple-100 cursor-pointer"
           >
             <img
               src="./assets/logo.png"
-              alt="inStill Mascot Icon"
+              alt="instilll Mascot Icon"
               width="40"
               height="40"
               className="w-full h-full object-cover block select-none"

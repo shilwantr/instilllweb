@@ -36,16 +36,16 @@ export const TherapySection: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-yellow text-slate-900 border border-slate-900/15 shadow-cartoon-sm mb-4">
-            <span>🩺 Section 06</span>
+            <span>🩺 Mindful Care</span>
             <span>•</span>
-            <span>Agora RTC Telehealth</span>
+            <span>Clinical Consultations</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-sans font-extrabold tracking-tight mb-4 text-slate-900">
             Clinical Telehealth & Somatic Therapy
           </h2>
           <p className="text-slate-600 text-base sm:text-lg font-normal leading-relaxed">
             Encrypted HD video consultations with licensed clinicians, integrated directly with
-            inStill biometric telemetry and bilateral audio protocols.
+            instilll biometric telemetry and bilateral audio protocols.
           </p>
 
           {/* Dual-Role Switcher */}
@@ -266,7 +266,7 @@ export const TherapySection: React.FC = () => {
             <div className="lg:col-span-5 flex flex-col items-center">
               <AdaptiveScreenshotFrame
                 src="./assets/screenshots/telehealth-role-select.jpeg"
-                alt="inStill Telehealth Role Selection Screen"
+                alt="instilll Telehealth Role Selection Screen"
                 orientation="vertical"
                 tiltDirection="right"
                 glowColor="rgba(254, 214, 104, 0.45)"

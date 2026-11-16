@@ -183,7 +183,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Adaptive Phone Mockup in Light Porcelain Frame */}
           <AdaptiveScreenshotFrame
             src={dashboardImages[selectedDashboardVariant]}
-            alt={`inStill Today Dashboard - ${selectedDashboardVariant} mode`}
+            alt={`instilll Today Dashboard - ${selectedDashboardVariant} mode`}
             orientation="vertical"
             tiltDirection="left"
             glowColor={
@@ -226,7 +226,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     {
                       x: 50,
                       y: 50,
-                      label: 'inStill Mascot Sanctuary',
+                      label: 'instilll Mascot Sanctuary',
                       detail: 'Restful sleeping cats emblem marking your transition into mindful presence.',
                     },
                   ]

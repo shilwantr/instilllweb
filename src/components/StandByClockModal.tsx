@@ -158,7 +158,7 @@ export const StandByClockModal: React.FC<StandByClockModalProps> = ({ isOpen, on
 
         {/* Bottom Ambient Note */}
         <div className="text-center text-xs font-mono text-slate-500 z-20">
-          inStill StandBy Display • Press ESC or tap top-right to exit
+          instilll StandBy Display • Press ESC or tap top-right to exit
         </div>
       </div>
     </AnimatePresence>

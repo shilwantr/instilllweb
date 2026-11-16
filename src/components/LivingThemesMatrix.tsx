@@ -112,7 +112,7 @@ export const LivingThemesMatrix: React.FC<LivingThemesMatrixProps> = ({
             The 11 Living Canvas Ambient Themes
           </h2>
           <p className="text-slate-600 text-base sm:text-lg font-normal leading-relaxed">
-            Every screen in inStill breathes with 60 FPS procedural shader physics.
+            Every screen in instilll breathes with 60 FPS procedural shader physics.
             Click any canvas card below to immediately transform the website's living backdrop.
           </p>
         </div>

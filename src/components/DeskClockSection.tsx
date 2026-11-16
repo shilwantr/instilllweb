@@ -66,9 +66,9 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-lime text-pop-forest border border-pop-forest/20 shadow-cartoon-sm mb-4">
-            <span>⏰ Section 08</span>
+            <span>⏰ Ambient Time</span>
             <span>•</span>
-            <span>FullScreenDeskClockOverlay.kt</span>
+            <span>StandBy Horizon Display</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-sans font-extrabold tracking-tight mb-4 text-slate-900">
             Focus Desk Clock & StandBy Mode
@@ -102,7 +102,7 @@ export const DeskClockSection: React.FC<DeskClockSectionProps> = ({ onOpenFullsc
 
           <AdaptiveScreenshotFrame
             src="./assets/screenshots/desk-clock-landscape-1.jpeg"
-            alt="inStill StandBy Landscape Desk Clock"
+            alt="instilll StandBy Landscape Desk Clock"
             orientation="horizontal"
             glowColor={currentPal.glow}
             badge="MagSafe Landscape Stand"

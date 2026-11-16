@@ -31,7 +31,7 @@ export const PlayCompanionsSection: React.FC = () => {
   const handleCatPet = () => {
     soundEngine.playCatPurr();
     setCatAffection((prev) => Math.min(100, prev + 5));
-    setCatAction('Purring softly with warmth and contentment ✨');
+    setCatAction('Purring softly with warmth and contentment 🐾');
   };
 
   const startReflexTest = () => {
@@ -78,9 +78,9 @@ export const PlayCompanionsSection: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-coral text-white border border-slate-900/15 shadow-cartoon-sm mb-4">
-            <span>🐾 Section 07</span>
+            <span>🐾 Sensory Pets</span>
             <span>•</span>
-            <span>PlaygroundScreen.kt</span>
+            <span>Playful Sanctuary</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-sans font-extrabold tracking-tight mb-4 text-slate-900">
             Play & Sensory Companions
@@ -219,7 +219,7 @@ export const PlayCompanionsSection: React.FC = () => {
             <div className="lg:col-span-5 flex flex-col items-center">
               <AdaptiveScreenshotFrame
                 src="./assets/screenshots/dashboard-cosmic.jpeg"
-                alt="inStill Mew Mew Cuddling Cats Mascot"
+                alt="instilll Mew Mew Cuddling Cats Mascot"
                 orientation="vertical"
                 tiltDirection="right"
                 glowColor="rgba(250, 123, 96, 0.45)"

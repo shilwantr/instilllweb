@@ -129,9 +129,9 @@ export const PracticeSection: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-periwinkle text-slate-900 border border-slate-900/15 shadow-cartoon-sm mb-4">
-            <span>🌬️ Section 04</span>
+            <span>🌬️ Vagal Rhythm</span>
             <span>•</span>
-            <span>BreatheScreen.kt</span>
+            <span>Bio-Responsive Breathwork</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-sans font-extrabold tracking-tight mb-4 text-slate-900">
             Practice: Breathe, Heal & Sleep
@@ -340,7 +340,7 @@ export const PracticeSection: React.FC = () => {
                     ? './assets/screenshots/breathe-light.jpeg'
                     : './assets/screenshots/breathe-dark.jpeg'
                 }
-                alt={`inStill Breathe Screen - ${breatheTheme} mode`}
+                alt={`instilll Breathe Screen - ${breatheTheme} mode`}
                 orientation="vertical"
                 tiltDirection="right"
                 glowColor={breatheTheme === 'light' ? 'rgba(210, 245, 108, 0.45)' : 'rgba(143, 168, 255, 0.45)'}
@@ -479,7 +479,7 @@ export const PracticeSection: React.FC = () => {
                     ? './assets/screenshots/heal-light.jpeg'
                     : './assets/screenshots/heal-dark.jpeg'
                 }
-                alt={`inStill Heal Bilateral Music Screen - ${healTheme} mode`}
+                alt={`instilll Heal Bilateral Music Screen - ${healTheme} mode`}
                 orientation="vertical"
                 tiltDirection="left"
                 glowColor={healTheme === 'light' ? 'rgba(210, 245, 108, 0.45)' : 'rgba(203, 180, 245, 0.45)'}
@@ -541,7 +541,7 @@ export const PracticeSection: React.FC = () => {
                 badge={sleepScenes[selectedSleepScene].name}
               />
               <p className="mt-4 text-xs font-mono font-bold text-slate-600 text-center">
-                Original vector artwork designed for inStill’s restorative sleep immersion.
+                Original vector artwork designed for instilll’s restorative sleep immersion.
               </p>
             </div>
           </div>

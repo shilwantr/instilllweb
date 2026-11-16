@@ -84,9 +84,9 @@ export const TodayDashboardSection: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-lime text-pop-forest border border-pop-forest/20 shadow-cartoon-sm mb-4">
-            <span>✨ Section 03</span>
+            <span>🌱 Daily Ritual</span>
             <span>•</span>
-            <span>DashboardScreen.kt</span>
+            <span>Morning Presence</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-sans font-extrabold tracking-tight mb-4 text-slate-900">
             Today: The Daily Balance Hub
@@ -395,7 +395,7 @@ export const TodayDashboardSection: React.FC = () => {
                   ? './assets/screenshots/dashboard-dark.jpeg'
                   : './assets/screenshots/dashboard-activity-light.jpeg'
               }
-              alt={`inStill Dashboard View - ${dashboardTheme}`}
+              alt={`instilll Dashboard View - ${dashboardTheme}`}
               orientation="vertical"
               tiltDirection="right"
               glowColor={

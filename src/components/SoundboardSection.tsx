@@ -97,15 +97,15 @@ export const SoundboardSection: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-yellow text-slate-900 border border-slate-900/15 shadow-cartoon-sm mb-4">
-            <span>🔔 Section 10</span>
+            <span>🔔 Hardware Synthesis</span>
             <span>•</span>
-            <span>Sensory Acoustics & Haptics</span>
+            <span>Sensory Acoustics</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-sans font-extrabold tracking-tight mb-4 text-slate-900">
             Acoustic Engineering Soundboard
           </h2>
           <p className="text-slate-600 text-base sm:text-lg font-normal leading-relaxed">
-            Every audio cue in inStill is synthesized dynamically via hardware oscillators,
+            Every audio cue in instilll is synthesized dynamically via hardware oscillators,
             ensuring zero bandwidth lag, clean transients, and soothing therapeutic frequencies.
           </p>
         </div>

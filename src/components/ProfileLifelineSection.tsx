@@ -21,9 +21,9 @@ export const ProfileLifelineSection: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-lime text-pop-forest border border-pop-forest/20 shadow-cartoon-sm mb-4">
-            <span>🔒 Section 11</span>
+            <span>🔒 Confidential Care</span>
             <span>•</span>
-            <span>ProfileScreen.kt & Safety</span>
+            <span>Privacy & Safety</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-sans font-extrabold tracking-tight mb-4 text-slate-900">
             Privacy, Identity & 24/7 Crisis Lifeline

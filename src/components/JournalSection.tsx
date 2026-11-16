@@ -22,9 +22,9 @@ export const JournalSection: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-pop-lavender text-purple-950 border border-slate-900/15 shadow-cartoon-sm mb-4">
-            <span>📖 Section 05</span>
+            <span>📖 Daily Chronicle</span>
             <span>•</span>
-            <span>JournalScreen.kt</span>
+            <span>Mindful Reflections</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-sans font-extrabold tracking-tight mb-4 text-slate-900">
             Journal & Multi-Scale Trend Analytics
@@ -91,7 +91,7 @@ export const JournalSection: React.FC = () => {
                   ? './assets/screenshots/journal-reflection-dark.jpeg'
                   : './assets/screenshots/journal-metrics-light.jpeg'
               }
-              alt={`inStill Journal Screen - ${journalView}`}
+              alt={`instilll Journal Screen - ${journalView}`}
               orientation="vertical"
               tiltDirection="left"
               glowColor={
@@ -279,7 +279,7 @@ export const JournalSection: React.FC = () => {
             >
               <div className="flex items-center justify-between mb-4">
                 <span id="journal-modal-heading" className="text-xs font-mono font-bold uppercase tracking-widest text-pop-forest">
-                  ✨ New Journal Reflection
+                  ✍️ New Journal Reflection
                 </span>
                 <button
                   onClick={() => setIsComposerOpen(false)}

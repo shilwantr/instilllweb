@@ -1,4 +1,4 @@
-// Web Audio API Synthesizer for inStill Wellness App
+// Web Audio API Synthesizer for instilll Wellness App
 
 class SoundEngine {
   private ctx: AudioContext | null = null;

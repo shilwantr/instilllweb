@@ -1,12 +1,12 @@
-# inStill — Showcase & Marketing Landing Website
+# instilll — Showcase & Marketing Landing Website
 
 > *"Mindful Presence & Daily Balance"*
 
-A production-grade, sensory-rich showcase and marketing website for **inStill** (*STILL*), a luxury digital wellness, telehealth, and sensory ecosystem engineered with 60 FPS liquid canvas shaders, bio-responsive breathwork, and clinical telehealth.
+A production-grade, sensory-rich showcase and marketing website for **instilll**, a luxury digital wellness, telehealth, and sensory ecosystem engineered with 60 FPS liquid canvas shaders, bio-responsive breathwork, and clinical telehealth.
 
 ---
 
-## ✨ Features & Architecture
+## Features & Architecture
 
 ### 1. Living Canvas Ambient Backgrounds (60 FPS)
 - Interactive HTML5 canvas simulating fluid harmonic waves, starlight motes, and celestial bubbles.

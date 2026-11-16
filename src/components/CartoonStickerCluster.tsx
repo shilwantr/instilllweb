@@ -30,7 +30,7 @@ export const CartoonStickerCluster: React.FC = () => {
         {/* Scalloped decorative border */}
         <div className="relative flex items-center justify-center">
           <Search className="w-9 h-9 sm:w-11 sm:h-11 stroke-[2.5]" />
-          <span className="absolute -top-1 -right-1 text-xs">✨</span>
+          <span className="absolute -top-1 -right-1 text-xs">🌿</span>
         </div>
       </motion.div>
 
@@ -81,18 +81,18 @@ export const CartoonStickerCluster: React.FC = () => {
         <MousePointer className="w-9 h-9 sm:w-10 sm:h-10 fill-current stroke-pop-forest stroke-[1.5]" />
       </motion.div>
 
-      {/* 6. Official inSTILL Cuddling Cats Mascot Sticker (Bottom Left) */}
+      {/* 6. Official instilll Cuddling Cats Mascot Sticker (Bottom Left) */}
       <motion.div
         whileHover={{ scale: 1.15, rotate: 8 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => soundEngine.playCatPurr()}
         data-cursor="pointer"
         className="absolute -bottom-7 left-6 sm:left-12 z-40 w-20 h-20 sm:w-24 sm:h-24 bg-white border-2 border-pop-forest rounded-full overflow-hidden shadow-cartoon transform rotate-[-8deg] cursor-pointer group"
-        title="Pet inSTILL Cuddling Cats!"
+        title="Pet instilll Cuddling Cats!"
       >
         <img
           src="./assets/logo.png"
-          alt="inSTILL Cuddling Cats Mascot"
+          alt="instilll Cuddling Cats Mascot"
           width="96"
           height="96"
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 select-none pointer-events-none"

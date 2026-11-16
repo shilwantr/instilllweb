@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUp } from 'lucide-react';
 import { soundEngine } from '../utils/audio';
+import { InstilllBrand } from './InstilllBrand';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -18,15 +19,13 @@ export const Footer: React.FC = () => {
               <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-slate-900/15 shadow-cartoon-sm flex-shrink-0 bg-purple-100">
                 <img
                   src="./assets/logo.png"
-                  alt="inStill Logo"
+                  alt="instilll Logo"
                   width="44"
                   height="44"
                   className="w-full h-full object-cover block"
                 />
               </div>
-              <span className="font-sans text-2xl font-black text-slate-900 tracking-tight">
-                in<span className="font-extrabold">STILL</span>
-              </span>
+              <InstilllBrand size="lg" variant="lowercase" />
             </div>
             <p className="text-slate-700 text-sm leading-relaxed max-w-sm mb-6">
               Mindful Presence & Daily Balance. A luxury sensory wellness ecosystem engineered with 60 FPS liquid canvas shaders, bio-responsive breathwork, and clinical telehealth.
@@ -152,7 +151,7 @@ export const Footer: React.FC = () => {
           <span className="text-slate-300">•</span>
           <a href="/themes" className="hover:text-pop-forest transition-colors">Living Themes</a>
           <span className="text-slate-300">•</span>
-          <a href="/about" className="hover:text-pop-forest transition-colors">About inStill</a>
+          <a href="/about" className="hover:text-pop-forest transition-colors">About instilll</a>
           <span className="text-slate-300">•</span>
           <a href="/faq" className="hover:text-pop-forest transition-colors">FAQ</a>
           <span className="text-slate-300">•</span>
@@ -168,7 +167,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-6 font-mono text-[11px]">
-            <span>© {new Date().getFullYear()} inStill. All rights reserved.</span>
+            <span>© {new Date().getFullYear()} instilll. All rights reserved.</span>
           </div>
         </div>
       </div>
