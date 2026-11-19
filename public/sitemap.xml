@@ -456,4 +456,148 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- Path: /learn -->
+  <url>
+    <loc>https://www.instilll.in/learn</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/learn" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/learn" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/learn" />
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/learn</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- Path: /learn/anxiety-panic-vagal-regulation -->
+  <url>
+    <loc>https://www.instilll.in/learn/anxiety-panic-vagal-regulation</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/learn/anxiety-panic-vagal-regulation" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/learn/anxiety-panic-vagal-regulation" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/learn/anxiety-panic-vagal-regulation" />
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/learn/anxiety-panic-vagal-regulation</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Path: /learn/doomscrolling-dopamine-attention-reset -->
+  <url>
+    <loc>https://www.instilll.in/learn/doomscrolling-dopamine-attention-reset</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/learn/doomscrolling-dopamine-attention-reset" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/learn/doomscrolling-dopamine-attention-reset" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/learn/doomscrolling-dopamine-attention-reset" />
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/learn/doomscrolling-dopamine-attention-reset</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Path: /learn/insomnia-circadian-rhythm-sleep-hygiene -->
+  <url>
+    <loc>https://www.instilll.in/learn/insomnia-circadian-rhythm-sleep-hygiene</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/learn/insomnia-circadian-rhythm-sleep-hygiene" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/learn/insomnia-circadian-rhythm-sleep-hygiene" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/learn/insomnia-circadian-rhythm-sleep-hygiene" />
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/learn/insomnia-circadian-rhythm-sleep-hygiene</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Path: /learn/burnout-chronic-stress-recovery -->
+  <url>
+    <loc>https://www.instilll.in/learn/burnout-chronic-stress-recovery</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/learn/burnout-chronic-stress-recovery" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/learn/burnout-chronic-stress-recovery" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/learn/burnout-chronic-stress-recovery" />
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/learn/burnout-chronic-stress-recovery</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Path: /learn/trauma-ptsd-somatic-emdr-therapy -->
+  <url>
+    <loc>https://www.instilll.in/learn/trauma-ptsd-somatic-emdr-therapy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/learn/trauma-ptsd-somatic-emdr-therapy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/learn/trauma-ptsd-somatic-emdr-therapy" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/learn/trauma-ptsd-somatic-emdr-therapy" />
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/learn/trauma-ptsd-somatic-emdr-therapy</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Path: /learn/depression-low-mood-behavioral-activation -->
+  <url>
+    <loc>https://www.instilll.in/learn/depression-low-mood-behavioral-activation</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/learn/depression-low-mood-behavioral-activation" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/learn/depression-low-mood-behavioral-activation" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/learn/depression-low-mood-behavioral-activation" />
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/learn/depression-low-mood-behavioral-activation</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Path: /learn/sensory-overload-gentle-grounding -->
+  <url>
+    <loc>https://www.instilll.in/learn/sensory-overload-gentle-grounding</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/learn/sensory-overload-gentle-grounding" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/learn/sensory-overload-gentle-grounding" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/learn/sensory-overload-gentle-grounding" />
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/learn/sensory-overload-gentle-grounding</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Path: /learn/hydration-movement-cognitive-balance -->
+  <url>
+    <loc>https://www.instilll.in/learn/hydration-movement-cognitive-balance</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.instilll.in/learn/hydration-movement-cognitive-balance" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.instilll.in/learn/hydration-movement-cognitive-balance" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://instilll.com/learn/hydration-movement-cognitive-balance" />
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://instilll.in/learn/hydration-movement-cognitive-balance</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

@@ -36,6 +36,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { name: 'Companions', href: '#companions' },
     { name: 'Desk Clock', href: '#desk-clock' },
     { name: 'Soundboard', href: '#soundboard' },
+    { name: 'Guides', href: '#learn' },
   ];
 
   return (

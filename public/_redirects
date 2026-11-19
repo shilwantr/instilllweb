@@ -14,6 +14,16 @@
 /themes  /themes/index.html  200
 /soundscapes  /soundscapes/index.html  200
 /lab  /lab/index.html  200
+/learn  /learn/index.html  200
+/learn/anxiety-panic-vagal-regulation  /learn/anxiety-panic-vagal-regulation/index.html  200
+/learn/doomscrolling-dopamine-attention-reset  /learn/doomscrolling-dopamine-attention-reset/index.html  200
+/learn/insomnia-circadian-rhythm-sleep-hygiene  /learn/insomnia-circadian-rhythm-sleep-hygiene/index.html  200
+/learn/burnout-chronic-stress-recovery  /learn/burnout-chronic-stress-recovery/index.html  200
+/learn/trauma-ptsd-somatic-emdr-therapy  /learn/trauma-ptsd-somatic-emdr-therapy/index.html  200
+/learn/depression-low-mood-behavioral-activation  /learn/depression-low-mood-behavioral-activation/index.html  200
+/learn/sensory-overload-gentle-grounding  /learn/sensory-overload-gentle-grounding/index.html  200
+/learn/hydration-movement-cognitive-balance  /learn/hydration-movement-cognitive-balance/index.html  200
+/learn/:slug  /learn/:slug/index.html  200
 /about  /about/index.html  200
 /faq  /faq/index.html  200
 /contact  /contact/index.html  200

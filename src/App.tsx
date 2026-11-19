@@ -11,6 +11,7 @@ import { DeskClockSection } from './components/DeskClockSection';
 import { DoomBreakerSection } from './components/DoomBreakerSection';
 import { SoundboardSection } from './components/SoundboardSection';
 import { ProfileLifelineSection } from './components/ProfileLifelineSection';
+import { WellnessLibrarySection } from './components/WellnessLibrarySection';
 import { LivingThemesMatrix } from './components/LivingThemesMatrix';
 import { Footer } from './components/Footer';
 import { StandByClockModal } from './components/StandByClockModal';
@@ -86,7 +87,10 @@ export const App: React.FC = () => {
         {/* Section 11: Profile, Safety & 24/7 Crisis Lifeline */}
         <ProfileLifelineSection />
 
-        {/* Section 12: The 11 Living Canvas Ambient Themes Matrix */}
+        {/* Section 12: Wellness Library & Mindful Science Guides */}
+        <WellnessLibrarySection />
+
+        {/* Section 13: The 11 Living Canvas Ambient Themes Matrix */}
         <LivingThemesMatrix
           currentTheme={currentTheme}
           onThemeSelect={(t) => setCurrentTheme(t)}

@@ -101,6 +101,11 @@ export const Footer: React.FC = () => {
                   988 Crisis Lifeline
                 </a>
               </li>
+              <li>
+                <a href="/learn" className="hover:text-pop-forest transition-colors font-bold text-pop-forest">
+                  Wellness Library & Guides
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -158,6 +163,28 @@ export const Footer: React.FC = () => {
           <a href="/privacy" className="hover:text-pop-forest transition-colors">Privacy</a>
           <span className="text-slate-300">•</span>
           <a href="/terms" className="hover:text-pop-forest transition-colors">Terms</a>
+        </div>
+
+        {/* Wellness & Disorder Guides Deep Links for 1-Hop Crawler Discovery */}
+        <div className="py-4 border-b border-slate-100 flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-2 text-[11px] font-mono text-slate-500">
+          <span className="text-slate-900 font-bold uppercase tracking-wider">Clinical Guides:</span>
+          <a href="/learn" className="text-pop-forest font-bold hover:underline">Wellness Hub (/learn)</a>
+          <span className="text-slate-300">•</span>
+          <a href="/learn/anxiety-panic-vagal-regulation" className="hover:text-pop-forest transition-colors">Anxiety & Vagus Nerve</a>
+          <span className="text-slate-300">•</span>
+          <a href="/learn/doomscrolling-dopamine-attention-reset" className="hover:text-pop-forest transition-colors">Doomscrolling & Dopamine</a>
+          <span className="text-slate-300">•</span>
+          <a href="/learn/insomnia-circadian-rhythm-sleep-hygiene" className="hover:text-pop-forest transition-colors">Insomnia & Sleep Hygiene</a>
+          <span className="text-slate-300">•</span>
+          <a href="/learn/burnout-chronic-stress-recovery" className="hover:text-pop-forest transition-colors">Burnout & Chronic Stress</a>
+          <span className="text-slate-300">•</span>
+          <a href="/learn/trauma-ptsd-somatic-emdr-therapy" className="hover:text-pop-forest transition-colors">Trauma & Somatic EMDR</a>
+          <span className="text-slate-300">•</span>
+          <a href="/learn/depression-low-mood-behavioral-activation" className="hover:text-pop-forest transition-colors">Low Mood & Behavioral Activation</a>
+          <span className="text-slate-300">•</span>
+          <a href="/learn/sensory-overload-gentle-grounding" className="hover:text-pop-forest transition-colors">Sensory Overload & Grounding</a>
+          <span className="text-slate-300">•</span>
+          <a href="/learn/hydration-movement-cognitive-balance" className="hover:text-pop-forest transition-colors">Hydration, Walking & Focus</a>
         </div>
 
         {/* Bottom Credits */}
